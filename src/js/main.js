@@ -6,30 +6,26 @@ import { sortMonsters } from './monsters.js';
 
 
 
-$(document).ready(function() {
-  $("#result").click(function() {
-
-    let request = new XMLHttpRequest();
-
-    const url = `https://www.dnd5eapi.co/api/monsters/`;
-
-    request.onreadystatechange = function () {
-      if (this.readyState === 4 && this.status === 200) {
-        const response = JSON.parse(this.responseText);
-        getData(response);
-      }
-    };
-
-    request.open("GET", url, true);
-    request.send();
-
-    function getData(response) {
-      let result = sortMonsters(response);
-      $("#gameover").text(result);
-    }
-
-  });
-  $("form#character").submit(function(event) {
+// $(document).ready(function() {
+//   $("#result").click(function() {
+//     let request = new XMLHttpRequest();
+//     const url = `https://www.dnd5eapi.co/api/monsters/`;
+//     request.onreadystatechange = function () {
+//       if (this.readyState === 4 && this.status === 200) {
+//         const response = JSON.parse(this.responseText);
+//         getData(response);
+//       }
+//     };
+//     request.open("GET", url, true);
+//     request.send();
+//     function getData(response) {
+//       let result = sortMonsters(response);
+//       $("#gameover").text(result);
+//     }
+//   });
+  
+$(document).click(function() {
+$("form#character").submit(function(event) {
     event.preventDefault()
     const name = $(`#character-name`).val();
     const charClass = $(`#character-class`).val();
