@@ -2,37 +2,57 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './../css/styles.css';
-import { sortMonsters } from './monsters.js';
+// import {getCharacter} from './player.js';
+import {getMonster} from './monsters.js';
+import {Monster} from './monsters.js';
+// import {Battle} from './battle.js';
+
+function attachListeners() {
+  let monster = "";
+  // let battle;
+  $("button#explore").on("click", function() {
+    // $("#explore").prop("disabled", true);
+    // $("#attack").show();
+    // $("#runaway").show();
+    let charCR = 1;
+    let chosenMonsterURLPIC = getMonster(charCR-5,charCR+1);
+    let promise = new Promise(function(resolve, reject) {
+      let request = new XMLHttpRequest();
+      let url = `https://www.dnd5eapi.co${chosenMonsterURLPIC.url}`;
+      request.onload = function() {
+        if (this.status === 200) {
+          resolve(request.response);
+        } else {
+          reject(request.response);
+        }
+      };
+      request.open("GET", url, true);
+      request.send();
+    });
+    promise.then(function(response) {
+      let monsterAPIObject = JSON.parse(response);
+      monster = new Monster (monsterAPIObject,chosenMonsterURLPIC.pic);
+      // battle = new Battle (protag, monster);
+      $("#monster-img").html(`<img class=npcimg src=${monster.img}>`);
+      $("#monster-name").text(monster.name);
+    });
+  });
+  // $(`button#attack`).on("click", function() {
+
+  // })
+}
+
+// let protag;
+
+$(document).ready(function() {
+  attachListeners();
+  $("form#character").submit(function(event) {
+    event.preventDefault();
+    // const name = $(`#character-name`).val();
+    // const charClass = $(`#character-class`).val();
+    // protag = getCharacter(name,charClass);
 
 
-
-// $(document).ready(function() {
-//   $("#result").click(function() {
-//     let request = new XMLHttpRequest();
-//     const url = `https://www.dnd5eapi.co/api/monsters/`;
-//     request.onreadystatechange = function () {
-//       if (this.readyState === 4 && this.status === 200) {
-//         const response = JSON.parse(this.responseText);
-//         getData(response);
-//       }
-//     };
-//     request.open("GET", url, true);
-//     request.send();
-//     function getData(response) {
-//       let result = sortMonsters(response);
-//       $("#gameover").text(result);
-//     }
-//   });
-  
-$(document).click(function() {
-$("form#character").submit(function(event) {
-    event.preventDefault()
-    const name = $(`#character-name`).val();
-    const charClass = $(`#character-class`).val();
-
-    if (charClass === "barbarian") {
-      let character = new BarbarianCharacter(name);
-    }
   });
 });
 

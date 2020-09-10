@@ -1,58 +1,4 @@
 
-// MVP
-// Battle
-// monsters
-// attack
-// health
-// images
-// buttons
-//   attack
-//   run
-//   explore - find opponent
-
-
-// MVP 2
-// AC
-// Attack Option 2
-// Inventory (healing potion)
-// button 
-//   2nd attack
-//   Inventory
-  
-
-// MVP 3
-// character creation
-// Stats - Str, Wis, Int, ... add bonus to attack
-// Leveling (spells or attack, HP)
-// buttons
-//   Leveling
-
-
-// MVP 4
-// Equipment (shields, armor)
-// button 
-//   Inventory 
-//     Equip
-
-// MVP 5
-// town (rest, gain health)
-// stores (buy potions)
-// Equip (weapons)
-// button
-//   town
-//     Store
-  
-
-// MVP 6
-// Store (buy armor and weapons)
-// campfire (rest)
-//   Inventory
-//     Camp
-
-
-// Future
-// Story
-
 // export class Character {
 //   constructor(class){
 //     this.className = class.name;
@@ -67,44 +13,213 @@
 //   }
 // }
 
-// export class BarbarianCharacter {
-//   constructor(name){
-//     this.name = name;
-//     this.hp = 12;
-//     this.armorClass = 10;
-//     this.attack = 0;
-//     this.damage = 0;
-//     this.lvl = 1;
-//     this.exp = 0;
-//     this.inventory = [];
-//     this.img = barbPic;
-//   }
-// }
+class BarbarianCharacter {
+  constructor(name){
+    this.name = name;
+    this.hp = 12;
+    this.armorClass = 10;
+    this.attack = 0;
+    this.damage = 0;
+    this.lvl = 1;
+    this.exp = 0;
+    this.inventory = [];
+    this.img;
+  }
+}
 
-// export class RangerCharacter {
-//   constructor(name){
-//     this.name = name;
-//     this.hp = 10;
-//     this.armorClass = 10;
-//     this.attack = 0;
-//     this.damage = 0;
-//     this.lvl = 1;
-//     this.exp = 0;
-//     this.inventory = [];
-//     this.img = rangerPic;
-//   }
-// }
+class RangerCharacter {
+  constructor(name){
+    this.name = name;
+    this.hp = 10;
+    this.armorClass = 10;
+    this.attack = 0;
+    this.damage = 0;
+    this.lvl = 1;
+    this.exp = 0;
+    this.inventory = [];
+    this.img;
+  }
+}
 
-// export class WizardCharacter {
-//   constructor(name){
-//     this.name = name;
-//     this.hp = 4;
-//     this.armorClass = 10;
-//     this.attack = 0;
-//     this.damage = 0;
-//     this.lvl = 1;
-//     this.exp = 0;
-//     this.inventory = [];
-//     this.img = rangerPic;
-//   }
-// }
+class WizardCharacter {
+  constructor(name){
+    this.name = name;
+    this.hp = 6;
+    this.armorClass = 10;
+    this.attack = 0;
+    this.damage = 0;
+    this.lvl = 1;
+    this.exp = 0;
+    this.inventory = [];
+    this.img;
+  }
+}
+
+class BardCharacter {
+  constructor(name){
+    this.name = name;
+    this.hp = 8;
+    this.armorClass = 10;
+    this.attack = 0;
+    this.damage = 0;
+    this.lvl = 1;
+    this.exp = 0;
+    this.inventory = [];
+    this.img;
+  }
+}
+
+class ClericCharacter {
+  constructor(name){
+    this.name = name;
+    this.hp = 8;
+    this.armorClass = 10;
+    this.attack = 0;
+    this.damage = 0;
+    this.lvl = 1;
+    this.exp = 0;
+    this.inventory = [];
+    this.img;
+  }
+}
+
+class DruidCharacter {
+  constructor(name){
+    this.name = name;
+    this.hp = 8;
+    this.armorClass = 10;
+    this.attack = 0;
+    this.damage = 0;
+    this.lvl = 1;
+    this.exp = 0;
+    this.inventory = [];
+    this.img;
+  }
+}
+
+class FighterCharacter {
+  constructor(name){
+    this.name = name;
+    this.hp = 10;
+    this.armorClass = 10;
+    this.attack = 0;
+    this.damage = 0;
+    this.lvl = 1;
+    this.exp = 0;
+    this.inventory = [];
+    this.img;
+  }
+}
+
+class MonkCharacter {
+  constructor(name){
+    this.name = name;
+    this.hp = 8;
+    this.armorClass = 10;
+    this.attack = 0;
+    this.damage = 0;
+    this.lvl = 1;
+    this.exp = 0;
+    this.inventory = [];
+    this.img;
+  }
+}
+
+class PaladinCharacter {
+  constructor(name){
+    this.name = name;
+    this.hp = 10;
+    this.armorClass = 10;
+    this.attack = 0;
+    this.damage = 0;
+    this.lvl = 1;
+    this.exp = 0;
+    this.inventory = [];
+    this.img;
+  }
+}
+
+class RogueCharacter {
+  constructor(name){
+    this.name = name;
+    this.hp = 8;
+    this.armorClass = 10;
+    this.attack = 0;
+    this.damage = 0;
+    this.lvl = 1;
+    this.exp = 0;
+    this.inventory = [];
+    this.img;
+  }
+}
+
+class SorcererCharacter {
+  constructor(name){
+    this.name = name;
+    this.hp = 6;
+    this.armorClass = 10;
+    this.attack = 0;
+    this.damage = 0;
+    this.lvl = 1;
+    this.exp = 0;
+    this.inventory = [];
+    this.img;
+  }
+}
+
+class WarlockCharacter {
+  constructor(name){
+    this.name = name;
+    this.hp = 8;
+    this.armorClass = 10;
+    this.attack = 0;
+    this.damage = 0;
+    this.lvl = 1;
+    this.exp = 0;
+    this.inventory = [];
+    this.img;
+  }
+}
+
+
+export function getCharacter(name,charClass) {
+  let character;
+  switch (charClass) {
+    case "barbarian":
+      character = new BarbarianCharacter(name);
+      break;
+    case "bard":
+      character = new BardCharacter(name);
+      break;
+    case "cleric":
+      character = new ClericCharacter(name);
+      break;
+    case "druid":
+      character = new DruidCharacter(name);
+      break;
+    case "fighter":
+      character = new FighterCharacter(name);
+      break;
+    case "monk":
+      character = new MonkCharacter(name);
+      break;
+    case "paladin":
+      character = new PaladinCharacter(name);
+      break;
+    case "ranger":
+      character = new RangerCharacter(name);
+      break;
+    case "rogue":
+      character = new RogueCharacter(name);
+      break;
+    case "sorcerer":
+      character = new SorcererCharacter(name);
+      break;
+    case "warlock":
+      character = new WarlockCharacter(name);
+      break;
+    case "wizard":
+      character = new WizardCharacter(name);
+  }
+  return character;
+}

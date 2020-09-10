@@ -26,8 +26,7 @@
               <option value="warlock">Warlock</option>
               <option value="wizard">Wizard</option>
             </select>
-          </div>
-          
+          </div>          
         </div>
         <button type="submit" class="btn btn-success">Submit</button>
       </form>
@@ -38,20 +37,22 @@
     </div>
     <div class="row" id="gameplay">
       <div class="col-6">
-        <div class="card align-item">
+        <div class="card align-item box-size">
           <h2>Player 1</h2>
           <p>CHARACTER</p>
+          <button type="button" class="btn btn-warning" id="explore">Explore</button>
         </div>
       </div>
       <div class="col-6">
-        <div class="card align-item">
-          <h2>NPC</h2>
+        <div class="card align-item box-size">
+          <h2 id="monster-name">NPC</h2>
           <p>CHARACTER</p>
+          <div id="monster-img"></div>
         </div>
       </div>
     </div>
-    <button id="result" type="button" class="btn btn-info">do it</button>
     <div id="gameover"></div>
+    <div id="test"></div>
   </div>
 </body>
 </html>

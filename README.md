@@ -44,3 +44,7 @@ _{Tell me about the languages and tools you used to create this app. Assume that
 
 Copyright (c) 2020 **_{List of contributors or company name}_**
 Licensed under MIT
+
+co-author: William Donovan-Seid <wdstwo@live.com>
+Co-authored-by: Drew Parker <drewjparker91@gmail.com>
+co-authored-by: Mike Manchee <mikemanchee@>
