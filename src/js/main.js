@@ -5,12 +5,13 @@ import './../css/styles.css';
 import { sortMonsters } from './monsters.js';
 
 
+
 $(document).ready(function() {
   $("#result").click(function() {
 
     let request = new XMLHttpRequest();
 
-    const url = `https://www.dnd5eapi.co/api/monster/`;
+    const url = `https://www.dnd5eapi.co/api/monsters/`;
 
     request.onreadystatechange = function () {
       if (this.readyState === 4 && this.status === 200) {
@@ -24,9 +25,18 @@ $(document).ready(function() {
 
     function getData(response) {
       let result = sortMonsters(response);
-      $("#result").text(result);
+      $("#gameover").text(result);
     }
 
+  });
+  $("form#character").submit(function(event) {
+    event.preventDefault()
+    const name = $(`#character-name`).val();
+    const charClass = $(`#character-class`).val();
+
+    if (charClass === "barbarian") {
+      let character = new BarbarianCharacter(name);
+    }
   });
 });
 

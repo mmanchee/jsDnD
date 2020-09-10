@@ -1,5 +1,5 @@
 
-let arrayMonstersCR = [arrayCR0,arrayCR0125,arrayCR025,arrayCR05,arrayCR1,arrayCR2,arrayCR3,arrayCR4,arrayCR5,arrayCR6,arrayCR7,arrayCR8,arrayCR9,arrayCR10,arrayCR11,arrayCR12,arrayCR13,arrayCR14,arrayCR15,arrayCR16,arrayCR17,arrayCR19,arrayCR20,arrayCR21,arrayCR22,arrayCR23,arrayCR24,arrayCR30];
+
 let arrayCR0 = [];
 let arrayCR0125 = [];
 let arrayCR025 = [];
@@ -29,6 +29,7 @@ let arrayCR23 = [];
 let arrayCR24 = [];
 let arrayCR30 = [];
 let cRArray = [0,.125,.25,.5,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,19,20,21,22,23,24,30];
+let arrayMonstersCR = [arrayCR0,arrayCR0125,arrayCR025,arrayCR05,arrayCR1,arrayCR2,arrayCR3,arrayCR4,arrayCR5,arrayCR6,arrayCR7,arrayCR8,arrayCR9,arrayCR10,arrayCR11,arrayCR12,arrayCR13,arrayCR14,arrayCR15,arrayCR16,arrayCR17,arrayCR19,arrayCR20,arrayCR21,arrayCR22,arrayCR23,arrayCR24,arrayCR30];
 
 export function sortMonsters(data) {
   data.results.forEach(function(monster) {
@@ -67,15 +68,15 @@ export function getMonster(challengeRatingMin,challengeRatingMax) {
   return monsterObject;
 }
 
-// class Monster {
-//   constructor(monsterObject) {
-//     this.name = monsterObject.name;
-//     this.challengeRating = monsterObject.challenge_rating;
-//     this.healthPoints = monsterObject.hit_points;
-//     this.armorClass = monsterObject.armor_class; 
-//     this.actions = monsterObject.actions;
-//     this.exp;
-//     this.loot;
-//     this.img;
-//   }
-// }
+class Monster {
+  constructor(monsterObject) {
+    this.name = monsterObject.name;
+    this.challengeRating = monsterObject.challenge_rating;
+    this.healthPoints = monsterObject.hit_points;
+    this.armorClass = monsterObject.armor_class; 
+    this.actions = monsterObject.actions;
+    this.exp;
+    this.loot;
+    this.img;
+  }
+}

@@ -5,26 +5,29 @@
 </head>
 <body>
   <div class="container">
-    <div id="characterCreation">
+    <div id="character-creation">
       <form id="character">
         <div class="form-group">
           <label for="character-name">What is your characters name?</label>
           <input type="text"  class="form-control" id="name">
-          <label for="character-class">What class?</label>
-          <select id="character-class" name="character-class">
-            <option value="barbarian">Barbarian</option>
-            <option value="bard">Bard</option>
-            <option value="cleric">Cleric</option>
-            <option value="druid">Druid</option>
-            <option value="fighter">Fighter</option>
-            <option value="monk">Monk</option>
-            <option value="paladin">Paladin</option>
-            <option value="ranger">Ranger</option>
-            <option value="rogue">Rogue</option>
-            <option value="sorcerer">Sorcerer</option>
-            <option value="warlock">Warlock</option>
-            <option value="wizard">Wizard</option>
-          </select>
+          <div class="form-row">
+            <label for="character-class" class="form-label m">What class?</label>
+            <select class="form-control col-3" id="character-class" name="character-class">
+              <option value="barbarian">Barbarian</option>
+              <option value="bard">Bard</option>
+              <option value="cleric">Cleric</option>
+              <option value="druid">Druid</option>
+              <option value="fighter">Fighter</option>
+              <option value="monk">Monk</option>
+              <option value="paladin">Paladin</option>
+              <option value="ranger">Ranger</option>
+              <option value="rogue">Rogue</option>
+              <option value="sorcerer">Sorcerer</option>
+              <option value="warlock">Warlock</option>
+              <option value="wizard">Wizard</option>
+            </select>
+          </div>
+          
         </div>
         <button type="submit" class="btn btn-success">Submit</button>
       </form>
@@ -34,20 +37,20 @@
       </form>
     </div>
     <div class="row" id="gameplay">
-      <div class="column">
-        <div class="card">
+      <div class="col-6">
+        <div class="card align-item">
           <h2>Player 1</h2>
           <p>CHARACTER</p>
         </div>
       </div>
-      <div class="column">
-        <div class="card">
-          <h3>NPC</h3>
+      <div class="col-6">
+        <div class="card align-item">
+          <h2>NPC</h2>
           <p>CHARACTER</p>
         </div>
       </div>
-    </div> 
-    <div id="result"></div>
+    </div>
+    <button id="result" type="button" class="btn btn-info">do it</button>
     <div id="gameover"></div>
   </div>
 </body>
