@@ -2,32 +2,54 @@ export class Battle {
   constructor(character, monster) {
     this.character = character;
     this.monster = monster;
-    this.endBattle = false;
+  }
+
+  meleeAttack() {
+    let message;
+    let rollTotal = this.character.attack + diceRoll(1,20);
+    if (rollTotal > this.monster.armorClass) {
+      let damageRoll = diceRoll(this.character.damage[0],this.character.damage[1]);
+      this.monster.healthPoints -= diceRoll(this.character.damage[0],this.character.damage[1]);
+      message = `You hit for ${damageRoll}<br>`;
+    } else {
+      message = `You missed!<br>`;
+    }
+    return message;
+  }
+
+  flee() {
+    this.character = "";
+    this.monster = "";    
+  }
+
+  endTurn() {
+    let message;
+    let damageRoll;
+    let actionL = this.monster.actions.length;
+    actionL < 1 ? actionL = 0;
+    let ran =  Math.round(Math.random() * actionL);
+    while (this.monster.actions[ran].name === "Multiattack") {
+      ran = Math.round(Math.random() * this.monster.actions.length);
+      console.log("in");
+    }
+    let rollTotal = this.monster.actions[ran].attack_bonus + diceRoll(1,20);
+    if (rollTotal > this.character.armorClass) {
+      for (let i=0; i<this.monster.actions[ran].damage.length; i++) {
+        let damageRollArray = sortAPIDice(this.monster.actions[ran].damage[i].damage_dice);
+        damageRoll = diceRoll(damageRollArray[0],damageRollArray[1]) + damageRollArray[2];
+        this.character.hp -= damageRoll;
+      }
+      message = `The ${this.monster.name} used ${this.monster.actions[ran].name} and hit you for ${damageRoll}!<br>`;
+    } else {
+      message = `The ${this.monster.name} missed!<br>`;
+    }
+    return message;
   }
 }
+// diceArray = [1, 6, 1] or [1, 6, -1]
 
-//   attacking() {
-//     this.monster.hp -= this.character.attack;
-//     this.character.hp -= this.monster.attack;
-//   }
-
-//   runAway() {
-//     let chance =  Math.ceil(Math.random() * 10);
-//     if (chance >= 5) {
-//       this.endBattle = true;
-//     } else {
-//       this.character.hp -= this.monster.attack;
-//     }
-//   }
-
-//   getLoot() {
-//     this.character.loot.push(this.monster.stuff[0]);
-//     this.character.exp += this.monster.exp;
-//   }
-// }
-
-// 
 // dice = actions[0].damage[0].damage_dice;
+//
 // diceArray = dice.slice("d");
 // diceArray[2] = dicArray[1].slice("+");
 // diceArray[2] = dicArray[1].slice("-");
@@ -43,9 +65,15 @@ function diceRoll(num, side) {
   return roll;
 }
 
-let damageDice = "2d6-4"
-damageDice1 = damageDice.replace(/\D/g,'');
-damageDice1 = damageDice1.split("")
-if (/[-]/g.test(damageDice)) {
-  damageDice1 = "-" + damageDice1[2];
+function sortAPIDice(dice) {
+  let diceArray = dice.replace(/\D/g,'');
+  diceArray = diceArray.split("");
+  
+  if (/[-]/g.test(dice)) {
+    diceArray[2] = "-" + diceArray[2];
+  }
+  diceArray.forEach(function(n) {
+    diceArray[n] = parseInt(n);
+  });
+  return diceArray;
 }

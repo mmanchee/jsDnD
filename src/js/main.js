@@ -2,14 +2,28 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './../css/styles.css';
-// import {getCharacter} from './player.js';
+import {getCharacter} from './player.js';
 import {getMonster} from './monsters.js';
 import {Monster} from './monsters.js';
-// import {Battle} from './battle.js';
+import {Battle} from './battle.js';
+
+function displayStats(battle) {
+  let maxHP = battle.monster.healthPoints;
+  let percentHP = maxHP / battle.monster.healthPoints;
+  if (percentHP > 0.75) {
+    $("#monster-health").text("Tip-top Condition");
+  } else if (percentHP > 0.5) {
+    $("#monster-health").text("Wounded");
+  } else if (percentHP > 0.25) {
+    $("#monster-health").text("Weak");
+  } else if (percentHP > 0 ) {
+    $("#monster-health").text("Dying");
+  }
+}
 
 function attachListeners() {
-  let monster = "";
-  // let battle;
+  let monster;
+  let battle;
   $("button#explore").on("click", function() {
     // $("#explore").prop("disabled", true);
     // $("#attack").show();
@@ -32,27 +46,45 @@ function attachListeners() {
     promise.then(function(response) {
       let monsterAPIObject = JSON.parse(response);
       monster = new Monster (monsterAPIObject,chosenMonsterURLPIC.pic);
-      // battle = new Battle (protag, monster);
-      $("#monster-img").html(`<img class=npcimg src=${monster.img}>`);
+      battle = new Battle (player, monster);
+      $("#monster-img").html(`<img class=display-img src=${monster.img}>`);
       $("#monster-name").text(monster.name);
+      $("#monster-health").text("Healthy");
+      $("#battle-buttons").toggle();
+      $("button#explore").toggle();
+      displayStats(battle);
     });
   });
-  // $(`button#attack`).on("click", function() {
-
-  // })
+  $(`button#melee-attack`).on("click", function() {
+    let message = battle.meleeAttack();
+    $("#message-board").prepend(message);
+    message = battle.endTurn();
+    $("#message-board").prepend(message);
+    displayStats(battle);
+    console.log(monster.healthPoints);
+  });
+  $(`button#flee`).on("click", function() {
+    battle.flee();
+    $("#battle-buttons").toggle();
+    $("#monster-img").html("");
+    $("#monster-name").text("NPC");
+    $("#monster-health").text("");
+    $("button#explore").toggle();
+  })
 }
 
-// let protag;
+let player;
 
 $(document).ready(function() {
   attachListeners();
   $("form#character").submit(function(event) {
     event.preventDefault();
-    // const name = $(`#character-name`).val();
-    // const charClass = $(`#character-class`).val();
-    // protag = getCharacter(name,charClass);
-
-
+    const name = $(`#character-name`).val();
+    const charClass = $(`#character-class`).val();
+    player = getCharacter(name,charClass);
+    $("#player-name").text(name);
+    $("#player-img").html(`<img class=display-img src=${player.img}>`);
+    $("#character-creation").hide();
   });
 });
 

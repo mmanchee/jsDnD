@@ -8,7 +8,9 @@
     <div id="character-creation">
       <form id="character">
         <div class="form-group">
-          <label for="character-name">What is your characters name?</label>
+          <div class="well">
+            <label for="character-name">What is your characters name?</label>
+          </div>
           <input type="text"  class="form-control" id="name">
           <div class="form-row">
             <label for="character-class" class="form-label m">What class?</label>
@@ -30,17 +32,22 @@
         </div>
         <button type="submit" class="btn btn-success">Submit</button>
       </form>
-      <form id="character-points">
+      <!-- <form id="character-points">
         <div class="card">
         </div>
-      </form>
+      </form> -->
     </div>
     <div class="row" id="gameplay">
       <div class="col-6">
         <div class="card align-item box-size">
-          <h2>Player 1</h2>
+          <h2 id="player-name">Player 1</h2>
           <p>CHARACTER</p>
+          <div id="player-img"></div>
           <button type="button" class="btn btn-warning" id="explore">Explore</button>
+        </div>
+        <div id="battle-buttons">
+          <button type="button" class="btn btn-info col-4 m-3" id="melee-attack">Melee Attack</button>
+          <button type="button" class="btn btn-info col-4 m-3" id="flee">Flee</button>
         </div>
       </div>
       <div class="col-6">
@@ -48,7 +55,13 @@
           <h2 id="monster-name">NPC</h2>
           <p>CHARACTER</p>
           <div id="monster-img"></div>
+          <p >Health: <span id="monster-health"></span>
         </div>
+      </div>
+    </div>
+    <div class="card align-item message-box">
+      <div id="message-board">
+  
       </div>
     </div>
     <div id="gameover"></div>
