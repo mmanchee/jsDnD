@@ -7,31 +7,45 @@ import {getMonster} from './monsters.js';
 import {Monster} from './monsters.js';
 import {Battle} from './battle.js';
 
-function displayStats(battle) {
+function displayStats(battle, turn) {
   let endBattle = false;
-  let percentHP = battle.monster.healthPoints / battle.monster.maxHP;
-  if (percentHP > 0.75) {
-    $("#monster-health").text("Tip-top Condition");
-  } else if (percentHP > 0.5) {
-    $("#monster-health").text("Wounded");
-  } else if (percentHP > 0.25) {
-    $("#monster-health").text("Weak");
-  } else if (percentHP > 0) {
-    $("#monster-health").text("Dying");
-  } else {
-    $("#monster-health").text("OOO you know he dead");
+  let monHealth = "";
+  if (battle.character.hp < 0) {
     endBattle = true;
   }
-  return endBattle;
+  let percentHP = battle.monster.healthPoints / battle.monster.maxHP;
+  if (percentHP > 0.75) {
+    monHealth = "Tip-top Condition";
+  } else if (percentHP > 0.5) {
+    monHealth = "Wounded";
+  } else if (percentHP > 0.25) {
+    monHealth = "Weak";
+  } else if (percentHP > 0) {
+    monHealth = "Dying";
+  } else {
+    monHealth = "OOO you know he dead";
+    endBattle = true;
+  }
+  $("#monster-health").text(monHealth);
+  if (endBattle === true) {
+    $("#monster-img").html("");
+    $("#monster-name").text("NPC");
+    $("#monster-health").text("");
+    $("#battle-buttons").toggle();
+    $("button#explore").toggle();
+    if (turn === 0) {
+      $("#message-board").prepend(`The ${battle.monster.name} has defeated you!<br>`);
+    } else {
+      $("#message-board").prepend(`You beat the ${battle.monster.name}!<br>`);
+    }
+    
+  }
 }
 
 function attachListeners() {
   let monster;
   let battle;
   $("button#explore").on("click", function() {
-    // $("#explore").prop("disabled", true);
-    // $("#attack").show();
-    // $("#runaway").show();
     let charCR = 1;
     let chosenMonsterURLPIC = getMonster(charCR-5,charCR+1);
     let promise = new Promise(function(resolve, reject) {
@@ -62,24 +76,17 @@ function attachListeners() {
   $(`button#melee-attack`).on("click", function() {
     let message = battle.meleeAttack();
     $("#message-board").prepend(message);
+    displayStats(battle, 0);
     message = battle.endTurn();
     $("#message-board").prepend(message);
-    let endBattle = displayStats(battle);
-    if (endBattle === true) {
-      $("#battle-buttons").toggle();
-      $("#monster-img").html("");
-      $("#monster-name").text("NPC");
-      $("#monster-health").text("");
-      $("button#explore").toggle();
-      $("#message-board").prepend(`You beat the ${battle.monster.name}<br>`);
-    }
+    displayStats(battle, 1);
   });
   $(`button#flee`).on("click", function() {
     battle.flee();
-    $("#battle-buttons").toggle();
     $("#monster-img").html("");
     $("#monster-name").text("NPC");
     $("#monster-health").text("");
+    $("#battle-buttons").toggle();
     $("button#explore").toggle();
     $("#message-board").prepend("You flee<br>");
   })
