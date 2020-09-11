@@ -8,17 +8,21 @@ import {Monster} from './monsters.js';
 import {Battle} from './battle.js';
 
 function displayStats(battle) {
-  let maxHP = battle.monster.healthPoints;
-  let percentHP = maxHP / battle.monster.healthPoints;
+  let endBattle = false;
+  let percentHP = battle.monster.healthPoints / battle.monster.maxHP;
   if (percentHP > 0.75) {
     $("#monster-health").text("Tip-top Condition");
   } else if (percentHP > 0.5) {
     $("#monster-health").text("Wounded");
   } else if (percentHP > 0.25) {
     $("#monster-health").text("Weak");
-  } else if (percentHP > 0 ) {
+  } else if (percentHP > 0) {
     $("#monster-health").text("Dying");
+  } else {
+    $("#monster-health").text("OOO you know he dead");
+    endBattle = true;
   }
+  return endBattle;
 }
 
 function attachListeners() {
@@ -60,8 +64,15 @@ function attachListeners() {
     $("#message-board").prepend(message);
     message = battle.endTurn();
     $("#message-board").prepend(message);
-    displayStats(battle);
-    console.log(monster.healthPoints);
+    let endBattle = displayStats(battle);
+    if (endBattle === true) {
+      $("#battle-buttons").toggle();
+      $("#monster-img").html("");
+      $("#monster-name").text("NPC");
+      $("#monster-health").text("");
+      $("button#explore").toggle();
+      $("#message-board").prepend(`You beat the ${battle.monster.name}<br>`);
+    }
   });
   $(`button#flee`).on("click", function() {
     battle.flee();
@@ -70,6 +81,7 @@ function attachListeners() {
     $("#monster-name").text("NPC");
     $("#monster-health").text("");
     $("button#explore").toggle();
+    $("#message-board").prepend("You flee<br>");
   })
 }
 
@@ -85,73 +97,6 @@ $(document).ready(function() {
     $("#player-name").text(name);
     $("#player-img").html(`<img class=display-img src=${player.img}>`);
     $("#character-creation").hide();
+    $("#gameplay").show();
   });
 });
-
-// function displayStats() {
-//   $("#char-name").text(protag.name);
-//   $("#char-hp").text(protag.hp);
-//   $("#char-inventory").text(protag.loot);
-// }
-
-// function attachListeners() {
-//   let monster;
-//   let battle;
-//   $("button#explore").on("click", function() {
-//     $("#explore").prop("disabled", true);
-//     $("#attack").show();
-//     $("#runaway").show();
-    
-//     monster = getMonster(protag.challenge_rating-1,protag.challenge_rating+1)
-//     battle = new Battle (protag, monster);
-
-//     $("#monster-img").html(monster.img);
-//     $("#monster-name").text(monster.name);
-//     displayStats();
-//   });
-//   $("button#attack").on("click", function() {
-//     battle.attacking();
-//     if (protag.hp <= 0) {
-//       $("#game").hide();
-//       $("#gameover").show();
-//     } else if (monster.hp <= 0) {
-//       $("#monster-name").text("VICTORY");
-//       battle.getLoot();
-//       protag.levelUp();
-//       $("#attack").hide();
-//       $("#runaway").hide();
-//       $("#explore").prop("disabled", false);
-//     }
-//     displayStats();
-//   });
-//   $("button#runaway").on("click", function() {
-//     battle.runAway();
-//     if (battle.endBattle === true){
-//       $("#attack").hide();
-//       $("#runaway").hide();
-//       $("#explore").prop("disabled", false);
-//     }
-//     if (protag.hp <= 0) {
-//       $("#game").hide();
-//       $("#gameover").show();
-//     }
-//     displayStats();
-//   });
-// }
-
-// let protag;
-
-// $(document).ready(function() {
-//   attachListeners();
-//   $("form#character").submit(function(event) {
-//     event.preventDefault();
-
-//     const name = $("input#name").val();
-
-//     protag = new Character(name);
-
-//     $("form#character").hide();
-
-//     displayStats();
-//   });
-// });

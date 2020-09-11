@@ -14,6 +14,7 @@ export class Monster {
   constructor(monsterObject, monsterPic) {
     this.name = monsterObject.name;
     this.challengeRating = monsterObject.challenge_rating;
+    this.maxHP = monsterObject.hit_points;
     this.healthPoints = monsterObject.hit_points;
     this.armorClass = monsterObject.armor_class; 
     this.actions = monsterObject.actions;

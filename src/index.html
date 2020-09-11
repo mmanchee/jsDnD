@@ -37,25 +37,27 @@
         </div>
       </form> -->
     </div>
-    <div class="row" id="gameplay">
-      <div class="col-6">
-        <div class="card align-item box-size">
-          <h2 id="player-name">Player 1</h2>
-          <p>CHARACTER</p>
-          <div id="player-img"></div>
-          <button type="button" class="btn btn-warning" id="explore">Explore</button>
+    <div id="gameplay">
+      <div class="row">
+        <div class="col-6">
+          <div class="card align-item box-size">
+            <h2 id="player-name">Player 1</h2>
+            <p>CHARACTER</p>
+            <div id="player-img"></div>
+            <button type="button" class="btn btn-warning" id="explore">Explore</button>
+          </div>
+          <div id="battle-buttons">
+            <button type="button" class="btn btn-info col-4 m-3" id="melee-attack">Melee Attack</button>
+            <button type="button" class="btn btn-info col-4 m-3" id="flee">Flee</button>
+          </div>
         </div>
-        <div id="battle-buttons">
-          <button type="button" class="btn btn-info col-4 m-3" id="melee-attack">Melee Attack</button>
-          <button type="button" class="btn btn-info col-4 m-3" id="flee">Flee</button>
-        </div>
-      </div>
-      <div class="col-6">
-        <div class="card align-item box-size">
-          <h2 id="monster-name">NPC</h2>
-          <p>CHARACTER</p>
-          <div id="monster-img"></div>
-          <p >Health: <span id="monster-health"></span>
+        <div class="col-6">
+          <div class="card align-item box-size">
+            <h2 id="monster-name">NPC</h2>
+            <p>CHARACTER</p>
+            <div id="monster-img"></div>
+            <p>Health: <span id="monster-health"></span>
+          </div>
         </div>
       </div>
     </div>
