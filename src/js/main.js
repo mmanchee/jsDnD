@@ -3,7 +3,6 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './../css/styles.css';
 import {getCharacter} from './player.js';
-import {getMonster} from './monsters.js';
 import {Monster} from './monsters.js';
 import {Battle} from './battle.js';
 
@@ -43,11 +42,11 @@ function displayStats(battle, turn) {
 }
 
 function attachListeners() {
-  let monster;
+  let monster = new Monster();
   let battle;
   $("button#explore").on("click", function() {
     let charCR = 1;
-    let chosenMonsterURLPIC = getMonster(charCR-5,charCR+1);
+    let chosenMonsterURLPIC = monster.getMonster(charCR-5,charCR+1);
     let promise = new Promise(function(resolve, reject) {
       let request = new XMLHttpRequest();
       let url = `https://www.dnd5eapi.co${chosenMonsterURLPIC.url}`;

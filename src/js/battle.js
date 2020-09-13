@@ -1,3 +1,5 @@
+import { diceRoll } from './roleFunctions';
+
 export class Battle {
   constructor(character, monster) {
     this.character = character;
@@ -40,7 +42,7 @@ export class Battle {
     let attackRoll = this.monster.actions[ran].attack_bonus + diceRoll(1,20);
     if (attackRoll > this.character.armorClass) {
       for (let i = 0; i < this.monster.actions[ran].damage.length; i++) {
-        let damageRollArray = sortAPIDice(this.monster.actions[ran].damage[i].damage_dice);
+        let damageRollArray = this.sortAPIDice(this.monster.actions[ran].damage[i].damage_dice);
         damageRoll = diceRoll(damageRollArray[0],damageRollArray[1]) + damageRollArray[2];
         isNaN(damageRoll) ? damageRoll = 1 : false;
         this.character.hp -= damageRoll;
@@ -51,23 +53,15 @@ export class Battle {
     }
     return message;
   }
-}
 
-function diceRoll(num, side) {      // diceRoll(1, 6);
-  let roll = 0;
-  for (let i = 0; i < num; i++) {
-    roll += Math.ceil(Math.random() * side);
+  sortAPIDice(dice) {
+    let diceArray = dice.replace(/\D/g,'');
+    diceArray = diceArray.split("");
+    
+    /[-]/g.test(dice) ? diceArray[2] = "-" + diceArray[2] : false;
+    diceArray.forEach(function(n) {
+      diceArray[n] = parseInt(n);
+    });
+    return diceArray;       // diceArray = [1, 6, 1] or [1, 6, -1]
   }
-  return roll;                      // roll total
-}
-
-function sortAPIDice(dice) {
-  let diceArray = dice.replace(/\D/g,'');
-  diceArray = diceArray.split("");
-  
-  /[-]/g.test(dice) ? diceArray[2] = "-" + diceArray[2] : false;
-  diceArray.forEach(function(n) {
-    diceArray[n] = parseInt(n);
-  });
-  return diceArray;       // diceArray = [1, 6, 1] or [1, 6, -1]
 }
