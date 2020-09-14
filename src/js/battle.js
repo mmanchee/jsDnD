@@ -56,14 +56,6 @@ export class Battle {
   }
 }
 
-function diceRoll(num, side) {
-  let roll = 0;
-  for (let i = 0; i < num; i++) {
-    roll += Math.ceil(Math.random() * side);
-  }
-  return roll;
-}
-
 function sortAPIDice(dice) {
   let diceArray = dice.replace(/\D/g,'');
   diceArray = diceArray.split("");

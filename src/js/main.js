@@ -79,7 +79,7 @@ function attachListeners() {
       $("#monster-name").text("NPC");
       $("#monster-health").text("");
       $("button#explore").toggle();
-      if(turn === 0) {
+      if (turn === 0) {
         $("#message-board").prepend(`You beat the ${battle.monster.name}<br>`);
       } else {
         $("#message-board").prepend(`The ${battle.monster.name} has defeated you!<br>`);
