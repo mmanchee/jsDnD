@@ -1,10 +1,12 @@
 class BarbarianCharacter {
   constructor(name, armorClass, hpBonus, attBonus){
     this.name = name;
+    this.maxHP = 12;
     this.hp = 12 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1, 12];
+    this.actions = [{name: "Rage Attack", attack: 8, damage: [2,12]}]
     this.lvl = 1;
     this.exp = 0;
     this.inventory = [{healthPotion: 1}];
@@ -15,6 +17,7 @@ class BarbarianCharacter {
 class BardCharacter {
   constructor(name, armorClass, hpBonus, attBonus){
     this.name = name;
+    this.maxHP = 8;
     this.hp = 8 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
@@ -29,6 +32,7 @@ class BardCharacter {
 class ClericCharacter {
   constructor(name, armorClass, hpBonus, attBonus){
     this.name = name;
+    this.maxHP = 8;
     this.hp = 8 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
@@ -43,6 +47,7 @@ class ClericCharacter {
 class DruidCharacter {
   constructor(name, armorClass, hpBonus, attBonus){
     this.name = name;
+    this.maxHP = 8;
     this.hp = 8 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
@@ -57,6 +62,7 @@ class DruidCharacter {
 class FighterCharacter {
   constructor(name, armorClass, hpBonus, attBonus){
     this.name = name;
+    this.maxHP = 10;
     this.hp = 10 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
@@ -71,6 +77,7 @@ class FighterCharacter {
 class MonkCharacter {
   constructor(name, armorClass, hpBonus, attBonus){
     this.name = name;
+    this.maxHP = 8;
     this.hp = 8 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
@@ -85,6 +92,7 @@ class MonkCharacter {
 class PaladinCharacter {
   constructor(name, armorClass, hpBonus, attBonus){
     this.name = name;
+    this.maxHP = 10;
     this.hp = 10 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
@@ -99,6 +107,7 @@ class PaladinCharacter {
 class RangerCharacter {
   constructor(name, armorClass, hpBonus, attBonus){
     this.name = name;
+    this.maxHP = 10;
     this.hp = 10 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
@@ -113,6 +122,7 @@ class RangerCharacter {
 class RogueCharacter {
   constructor(name, armorClass, hpBonus, attBonus){
     this.name = name;
+    this.maxHP = 8;
     this.hp = 8 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
@@ -127,6 +137,7 @@ class RogueCharacter {
 class SorcererCharacter {
   constructor(name, armorClass, hpBonus, attBonus){
     this.name = name;
+    this.maxHP = 6;
     this.hp = 6 + hpBonus;
     this.armorClass = armorClass;
     this.attack = 30 + attBonus;
@@ -141,6 +152,7 @@ class SorcererCharacter {
 class WarlockCharacter {
   constructor(name, armorClass, hpBonus, attBonus){
     this.name = name;
+    this.maxHP = 8;
     this.hp = 8 + hpBonus;
     this.armorClass = armorClass;
     this.attack = 30 + attBonus;
@@ -155,6 +167,7 @@ class WarlockCharacter {
 class WizardCharacter {
   constructor(name, armorClass, hpBonus, attBonus){
     this.name = name;
+    this.maxHP = 6;
     this.hp = 6 + hpBonus;
     this.armorClass = armorClass;
     this.attack = 30 + attBonus;

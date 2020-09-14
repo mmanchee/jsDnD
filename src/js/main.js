@@ -114,6 +114,36 @@ function attachListeners() {
     }
     displayStats(battle);
   });
+  $(`button#inventory`).on("click", function() {
+    $("#displayInventory").toggle();
+    $("#displayInventory").text("");
+    $("#displayInventory").append(player.inventory);
+  });
+  $(`#action-buttons`).on("click", "#rage", function() {
+    let message = battle.rageAttack();
+    $("#message-board").prepend(message);
+    let endBattle = displayStats(battle);
+    let turn = 0;
+    if (endBattle === false) {
+      message = battle.endTurn();
+      $("#message-board").prepend(message);
+      endBattle = displayStats(battle);
+      turn = 1;
+    }
+    if (endBattle === true) {
+      getLoot(monster.challengeRating, player);
+      $("#battle-buttons").toggle();
+      $("#monster-img").html("");
+      $("#monster-name").text("NPC");
+      $("#monster-health").text("");
+      $("button#explore").toggle();
+      if (turn === 0) {
+        $("#message-board").prepend(`You beat the ${battle.monster.name}<br>`);
+      } else {
+        $("#message-board").prepend(`The ${battle.monster.name} has defeated you!<br>`);
+      }
+    }
+  });
 }
 
 let player;
@@ -134,5 +164,10 @@ $(document).ready(function() {
     $("#character-creation").hide();
     $("#gameplay").show();
     $("#message-board").prepend(`Welcome ${name}, You can start your adventure by exploring and battle monsters.<br>`);
+    let buttons = $("#action-buttons");
+    buttons.empty();
+    player.actions.forEach(function(action) {
+      buttons.append(`<button class="btn btn-info col-4 m-3" id='${action.name}'>${action.name}</button>`);
+    });
   });
 });
