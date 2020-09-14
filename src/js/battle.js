@@ -11,7 +11,7 @@ export class Battle {
     let attackRoll = this.character.attack + diceRoll(1,20);
     if (attackRoll > this.monster.armorClass) {
       let damageRoll = diceRoll(this.character.damage[0],this.character.damage[1]);
-      this.monster.healthPoints -= diceRoll(this.character.damage[0],this.character.damage[1]);
+      this.monster.healthPoints -= damageRoll;
       message = `You hit for ${damageRoll}<br>`;
     } else {
       message = `You missed!<br>`;

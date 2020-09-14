@@ -13,13 +13,15 @@ export class Monster {
     this.img = monsterPic;
   }
 
-  getMonster(challengeRatingMin,challengeRatingMax) {
-    let min = Math.ceil(challengeRatingMin);
-    let max = Math.floor(challengeRatingMax);
-    if (max > 28) {
-      max = 28;
-    }
-    let chosenArray = monsterList[(Math.floor(Math.random() * (max - min + 1) + min))+4];
-    return chosenArray[Math.floor(Math.random() * Math.floor(chosenArray.length))];
+  
+}
+
+export function getMonster(challengeRatingMin,challengeRatingMax) {   
+  let min = Math.ceil(challengeRatingMin);
+  let max = Math.floor(challengeRatingMax);
+  if (max > 28) {
+    max = 28;
   }
+  let chosenArray = monsterList[(Math.floor(Math.random() * (max - min + 1) + min))+4];
+  return chosenArray[Math.floor(Math.random() * Math.floor(chosenArray.length))];
 }

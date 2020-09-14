@@ -5,14 +5,17 @@ import './../css/styles.css';
 import {getCharacter} from './player.js';
 import {Monster} from './monsters.js';
 import {Battle} from './battle.js';
+import { getMonster } from './monsters.js'
 
 function displayStats(battle, turn) {
   let endBattle = false;
   let monHealth = "";
   if (battle.character.hp < 0) {
+    console.log("in p hp");
     endBattle = true;
   }
   let percentHP = battle.monster.healthPoints / battle.monster.maxHP;
+  console.log(percentHP);
   if (percentHP > 0.75) {
     monHealth = "Tip-top Condition";
   } else if (percentHP > 0.5) {
@@ -37,16 +40,16 @@ function displayStats(battle, turn) {
     } else {
       $("#message-board").prepend(`You beat the ${battle.monster.name}!<br>`);
     }
-    
   }
+  console.log(endBattle);
+  return endBattle;
 }
 
 function attachListeners() {
-  let monster = new Monster();
+  let monster;
   let battle;
   $("button#explore").on("click", function() {
-    let charCR = 1;
-    let chosenMonsterURLPIC = monster.getMonster(charCR-5,charCR+1);
+    let chosenMonsterURLPIC = getMonster(player.lvl-5,player.lvl+1);
     let promise = new Promise(function(resolve, reject) {
       let request = new XMLHttpRequest();
       let url = `https://www.dnd5eapi.co${chosenMonsterURLPIC.url}`;
@@ -75,10 +78,12 @@ function attachListeners() {
   $(`button#melee-attack`).on("click", function() {
     let message = battle.meleeAttack();
     $("#message-board").prepend(message);
-    displayStats(battle, 0);
-    message = battle.endTurn();
-    $("#message-board").prepend(message);
-    displayStats(battle, 1);
+    let endBattle = displayStats(battle, 0);
+    if (endBattle === false) {
+      message = battle.endTurn();
+      $("#message-board").prepend(message);
+      displayStats(battle, 1);
+    }
   });
   $(`button#flee`).on("click", function() {
     battle.flee();
@@ -88,7 +93,7 @@ function attachListeners() {
     $("#battle-buttons").toggle();
     $("button#explore").toggle();
     $("#message-board").prepend("You flee<br>");
-  })
+  });
 }
 
 let player;
