@@ -105,7 +105,10 @@ $(document).ready(function() {
     event.preventDefault();
     const name = $(`#character-name`).val();
     const charClass = $(`#character-class`).val();
-    player = getCharacter(name,charClass);
+    const acBonus = 0;
+    const hpBonus = 0;
+    const attBonus = 0;
+    player = getCharacter(name, charClass, acBonus, hpBonus, attBonus);
     $("#player-name").text(name);
     $("#player-img").html(`<img class=display-img src=${player.img}>`);
     $("#character-creation").hide();
