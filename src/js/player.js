@@ -22,6 +22,7 @@ class BardCharacter {
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [20, 20];
+    this.actions = [{name: "Rage Attack", attack: 8, damage: [2,12]}]
     this.lvl = 1;
     this.exp = 0;
     this.inventory = [];
@@ -37,6 +38,7 @@ class ClericCharacter {
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1, 6];
+    this.actions = [{name: "Rage Attack", attack: 8, damage: [2,12]}]
     this.lvl = 1;
     this.exp = 0;
     this.inventory = [];
@@ -52,6 +54,7 @@ class DruidCharacter {
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1, 4];
+    this.actions = [{name: "Rage Attack", attack: 8, damage: [2,12]}]
     this.lvl = 1;
     this.exp = 0;
     this.inventory = [];
@@ -67,6 +70,7 @@ class FighterCharacter {
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1, 8];
+    this.actions = [{name: "Rage Attack", attack: 8, damage: [2,12]}]
     this.lvl = 1;
     this.exp = 0;
     this.inventory = [];
@@ -82,6 +86,7 @@ class MonkCharacter {
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1, 4];
+    this.actions = [{name: "Rage Attack", attack: 8, damage: [2,12]}]
     this.lvl = 1;
     this.exp = 0;
     this.inventory = [];
@@ -97,6 +102,7 @@ class PaladinCharacter {
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1, 6];
+    this.actions = [{name: "Rage Attack", attack: 8, damage: [2,12]}]
     this.lvl = 1;
     this.exp = 0;
     this.inventory = [];
@@ -112,6 +118,7 @@ class RangerCharacter {
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1, 6];
+    this.actions = [{name: "Rage Attack", attack: 8, damage: [2,12]}]
     this.lvl = 1;
     this.exp = 0;
     this.inventory = [];
@@ -127,6 +134,7 @@ class RogueCharacter {
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1, 4];
+    this.actions = [{name: "Rage Attack", attack: 8, damage: [2,12]}]
     this.lvl = 1;
     this.exp = 0;
     this.inventory = [];
@@ -142,6 +150,7 @@ class SorcererCharacter {
     this.armorClass = armorClass;
     this.attack = 30 + attBonus;
     this.damage = [1, 4];
+    this.actions = [{name: "Rage Attack", attack: 8, damage: [2,12]}]
     this.lvl = 1;
     this.exp = 0;
     this.inventory = [];
@@ -157,6 +166,7 @@ class WarlockCharacter {
     this.armorClass = armorClass;
     this.attack = 30 + attBonus;
     this.damage = [1, 4];
+    this.actions = [{name: "Rage Attack", attack: 8, damage: [2,12]}]
     this.lvl = 1;
     this.exp = 0;
     this.inventory = [];
@@ -172,6 +182,7 @@ class WizardCharacter {
     this.armorClass = armorClass;
     this.attack = 30 + attBonus;
     this.damage = [1, 4];
+    this.actions = [{name: "Rage Attack", attack: 8, damage: [2,12]}]
     this.lvl = 1;
     this.exp = 0;
     this.inventory = [];

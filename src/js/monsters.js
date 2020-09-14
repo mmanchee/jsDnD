@@ -13,8 +13,6 @@ export class Monster {
     this.loot;
     this.img = monsterPic;
   }
-
-  
 }
 
 export function getMonster(challengeRatingMin,challengeRatingMax) {   
