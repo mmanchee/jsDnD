@@ -111,6 +111,14 @@ function attachListeners() {
     }
     displayStats(battle);
   });
+  $(`button#inventory`).on("click", function() {
+    $("#displayInventory").toggle();
+    $("#displayInventory").text("");
+    $("#displayInventory").append(player.inventory);
+  });
+  $(`#action-buttons`).on("click", "#rage", function() {
+    asdf
+  });
 }
 
 let player;
@@ -127,5 +135,11 @@ $(document).ready(function() {
     $("#player-health").text(player.hp);
     $("#character-creation").hide();
     $("#gameplay").show();
+
+    let buttons = $("#action-buttons");
+    buttons.empty();
+    player.actions.forEach(function(action) {
+      buttons.append(`<button class="btn btn-info col-4 m-3" id='${action.name}'>${action.name}</button>`);
+    });
   });
 });
