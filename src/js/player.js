@@ -2,8 +2,8 @@ class BarbarianCharacter {
   constructor(name){
     this.name = name;
     this.hp = 12;
-    this.armorClass = -10;
-    this.attack = -1000;
+    this.armorClass = 10;
+    this.attack = 1000;
     this.damage = [1, 12];
     this.lvl = 1;
     this.exp = 0;
