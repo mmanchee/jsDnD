@@ -55,6 +55,19 @@ export class Battle {
     }
     return message;
   }
+
+  useHealthPotion() {
+    if (this.character.inventory[0].healthPotion > 0) {
+      this.character.inventory[0].healthPotion -= 1;
+      this.character.hp += 10;
+      if (this.character.hp > this.character.maxHP) {
+        this.character.hp = this.character.maxHP;
+      }
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 

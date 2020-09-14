@@ -5,10 +5,12 @@ import './../css/styles.css';
 import {getCharacter} from './player.js';
 import {Monster} from './monsters.js';
 import {Battle} from './battle.js';
-import { getMonster } from './monsters.js'
+import { getMonster } from './monsters.js';
+import {getLoot} from './lootTable.js';
 
 function displayStats(battle) {
-  $("#player-health").text(player.hp);
+  $("#player-health").text(battle.character.hp);
+  $("#numHealthPot").text(battle.character.inventory[0].healthPotion);
   let endBattle = false;
   let monsterHealth = "";
   if (player.hp < 1) {
@@ -74,6 +76,7 @@ function attachListeners() {
       turn = 1;
     }
     if (endBattle === true) {
+      getLoot(monster.challengeRating, player);
       $("#battle-buttons").toggle();
       $("#monster-img").html("");
       $("#monster-name").text("NPC");
@@ -95,6 +98,19 @@ function attachListeners() {
     $("button#explore").toggle();
     $("#message-board").prepend("You flee<br>");
   });
+  $(`button#healthPotion`).on("click", function() {
+    if (battle.character.hp === battle.character.maxHP) {
+      $("#message-board").prepend("You are already max hp you dingus<br>");
+    } else {
+      let temp = battle.useHealthPotion();
+      if (temp === false) {
+        $("#message-board").prepend("You don't have any health potions to use!<br>");
+      } else {
+        $("#message-board").prepend("SUSTENANCE<br>");
+      }
+    }
+    displayStats(battle);
+  });
 }
 
 let player;
@@ -108,6 +124,7 @@ $(document).ready(function() {
     player = getCharacter(name,charClass);
     $("#player-name").text(name);
     $("#player-img").html(`<img class=display-img src=${player.img}>`);
+    $("#player-health").text(player.hp);
     $("#character-creation").hide();
     $("#gameplay").show();
   });
