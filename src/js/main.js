@@ -7,43 +7,6 @@ import {Monster} from './monsters.js';
 import {Battle} from './battle.js';
 import { getMonster } from './monsters.js'
 
-<<<<<<< HEAD
-function displayStats(battle, turn) {
-  let endBattle = false;
-  let monHealth = "";
-  if (battle.character.hp < 0) {
-    console.log("in p hp");
-    endBattle = true;
-  }
-  let percentHP = battle.monster.healthPoints / battle.monster.maxHP;
-  console.log(percentHP);
-  if (percentHP > 0.75) {
-    monHealth = "Tip-top Condition";
-  } else if (percentHP > 0.5) {
-    monHealth = "Wounded";
-  } else if (percentHP > 0.25) {
-    monHealth = "Weak";
-  } else if (percentHP > 0) {
-    monHealth = "Dying";
-  } else {
-    monHealth = "OOO you know he dead";
-    endBattle = true;
-  }
-  $("#monster-health").text(monHealth);
-  if (endBattle === true) {
-    $("#monster-img").html("");
-    $("#monster-name").text("NPC");
-    $("#monster-health").text("");
-    $("#battle-buttons").toggle();
-    $("button#explore").toggle();
-    if (turn === 0) {
-      $("#message-board").prepend(`The ${battle.monster.name} has defeated you!<br>`);
-    } else {
-      $("#message-board").prepend(`You beat the ${battle.monster.name}!<br>`);
-    }
-  }
-  console.log(endBattle);
-=======
 function displayStats(battle) {
   $("#player-health").text(player.hp);
   let endBattle = false;
@@ -66,7 +29,6 @@ function displayStats(battle) {
     endBattle = true;
   }
   $("#monster-health").text(monsterHealth);
->>>>>>> group_1
   return endBattle;
 }
 
@@ -103,13 +65,6 @@ function attachListeners() {
   $(`button#melee-attack`).on("click", function() {
     let message = battle.meleeAttack();
     $("#message-board").prepend(message);
-<<<<<<< HEAD
-    let endBattle = displayStats(battle, 0);
-    if (endBattle === false) {
-      message = battle.endTurn();
-      $("#message-board").prepend(message);
-      displayStats(battle, 1);
-=======
     let endBattle = displayStats(battle);
     let turn = 0;
     if (endBattle === false) {
@@ -129,7 +84,6 @@ function attachListeners() {
       } else {
         $("#message-board").prepend(`The ${battle.monster.name} has defeated you!<br>`);
       }
->>>>>>> group_1
     }
   });
   $(`button#flee`).on("click", function() {
