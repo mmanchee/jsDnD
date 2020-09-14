@@ -68,6 +68,19 @@ export class Battle {
       return false;
     }
   }
+
+  rageAttack() {
+    let message;
+    let attackRoll = this.character.action[0].attack + diceRoll(1,20);
+    if (attackRoll > this.monster.armorClass) {
+      let damageRoll = diceRoll(this.character.action[0].damage[0],this.character.action[0].damage[1]);
+      this.monster.healthPoints -= damageRoll;
+      message = `You raged and hit for ${damageRoll}<br>`;
+    } else {
+      message = `You flailed wildly and missed!<br>`;
+    }
+    return message;
+  }
 }
 
 

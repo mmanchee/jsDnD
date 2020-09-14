@@ -117,7 +117,29 @@ function attachListeners() {
     $("#displayInventory").append(player.inventory);
   });
   $(`#action-buttons`).on("click", "#rage", function() {
-    asdf
+    let message = battle.rageAttack();
+    $("#message-board").prepend(message);
+    let endBattle = displayStats(battle);
+    let turn = 0;
+    if (endBattle === false) {
+      message = battle.endTurn();
+      $("#message-board").prepend(message);
+      endBattle = displayStats(battle);
+      turn = 1;
+    }
+    if (endBattle === true) {
+      getLoot(monster.challengeRating, player);
+      $("#battle-buttons").toggle();
+      $("#monster-img").html("");
+      $("#monster-name").text("NPC");
+      $("#monster-health").text("");
+      $("button#explore").toggle();
+      if (turn === 0) {
+        $("#message-board").prepend(`You beat the ${battle.monster.name}<br>`);
+      } else {
+        $("#message-board").prepend(`The ${battle.monster.name} has defeated you!<br>`);
+      }
+    }
   });
 }
 
