@@ -6,7 +6,6 @@ export class Monster {
     this.challengeRating = monsterObject.challenge_rating;
     this.maxHP = Math.ceil(parseInt(monsterObject.hit_points) / 5);
     this.healthPoints = this.maxHP;
-    console.log(this.healthPoints, this.maxHP);
     this.armorClass = monsterObject.armor_class; 
     this.actions = monsterObject.actions;
     this.exp = monsterObject.challenge_rating * 12345;

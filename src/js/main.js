@@ -17,7 +17,6 @@ function displayStats(battle) {
     endBattle = true;
   }
   let percentHP = battle.monster.healthPoints / battle.monster.maxHP;
-  console.log(percentHP, battle.monster.healthPoints, battle.monster.maxHP);
   if (percentHP > 0.75) {
     monsterHealth = "Tip-top Condition";
   } else if (percentHP > 0.5) {
@@ -85,7 +84,11 @@ function attachListeners() {
       if (turn === 0) {
         $("#message-board").prepend(`You beat the ${battle.monster.name}<br>`);
       } else {
-        $("#message-board").prepend(`The ${battle.monster.name} has defeated you!<br>`);
+        $("#message-board").prepend(`The ${battle.monster.name} has defeated you!<br>`);  // return to character creation?
+        $("#player-img").html("<img class=player-img src=https://www.pngitem.com/pimgs/m/23-238931_skull-logo-free-skull-and-cross-bones-svg.png>");
+        $("#player-name").text("You Are Dead");
+        $("#start-over").show();
+        $("button#explore").hide();
       }
     }
   });
@@ -119,7 +122,7 @@ $(document).ready(function() {
   attachListeners();
   $("form#character").submit(function(event) {
     event.preventDefault();
-    const name = $(`#character-name`).val();
+    const name = $(`#name`).val();
     const charClass = $(`#character-class`).val();
     const acBonus = 0;
     const hpBonus = 0;
@@ -130,5 +133,6 @@ $(document).ready(function() {
     $("#player-health").text(player.hp);
     $("#character-creation").hide();
     $("#gameplay").show();
+    $("#message-board").prepend(`Welcome ${name}, You can start your adventure by exploring and battle monsters.<br>`);
   });
 });

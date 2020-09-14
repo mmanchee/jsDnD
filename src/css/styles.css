@@ -1,5 +1,4 @@
 .align-item {
-  display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 2%;
@@ -20,16 +19,16 @@
   width: 500px;
 }
 
-#battle-buttons, #gameplay {
+#battle-buttons, #gameplay, #start-over {
   display: none;
 }
 
-.message-box {
+#message-box {
   height: 300px;
   width: 500px;
   overflow-y: scroll;
   padding: 10px;
-  margin-top: 50px;
+  margin-top: 75px;
 }
 
 #message-board {
