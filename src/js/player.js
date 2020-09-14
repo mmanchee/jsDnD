@@ -7,7 +7,7 @@ class BarbarianCharacter {
     this.damage = [1, 12];
     this.lvl = 1;
     this.exp = 0;
-    this.inventory = [];
+    this.inventory = [{healthPotion: 1}];
     this.img = "https://i.pinimg.com/736x/ca/f3/26/caf3269770ab71cf0abd3e85f14aaf86.jpg";
   }
 }
