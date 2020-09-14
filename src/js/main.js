@@ -10,19 +10,24 @@ import {Battle} from './battle.js';
 function displayStats(battle) {
   $("#player-health").text(player.hp);
   let endBattle = false;
-  let percentHP = battle.monster.healthPoints / battle.monster.maxHP;
-  if (percentHP > 0.75) {
-    $("#monster-health").text("Tip-top Condition");
-  } else if (percentHP > 0.5) {
-    $("#monster-health").text("Wounded");
-  } else if (percentHP > 0.25) {
-    $("#monster-health").text("Weak");
-  } else if (percentHP > 0) {
-    $("#monster-health").text("Dying");
-  } else {
-    $("#monster-health").text("OOO you know he dead");
+  let monsterHealth = "";
+  if (player.hp < 1) {
     endBattle = true;
   }
+  let percentHP = battle.monster.healthPoints / battle.monster.maxHP;
+  if (percentHP > 0.75) {
+    monsterHealth = "Tip-top Condition";
+  } else if (percentHP > 0.5) {
+    monsterHealth = "Wounded";
+  } else if (percentHP > 0.25) {
+    monsterHealth = "Weak";
+  } else if (percentHP > 0) {
+    monsterHealth = "Dying";
+  } else {
+    monsterHealth = "OOO you know he dead";
+    endBattle = true;
+  }
+  $("#monster-health").text(monsterHealth);
   return endBattle;
 }
 
@@ -30,9 +35,6 @@ function attachListeners() {
   let monster;
   let battle;
   $("button#explore").on("click", function() {
-    // $("#explore").prop("disabled", true);
-    // $("#attack").show();
-    // $("#runaway").show();
     let charCR = 1;
     let chosenMonsterURLPIC = getMonster(charCR-5,charCR+1);
     let promise = new Promise(function(resolve, reject) {
@@ -63,9 +65,11 @@ function attachListeners() {
   $(`button#melee-attack`).on("click", function() {
     let message = battle.meleeAttack();
     $("#message-board").prepend(message);
-    message = battle.endTurn();
-    $("#message-board").prepend(message);
     let endBattle = displayStats(battle);
+    if (endBattle === false) {
+      message = battle.endTurn();
+      $("#message-board").prepend(message);
+    }
     if (endBattle === true) {
       $("#battle-buttons").toggle();
       $("#monster-img").html("");
