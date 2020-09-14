@@ -8,6 +8,7 @@ import {Monster} from './monsters.js';
 import {Battle} from './battle.js';
 
 function displayStats(battle) {
+  $("#player-health").text(player.hp);
   let endBattle = false;
   let percentHP = battle.monster.healthPoints / battle.monster.maxHP;
   if (percentHP > 0.75) {
