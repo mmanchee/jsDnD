@@ -2,8 +2,8 @@ class BarbarianCharacter {
   constructor(name){
     this.name = name;
     this.hp = 12;
-    this.armorClass = -10;
-    this.attack = -1000;
+    this.armorClass = 10;
+    this.attack = 1000;
     this.damage = [1, 12];
     this.lvl = 1;
     this.exp = 0;
@@ -169,41 +169,41 @@ class WizardCharacter {
 export function getCharacter(name,charClass) {
   let character;
   switch (charClass) {
-    case "barbarian":
-      character = new BarbarianCharacter(name);
-      break;
-    case "bard":
-      character = new BardCharacter(name);
-      break;
-    case "cleric":
-      character = new ClericCharacter(name);
-      break;
-    case "druid":
-      character = new DruidCharacter(name);
-      break;
-    case "fighter":
-      character = new FighterCharacter(name);
-      break;
-    case "monk":
-      character = new MonkCharacter(name);
-      break;
-    case "paladin":
-      character = new PaladinCharacter(name);
-      break;
-    case "ranger":
-      character = new RangerCharacter(name);
-      break;
-    case "rogue":
-      character = new RogueCharacter(name);
-      break;
-    case "sorcerer":
-      character = new SorcererCharacter(name);
-      break;
-    case "warlock":
-      character = new WarlockCharacter(name);
-      break;
-    case "wizard":
-      character = new WizardCharacter(name);
+  case "barbarian":
+    character = new BarbarianCharacter(name);
+    break;
+  case "bard":
+    character = new BardCharacter(name);
+    break;
+  case "cleric":
+    character = new ClericCharacter(name);
+    break;
+  case "druid":
+    character = new DruidCharacter(name);
+    break;
+  case "fighter":
+    character = new FighterCharacter(name);
+    break;
+  case "monk":
+    character = new MonkCharacter(name);
+    break;
+  case "paladin":
+    character = new PaladinCharacter(name);
+    break;
+  case "ranger":
+    character = new RangerCharacter(name);
+    break;
+  case "rogue":
+    character = new RogueCharacter(name);
+    break;
+  case "sorcerer":
+    character = new SorcererCharacter(name);
+    break;
+  case "warlock":
+    character = new WarlockCharacter(name);
+    break;
+  case "wizard":
+    character = new WizardCharacter(name);
   }
   return character;
 }

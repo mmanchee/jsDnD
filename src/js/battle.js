@@ -42,7 +42,7 @@ export class Battle {
     if (rollTotal > this.character.armorClass) {
       for (let i=0; i<this.monster.actions[ran].damage.length; i++) {
         let damageRollArray = sortAPIDice(this.monster.actions[ran].damage[i].damage_dice);
-        damageRoll = diceRoll(damageRollArray[0],damageRollArray[1]) + damageRollArray[2];
+        damageRoll = Math.ceil((diceRoll(damageRollArray[0],damageRollArray[1]) + damageRollArray[2]) / 5);
         if (isNaN(damageRoll)) {
           damageRoll = 1;
         }
@@ -55,16 +55,6 @@ export class Battle {
     return message;
   }
 }
-// diceArray = [1, 6, 1] or [1, 6, -1]
-
-// dice = actions[0].damage[0].damage_dice;
-//
-// diceArray = dice.slice("d");
-// diceArray[2] = dicArray[1].slice("+");
-// diceArray[2] = dicArray[1].slice("-");
-// for (let i = 0; i < diceArray.length; i++) { 
-//}
-// diceRoll(1, 6);
 
 function diceRoll(num, side) {
   let roll = 0;

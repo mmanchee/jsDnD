@@ -15,6 +15,7 @@ function displayStats(battle) {
     endBattle = true;
   }
   let percentHP = battle.monster.healthPoints / battle.monster.maxHP;
+  console.log(percentHP, battle.monster.healthPoints, battle.monster.maxHP);
   if (percentHP > 0.75) {
     monsterHealth = "Tip-top Condition";
   } else if (percentHP > 0.5) {
@@ -35,8 +36,7 @@ function attachListeners() {
   let monster;
   let battle;
   $("button#explore").on("click", function() {
-    let charCR = 1;
-    let chosenMonsterURLPIC = getMonster(charCR-5,charCR+1);
+    let chosenMonsterURLPIC = getMonster(player.lvl-5,player.lvl+1);
     let promise = new Promise(function(resolve, reject) {
       let request = new XMLHttpRequest();
       let url = `https://www.dnd5eapi.co${chosenMonsterURLPIC.url}`;
@@ -66,9 +66,12 @@ function attachListeners() {
     let message = battle.meleeAttack();
     $("#message-board").prepend(message);
     let endBattle = displayStats(battle);
+    let turn = 0;
     if (endBattle === false) {
       message = battle.endTurn();
       $("#message-board").prepend(message);
+      endBattle = displayStats(battle);
+      turn = 1;
     }
     if (endBattle === true) {
       $("#battle-buttons").toggle();
@@ -76,7 +79,11 @@ function attachListeners() {
       $("#monster-name").text("NPC");
       $("#monster-health").text("");
       $("button#explore").toggle();
-      $("#message-board").prepend(`You beat the ${battle.monster.name}<br>`);
+      if(turn === 0) {
+        $("#message-board").prepend(`You beat the ${battle.monster.name}<br>`);
+      } else {
+        $("#message-board").prepend(`The ${battle.monster.name} has defeated you!<br>`);
+      }
     }
   });
   $(`button#flee`).on("click", function() {
