@@ -10,6 +10,7 @@ import {getLoot} from './lootTable.js';
 import {equipArmor} from './armors.js';
 import {upgradeWeapon} from './weapons.js';
 import {upgradeArmor} from './armors.js';
+import {displayMonsterHealth} from './monsters.js';
 
 function displayStats(battle) {
   $("#goldCount").text(battle.character.money);
@@ -19,24 +20,14 @@ function displayStats(battle) {
   }
   $("#numHealthPot").text(battle.character.inventory[0].healthPotion);
   let endBattle = false;
-  let monsterHealth = "";
+  let message = displayMonsterHealth(battle.monster);
+  $("#monster-health").text(message);
+  if (message === "OOO you know he dead") {
+    endBattle = true;
+  }
   if (player.hp < 1) {
     endBattle = true;
   }
-  let percentHP = battle.monster.healthPoints / battle.monster.maxHP;
-  if (percentHP > 0.75) {
-    monsterHealth = "Tip-top Condition";
-  } else if (percentHP > 0.5) {
-    monsterHealth = "Wounded";
-  } else if (percentHP > 0.25) {
-    monsterHealth = "Weak";
-  } else if (percentHP > 0) {
-    monsterHealth = "Dying";
-  } else {
-    monsterHealth = "OOO you know he dead";
-    endBattle = true;
-  }
-  $("#monster-health").text(monsterHealth);
   return endBattle;
 }
 
@@ -67,6 +58,7 @@ function attachListeners() {
       $("#monster-health").text("Healthy");
       $("#battle-buttons").toggle();
       $("button#explore").toggle();
+      $("#show-town").toggle();
       displayStats(battle);
     });
   });
@@ -91,6 +83,7 @@ function attachListeners() {
       $("#monster-name").text("NPC");
       $("#monster-health").text("");
       $("button#explore").toggle();
+      $("#show-town").toggle();
       if (turn === 0) {
         $("#message-board").prepend(`You beat the ${battle.monster.name}<br>`);
       } else {
@@ -99,6 +92,7 @@ function attachListeners() {
         $("#player-name").text("You Are Dead");
         $("#start-over").show();
         $("button#explore").hide();
+        $("#show-town").hide();
       }
     }
   });
@@ -109,27 +103,18 @@ function attachListeners() {
     $("#monster-health").text("");
     $("#battle-buttons").toggle();
     $("button#explore").toggle();
+    $("#show-town").toggle();
     $("#message-board").prepend("You flee<br>");
   });
   $(`button#healthPotion`).on("click", function() {
     if (battle.character.hp === battle.character.maxHP) {
       $("#message-board").prepend("You are already max hp you dingus<br>");
     } else {
-      let temp = battle.useHealthPotion();
-      if (temp === false) {
-        $("#message-board").prepend("You don't have any health potions to use!<br>");
-      } else {
-        $("#message-board").prepend("SUSTENANCE<br>");
-      }
+      let message = battle.useHealthPotion();
+      $("#message-board").prepend(message);
     }
     displayStats(battle);
   });
-  // Inventory button
-  // $(`button#inventory`).on("click", function() {
-  //   $("#displayInventory").toggle();
-  //   $("#displayInventory").text("");
-  //   $("#displayInventory").append(player.inventory);
-  // });
   $(`#action-buttons`).on("click", "#second-attack", function() {
     let message = battle.secondAttack();
     $("#message-board").prepend(message);
@@ -152,6 +137,7 @@ function attachListeners() {
         $("#monster-name").text("NPC");
         $("#monster-health").text("");
         $("button#explore").toggle();
+        $("#show-town").toggle();
         if (turn === 0) {
           $("#message-board").prepend(`You beat the ${battle.monster.name}<br>`);
         } else {
@@ -160,17 +146,24 @@ function attachListeners() {
           $("#player-name").text("You Are Dead");
           $("#start-over").show();
           $("button#explore").hide();
+          $("#show-town").hide();
         }
       }
     }
   });
-
   $(`#upgradeWeapon`).on("click", function() {
     upgradeWeapon(battle.character);
   });
-
   $(`#upgradeArmor`).on("click", function() {
     upgradeArmor(battle.character);
+  });
+  $(`#show-town`).on("click", function() {
+    $(`#gameplay`).toggle();
+    $(`#townMap`).toggle();
+  });
+  $(`#show-gameplay`).on("click", function() {
+    $(`#gameplay`).toggle();
+    $(`#townMap`).toggle();
   });
 }
 

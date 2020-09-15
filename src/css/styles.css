@@ -19,7 +19,7 @@
   width: 500px;
 }
 
-#battle-buttons, #gameplay, #start-over {
+#battle-buttons, #gameplay, #start-over, #townMap{
   display: none;
 }
 
@@ -33,4 +33,13 @@
 
 #message-board {
   margin: 5%;
+}
+
+.card-img-overlay {
+  background-image: url(https://i.pinimg.com/originals/84/c3/28/84c32877e97de90347c4847034be496c.jpg);
+  background-size: 100% 100%;
+}
+
+#townMap {
+  height: 900px;
 }
