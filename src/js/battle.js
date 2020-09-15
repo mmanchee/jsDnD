@@ -69,17 +69,27 @@ export class Battle {
     }
   }
 
-  rageAttack() {
+  getMoney() {
+    this.character.money += this.monster.money;
+  }
+
+  secondAttack() {
     let message;
-    let attackRoll = this.character.action[0].attack + diceRoll(1,20);
-    if (attackRoll > this.monster.armorClass) {
-      let damageRoll = diceRoll(this.character.action[0].damage[0],this.character.action[0].damage[1]);
-      this.monster.healthPoints -= damageRoll;
-      message = `You raged and hit for ${damageRoll}<br>`;
+    if (this.character.actions[0].limit === 0) {
+      message = `You've run out of charges!<br>`;
+      return message;
     } else {
-      message = `You flailed wildly and missed!<br>`;
+      this.character.actions[0].limit -= 1;
+      let attackRoll = this.character.actions[0].attack + diceRoll(1,20);
+      if (attackRoll > this.monster.armorClass) {
+        let damageRoll = diceRoll(this.character.actions[0].damage[0],this.character.actions[0].damage[1]);
+        this.monster.healthPoints -= damageRoll;
+        message = `You hit for ${damageRoll}<br>`;
+      } else {
+        message = `You fucked up and missed!<br>`;
+      }
+      return message;
     }
-    return message;
   }
 }
 

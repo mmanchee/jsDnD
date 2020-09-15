@@ -8,10 +8,14 @@
     <div id="character-creation">
       <form id="character">
         <div class="form-group">
+          <div>
+            <h2>Welcome to this RPG</h2>
+          </div>
           <div class="well">
             <label for="character-name">What is your characters name?</label>
           </div>
           <input type="text"  class="form-control" id="name">
+          <br>
           <div class="form-row">
             <label for="character-class" class="form-label m">What class?</label>
             <select class="form-control col-3" id="character-class" name="character-class">
@@ -38,19 +42,19 @@
       </form> -->
     </div>
     <div id="gameplay">
-      <div class="row">
+      <div class="row mt-5">
         <!-- <div class="col-2">
           <button type="button" class="btn btn-info col-4 m-3" id="inventory">Inventory</button>
         </div> -->
         <div class="col-5">
           <div class="card align-item box-size">
-            <h2 id="player-name">Player 1</h2>
-            <p>CHARACTER</p>
+            <h2><span id="player-name"></span></h2>
             <div id="player-img"></div>
             <p>Health: <span id="player-health"></span></p>
             <button type="button" class="btn btn-warning" id="explore">Explore</button>
+            <button type="button" onclick="window.location.reload()" id="start-over">Start Again</button>
           </div>
-          <div id="battle-buttons">
+          <div class="mt-3" id="battle-buttons">
             <button type="button" class="btn btn-info col-4 m-3" id="melee-attack">Melee Attack</button>
             <div id="action-buttons"></div>
             <button type="button" class="btn btn-info col-4 m-3" id="flee">Flee</button>
@@ -67,7 +71,7 @@
         </div>
       </div>
     </div>
-    <div class="card align-item message-box">
+    <div class="card align-items-start"id="message-box">
       <div id="message-board">
   
       </div>
