@@ -16,29 +16,29 @@
     <div id="char-class">
       <form id="character">
         <label for="character-name">What is your characters name?</label><br>
-          <input type="text"  class="wide-font set-width" id="name"><br>
-          <div id="character-class">
-            <button type="button" id="class-barbarian" value="barbarian" class="btn">Barbarian</button><br>
-            <button type="button" value="bard" class="btn">Bard</button><br>
-            <button type="button" value="cleric" class="btn">Cleric</button><br>
-            <button type="button" value="druid" class="btn">Druid</button><br>
-            <button type="button" value="fighter" class="btn">fighter</button><br>
-            <button type="button" value="monk" class="btn">Monk</button><br>
-            <button type="button" value="paladin" class="btn">Paladin</button><br>
-            <button type="button" value="ranger" class="btn">Ranger</button><br>
-            <button type="button" value="rogue" class="btn">Rogue</button><br>
-            <button type="button" value="sorcerer" class="btn">Sorcerer</button><br>
-            <button type="button" value="warlock" class="btn">Warlock</button><br>
-            <button type="button" value="wizard" class="btn">Wizard</button><br>
-          </div>  
+        <input type="text" class="wide-font set-width" id="name"><br>
         <div class="row">
-          <div class="col-md-4"></div>
-          <div class="col-md-6">
-            <div id="character-image">
-
+          <div class="col-4">
+            <div id="character-buttons">
+              <button type="button" value="barbarian" class="btn select-class" field="0">Barbarian</button><br>
+              <button type="button" value="bard" class="btn select-class" field="1">Bard</button><br>
+              <button type="button" value="cleric" class="btn select-class" field="2">Cleric</button><br>
+              <button type="button" value="druid" class="btn select-class" field="3">Druid</button><br>
+              <button type="button" value="fighter" class="btn select-class" field="4">fighter</button><br>
+              <button type="button" value="monk" class="btn select-class" field="5">Monk</button><br>
+              <button type="button" value="paladin" class="btn select-class" field="6">Paladin</button><br>
+              <button type="button" value="ranger" class="btn select-class" field="7">Ranger</button><br>
+              <button type="button" value="rogue" class="btn select-class" field="8">Rogue</button><br>
+              <button type="button" value="sorcerer" class="btn select-class" field="9">Sorcerer</button><br>
+              <button type="button" value="warlock" class="btn select-class" field="10">Warlock</button><br>
+              <button type="button" value="wizard" class="btn select-class" field="11">Wizard</button><br>
             </div>
-          </div>  
-        </div>  
+          </div>
+          <div class="col-7">
+            <div id="selected-class"></div><br>
+            <div id="character-display"></div>
+          </div>
+        </div>
         <button type="submit" class="btn btn-success" id="submit">Submit</button>
       </form>
     </div>

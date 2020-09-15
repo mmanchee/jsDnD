@@ -1,4 +1,4 @@
-export class BarbarianCharacter {
+class BarbarianCharacter {
   constructor(name, armorClass, hpBonus, attBonus){
     this.name = name;
     this.maxHP = 12;
@@ -220,3 +220,12 @@ export function getCharacter(name, charClass, acBonus, hpBonus, attBonus) {
   }
   return character;
 }
+
+export let imageArray = ["https://i.pinimg.com/736x/ca/f3/26/caf3269770ab71cf0abd3e85f14aaf86.jpg", "https://i.pinimg.com/originals/b7/0e/d6/b70ed6eea7b09eea2d6612ddd099f188.png", 
+"https://oldschoolroleplaying.com/wp-content/uploads/2019/05/Cleric-Two.jpg", "https://i2.wp.com/nerdarchy.com/wp-content/uploads/2015/11/PZO1121-ElfDruid.jpg?resize=774%2C1000&ssl=1", 
+"https://vignette.wikia.nocookie.net/eladriells-dd/images/f/f4/Fighter.jpg/revision/latest?cb=20190324022153", "https://oldschoolroleplaying.com/wp-content/uploads/2019/03/monk-five.jpg", 
+"https://oldschoolroleplaying.com/wp-content/uploads/2019/03/Paladin-Two-569x1024.png", "https://oldschoolroleplaying.com/wp-content/uploads/2019/04/ranger-two.jpg", 
+"https://i.pinimg.com/originals/21/2d/71/212d710a1ce457d541cfaa5345534851.png", "https://i.pinimg.com/originals/b1/ce/a3/b1cea385f37b7c271c18da08b0bf574e.png", 
+"https://wizardofthetavern.com/wp-content/uploads/2019/05/warlock.jpg", "https://i.pinimg.com/originals/54/5e/cb/545ecb06834f6fe5afd5faebcae19a5a.png"];
+
+export let descriptionArray

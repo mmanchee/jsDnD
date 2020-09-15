@@ -7,6 +7,7 @@ import {Monster} from './monsters.js';
 import {Battle} from './battle.js';
 import { getMonster } from './monsters.js';
 import {getLoot} from './lootTable.js';
+import { imageArray } from './player.js';
 
 
 function displayStats(battle) {
@@ -145,21 +146,28 @@ function attachListeners() {
       }
     }
   });
+}
 
-  $("#start-button").click(function() { // splash transition
-    $("#splash").toggle();
-    $("#char-class").toggle();
+function classListener() {
+  $(".select-class").click(function(event) {
+    event.preventDefault();
+    let className = $(this).attr('value');
+    className = className.toUpperCase();
+    let arrayPlace = $(this).attr('field');
+    $(`#selected-class`).html(`<h3 id="character-class">${className}</h3>`);
+    $("#character-display").html(`<img class=display-img src=${imageArray[arrayPlace]}>`);
   });
-
-  $("#class-barbarian").click(function() {
-    $("#character-image").html(`<img class=display-img src="https://i.pinimg.com/736x/ca/f3/26/caf3269770ab71cf0abd3e85f14aaf86.jpg">`);
-  })
 }
 
 let player;
 
 $(document).ready(function() {
   attachListeners();
+  classListener();
+  $("#start-button").click(function() { // splash transition
+    $("#splash").toggle();
+    $("#char-class").toggle();
+  });
   $("form#character").submit(function(event) {
     event.preventDefault();
     const name = $(`#name`).val();

@@ -55,12 +55,12 @@ input {
   font-size: 35px;
 }
 
-#character-class {
+#character-buttons {
   margin-top: 50px;
 }
 
 .btn {
-  width: 25%;
+  width: 50%;
   table-layout: fixed;
   padding: 10px 35px;
   background-color: rgb(148, 179, 11);
@@ -75,15 +75,22 @@ input {
 
 
 .btn.btn-success {
-  margin-left: 45%;
-}
-
-#character-image {
-  
+  width: 35%;
+  margin-left: 40%;
 }
 
 
+#character-display {
+  float: right;
+  margin-top: 25px;
+  margin-right: 22%;
+}
 
+#selected-class {
+  margin-right: 15%;
+}
+
+/* Explore */
 
 #explore {
   display: none;
