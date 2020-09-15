@@ -165,7 +165,7 @@ function attachListeners() {
     battle.character.weapon.attack += 1;
   });
   $(`#upgradeArmor`).on("click", function() {
-    battle.character.weapon.armorBonus += 1;
+    battle.character.armor.armorBonus += 1;
   });
 }
 

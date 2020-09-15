@@ -48,7 +48,7 @@ class BardCharacter {
       name: "Leather",
       armorBonus: 11,
       type: "light"
-    }
+    };
     this.inventory = [{healthPotion: 1}];
     this.img = "https://i.pinimg.com/originals/b7/0e/d6/b70ed6eea7b09eea2d6612ddd099f188.png";
   }
@@ -272,7 +272,7 @@ class SorcererCharacter {
       name: "Leather",
       armorBonus: 11,
       type: "light"
-    }
+    };
     this.inventory = [{healthPotion: 1}];
     this.img = "https://i.pinimg.com/originals/b1/ce/a3/b1cea385f37b7c271c18da08b0bf574e.png";
   }
