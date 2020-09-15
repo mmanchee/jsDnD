@@ -161,6 +161,10 @@ function attachListeners() {
       }
     }
   });
+  $(`#upgradeWeapon`).on("click", function() {
+    battle.character.weapon.attack += 1;
+    console.log(battle.character);
+  });
 }
 
 let player;

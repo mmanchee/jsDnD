@@ -71,7 +71,7 @@ export class Battle {
 
   getMoney() {
     this.character.money += this.monster.gold;
-    const message = `${this.monster.name} dropped ${this.monster.gold} gold.<br>` 
+    const message = `${this.monster.name} dropped ${this.monster.gold} gold.<br>` ;
     return message;
   }
 

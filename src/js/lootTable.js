@@ -1,5 +1,5 @@
 export function getLoot(monsterCR, player) {
-  let message = "You got a health potion!<br>"
+  let message = "You got a health potion!<br>";
   let random = Math.floor(Math.random *10);
   if (monsterCR < 1 && random > 6) {
     player.inventory[0].healthPotion += 1;

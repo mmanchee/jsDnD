@@ -1,62 +1,44 @@
 export const weaponList = [
   {
     name: "Great Axe",
-    attack: +0,
-    damage: [1,12]
+    attack: 0,
+    damage: [1,12],
+    hands: 2
   },
   {
-    name: "",
-    attack: +0,
-    damage: []
+    name: "Dagger",
+    attack: 0,
+    damage: [1,4],
+    hands: 1
   },
   {
-    name: "",
-    attack: +0,
-    damage: []
+    name: "Mace",
+    attack: 0,
+    damage: [1,6],
+    hands: 1
   },
   {
-    name: "",
-    attack: +0,
-    damage: []
+    name: "Long Sword",
+    attack: 0,
+    damage: [1,8],
+    hands: 1
   },
   {
-    name: "",
-    attack: +0,
-    damage: []
+    name: "Short Sword",
+    attack: 0,
+    damage: [1,6],
+    hands: 1
   },
   {
-    name: "",
-    attack: +0,
-    damage: []
+    name: "Quarterstaff",
+    attack: 0,
+    damage: [1,6],
+    hands: 2
   },
   {
-    name: "",
-    attack: +0,
-    damage: []
-  },
-  {
-    name: "",
-    attack: +0,
-    damage: []
-  },
-  {
-    name: "",
-    attack: +0,
-    damage: []
-  },
-  {
-    name: "",
-    attack: +0,
-    damage: []
-  },
-  {
-    name: "",
-    attack: +0,
-    damage: []
-  },
-  {
-    name: "",
-    attack: +0,
-    damage: []
-  },
+    name: "Bow",
+    attack: 0,
+    damage: [1,8],
+    hands: 2
+  }
 ]
