@@ -70,7 +70,9 @@ export class Battle {
   }
 
   getMoney() {
-    this.character.money += this.monster.money;
+    this.character.money += this.monster.gold;
+    const message = `${this.monster.name} dropped ${this.monster.gold} gold.<br>` 
+    return message;
   }
 
   secondAttack() {

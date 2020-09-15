@@ -9,6 +9,7 @@ import {getMonster} from './monsters.js';
 import {getLoot} from './lootTable.js';
 
 function displayStats(battle) {
+  $("#goldCount").text(battle.character.money);
   $("#player-health").text(battle.character.hp);
   if (battle.character.actions[0].limit) {
     $("#action-limit").text(battle.character.actions[0].limit);
@@ -78,7 +79,10 @@ function attachListeners() {
       turn = 1;
     }
     if (endBattle === true) {
-      getLoot(monster.challengeRating, player);
+      message = battle.getMoney();
+      $("#message-board").prepend(message);
+      message = getLoot(monster.challengeRating, player);
+      $("#message-board").prepend(message);
       $("#battle-buttons").toggle();
       $("#monster-img").html("");
       $("#monster-name").text("NPC");
@@ -136,7 +140,10 @@ function attachListeners() {
         turn = 1;
       }
       if (endBattle === true) {
-        getLoot(monster.challengeRating, player);
+        message = battle.getMoney();
+        $("#message-board").prepend(message);
+        message = getLoot(monster.challengeRating, player);
+        $("#message-board").prepend(message);
         $("#battle-buttons").toggle();
         $("#monster-img").html("");
         $("#monster-name").text("NPC");
@@ -171,6 +178,7 @@ $(document).ready(function() {
     $("#player-name").text(name);
     $("#player-img").html(`<img class=display-img src=${player.img}>`);
     $("#player-health").text(player.hp);
+    $("#goldCount").text(player.money);
     $("#character-creation").hide();
     $("#gameplay").show();
     $("#message-board").prepend(`Welcome ${name}, You can start your adventure by exploring and battling monsters.<br>`);
@@ -178,9 +186,9 @@ $(document).ready(function() {
     buttons.empty();
     player.actions.forEach(function(action) {
       if (!action.limit) {
-        buttons.append(`<button class="btn btn-info" id='second-attack'>${action.name}</button>`);
+        buttons.append(`<button class="btn btn-info col-4 mt-3" id='second-attack'>${action.name}</button>`);
       } else {
-        buttons.append(`<button class="btn btn-info" id='second-attack'>${action.name} (X<span id='action-limit'>${action.limit}</span>)</button>`);
+        buttons.append(`<button class="btn btn-info col-4 mt-3" id='second-attack'>${action.name} (X<span id='action-limit'>${action.limit}</span>)</button>`);
       }
     });
   });
