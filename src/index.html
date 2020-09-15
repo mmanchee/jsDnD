@@ -36,6 +36,50 @@
         </div>
         <button type="submit" class="btn btn-success">Submit</button>
       </form>
+      <form >
+        <div class="row">
+          <div class="col-2">
+            <a tabindex="0" class="btn mb-2" data-toggle="popover" data-trigger="focus" title="Strength" data-content="Effects your chance to hit and damage total">STR</a><br>
+            <a tabindex="0" class="btn mb-2" data-toggle="popover" data-trigger="focus" title="Dexterity" data-content="Effects your ability to dodge from an enemy">DEX</a><br>
+            <a tabindex="0" class="btn mb-2" data-toggle="popover" data-trigger="focus" title="Intelligence" data-content="Effects your ability to think under pressure">INT</a><br>
+            <a tabindex="0" class="btn mb-2" data-toggle="popover" data-trigger="focus" title="Wisdom" data-content="Effects your ability to avoid enemies">WIS</a><br>
+            <a tabindex="0" class="btn mb-2" data-toggle="popover" data-trigger="focus" title="Charisma" data-content="Effects your bardering skills at the store">CHA</a><br>
+            <a tabindex="0" class="btn" data-toggle="popover" data-trigger="focus" title="Constitution" data-content="Effects your health bonus">CON</a><br>
+          </div>
+          <div class="col-4">
+            <div class="mb-2">
+              <button type='button' class='btn btn-info stat-minus' field='strength'>-</button>
+              <input type='text' name='strength' value='10' class='col-2 text-center'>
+              <button type='button' class='btn btn-info stat-plus' field='strength'>+</button>
+            </div>
+            <div class="mt-2 mb-2">
+              <button type='button' class='btn btn-info stat-minus' field='dexterity'>-</button>
+              <input type='text' name='dexterity' value='10' class='col-2 text-center'>
+              <button type='button' class='btn btn-info stat-plus' field='dexterity'>+</button>
+            </div>
+            <div class="mt-2 mb-2">
+              <button type='button' class='btn btn-info stat-minus' field='intelligence'>-</button>
+              <input type='text' name='intelligence' value='10' class='col-2 text-center'>
+              <button type='button' class='btn btn-info stat-plus' field='intelligence'>+</button>
+            </div>
+            <div class="mt-2 mb-2">
+              <button type='button' class='btn btn-info stat-minus' field='wisdom'>-</button>
+              <input type='text' name='wisdom' value='10' class='col-2 text-center'>
+              <button type='button' class='btn btn-info stat-plus' field='wisdom'>+</button>
+            </div>
+            <div class="mt-2 mb-2">
+              <button type='button' class='btn btn-info stat-minus' field='charisma'>-</button>
+              <input type='text' name='charisma' value='10' class='col-2 text-center'>
+              <button type='button' class='btn btn-info stat-plus' field='charisma'>+</button>
+            </div>
+            <div class="mt-2">
+              <button type='button' class='btn btn-info stat-minus' field='constitution'>-</button>
+              <input type='text' name='constitution' value='10' class='col-2 text-center'>
+              <button type='button' class='btn btn-info stat-plus' field='constitution'>+</button>
+            </div>
+          </div>
+        </div>
+      </form>
       <!-- <form id="character-points">
         <div class="card">
         </div>

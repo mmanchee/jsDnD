@@ -33,6 +33,34 @@ function displayStats(battle) {
   return endBattle;
 }
 
+function charStatListeners() {
+  $('.stat-plus').click(function(event) {
+    event.preventDefault();
+    let fieldName = $(this).attr('field');
+    let currentVal = parseInt($(`input[name=${fieldName}]`).val());
+    if (!isNaN(currentVal) && currentVal >= 8) {
+      $(`input[name=${fieldName}]`).val(currentVal + 1);
+    } else {
+      $(`input[name=${fieldName}]`).val(8);
+    }
+  });
+  $(".stat-minus").click(function(event) {
+    event.preventDefault();
+    let fieldName = $(this).attr('field');
+    let currentVal = parseInt($(`input[name=${fieldName}]`).val());
+    if (!isNaN(currentVal) && currentVal > 8) {
+      $(`input[name=${fieldName}]`).val(currentVal - 1);
+    } else {
+      $(`input[name=${fieldName}]`).val(8);
+    }
+  });
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+  $('.popover-dismiss').popover({
+    trigger: 'focus'
+  });
+}
 function attachListeners() {
   let monster;
   let battle;
@@ -149,6 +177,7 @@ function attachListeners() {
 let player;
 
 $(document).ready(function() {
+  charStatListeners();
   attachListeners();
   $("form#character").submit(function(event) {
     event.preventDefault();
