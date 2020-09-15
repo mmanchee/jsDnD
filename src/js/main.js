@@ -7,6 +7,7 @@ import {Monster} from './monsters.js';
 import {Battle} from './battle.js';
 import { getMonster } from './monsters.js';
 import {getLoot} from './lootTable.js';
+import { statRoll } from './roleFunctions.js';
 
 function displayStats(battle) {
   $("#player-health").text(battle.character.hp);
@@ -34,12 +35,19 @@ function displayStats(battle) {
 }
 
 function charStatListeners() {
+  $('#bonus-points').text(statRoll());
   $('.stat-plus').click(function(event) {
     event.preventDefault();
     let fieldName = $(this).attr('field');
     let currentVal = parseInt($(`input[name=${fieldName}]`).val());
-    if (!isNaN(currentVal) && currentVal >= 8) {
-      $(`input[name=${fieldName}]`).val(currentVal + 1);
+    if (!isNaN(currentVal) && currentVal >= 8 && currentVal < 18) {
+      let bp = parseInt($('#bonus-points').text());
+      if (bp >= 1) {
+        $(`input[name=${fieldName}]`).val(currentVal + 1);
+        $('#bonus-points').text(bp - 1);
+      }
+    } else if (currentVal === 18) {
+      false;
     } else {
       $(`input[name=${fieldName}]`).val(8);
     }
@@ -49,7 +57,9 @@ function charStatListeners() {
     let fieldName = $(this).attr('field');
     let currentVal = parseInt($(`input[name=${fieldName}]`).val());
     if (!isNaN(currentVal) && currentVal > 8) {
+      let bp = parseInt($('#bonus-points').text());
       $(`input[name=${fieldName}]`).val(currentVal - 1);
+      $('#bonus-points').text(bp + 1);
     } else {
       $(`input[name=${fieldName}]`).val(8);
     }
