@@ -98,7 +98,7 @@
           <div class="card align-item box-size">
             <h2><span id="player-name"></span></h2>
             <div id="player-img"></div>
-            <p>Health: <span id="player-health"></span></p>
+            <p>Health: <span id="player-health"></span> Gold: <span id="goldCount"></span></p>
             <button type="button" class="btn btn-warning" id="explore">Explore</button>
             <button type="button" onclick="window.location.reload()" id="start-over">Start Again</button>
           </div>
@@ -107,12 +107,13 @@
             <div id="action-buttons"></div>
             <button type="button" class="btn btn-info col-4 m-3" id="flee">Flee</button>
             <button type="button" class="btn btn-info col-4 m-3" id="healthPotion">Health Potions (X<span id="numHealthPot"></span>)</button>
+            <button type="button" class="btn btn-info col-4 m-3" id="upgradeWeapon">Upgrade Weapon</button>
+            <button type="button" class="btn btn-info col-4 m-3" id="upgradeArmor">Upgrade Armor</button>
           </div>
         </div>
         <div class="col-5">
           <div class="card align-item box-size">
             <h2 id="monster-name">NPC</h2>
-            <p>CHARACTER</p>
             <div id="monster-img"></div>
             <p>Health: <span id="monster-health"></span></p>
           </div>

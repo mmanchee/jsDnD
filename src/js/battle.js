@@ -1,4 +1,5 @@
 import { diceRoll } from './roleFunctions';
+import { diceRollDMG } from './roleFunctions';
 
 export class Battle {
   constructor(character, monster) {
@@ -10,7 +11,7 @@ export class Battle {
     let message;
     let attackRoll = this.character.attack + diceRoll(1,20);
     if (attackRoll > this.monster.armorClass) {
-      let damageRoll = diceRoll(this.character.damage[0],this.character.damage[1]);
+      let damageRoll = diceRollDMG(this.character.damage[0],this.character.damage[1],this.character.damage[2]);
       this.monster.healthPoints -= damageRoll;
       message = `You hit for ${damageRoll}<br>`;
     } else {
@@ -69,17 +70,29 @@ export class Battle {
     }
   }
 
-  rageAttack() {
-    let message;
-    let attackRoll = this.character.action[0].attack + diceRoll(1,20);
-    if (attackRoll > this.monster.armorClass) {
-      let damageRoll = diceRoll(this.character.action[0].damage[0],this.character.action[0].damage[1]);
-      this.monster.healthPoints -= damageRoll;
-      message = `You raged and hit for ${damageRoll}<br>`;
-    } else {
-      message = `You flailed wildly and missed!<br>`;
-    }
+  getMoney() {
+    this.character.money += this.monster.gold;
+    const message = `${this.monster.name} dropped ${this.monster.gold} gold.<br>` ;
     return message;
+  }
+
+  secondAttack() {
+    let message;
+    if (this.character.actions[0].limit === 0) {
+      message = `You've run out of charges!<br>`;
+      return message;
+    } else {
+      this.character.actions[0].limit -= 1;
+      let attackRoll = this.character.actions[0].attack + diceRoll(1,20);
+      if (attackRoll > this.monster.armorClass) {
+        let damageRoll = diceRollDMG(this.character.actions[0].damage[0],this.character.actions[0].damage[1],this.character.actions[0].damage[2]);
+        this.monster.healthPoints -= damageRoll;
+        message = `You hit for ${damageRoll}<br>`;
+      } else {
+        message = `You fucked up and missed!<br>`;
+      }
+      return message;
+    }
   }
 }
 

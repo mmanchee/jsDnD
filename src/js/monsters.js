@@ -1,4 +1,5 @@
 import {monsterList} from './monsterList.js';
+import {diceRoll} from './roleFunctions.js';
 
 export class Monster {
   constructor(monsterObject, monsterPic) {
@@ -9,11 +10,9 @@ export class Monster {
     this.armorClass = monsterObject.armor_class; 
     this.actions = monsterObject.actions;
     this.exp = monsterObject.challenge_rating * 12345;
-    this.loot;
+    this.gold = parseInt(monsterObject.challenge_rating) * diceRoll(parseInt(monsterObject.challenge_rating), 100);
     this.img = monsterPic;
   }
-
-  
 }
 
 export function getMonster(challengeRatingMin,challengeRatingMax) {   
