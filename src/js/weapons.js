@@ -43,9 +43,15 @@ export const weaponList = [
   }
 ];
 
-// export function equipWeapon(character) {
-//   character.attack += character.weapon.attack;
-//   character.damage[0] = character.weapon.damage[0];
-//   character.damage[1] = character.weapon.damage[1];
-//   character.damage[2] += character.weapon.damage[2]; 
-// }
+export function equipWeapon(character) {
+  character.attack += character.weapon.attack;
+  character.damage[2] += character.weapon.damage[2];
+}
+
+export function upgradeWeapon(character) {
+  character.attack -= character.weapon.attack;
+  character.damage[2] -= character.weapon.damage[2];
+  character.weapon.attack += 1;
+  character.weapon.damage[2] += 1;
+  equipWeapon(character);
+}

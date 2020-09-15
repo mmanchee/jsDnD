@@ -8,6 +8,8 @@ import {Battle} from './battle.js';
 import {getMonster} from './monsters.js';
 import {getLoot} from './lootTable.js';
 import {equipArmor} from './armors.js';
+import {upgradeWeapon} from './weapons.js';
+import {upgradeArmor} from './armors.js';
 
 function displayStats(battle) {
   $("#goldCount").text(battle.character.money);
@@ -162,19 +164,13 @@ function attachListeners() {
       }
     }
   });
+
   $(`#upgradeWeapon`).on("click", function() {
-    battle.character.attack -= battle.character.weapon.attack;
-    battle.character.damage[2] -= battle.character.weapon.damage[2];
-    battle.character.weapon.attack += 1;
-    battle.character.weapon.damage[2] += 1;
-    battle.character.attack += battle.character.weapon.attack;
-    battle.character.damage[2] += battle.character.weapon.damage[2];
+    upgradeWeapon(battle.character);
   });
-  
+
   $(`#upgradeArmor`).on("click", function() {
-    battle.character.armorClass -= battle.character.armor.armorBonus;
-    battle.character.armor.armorBonus += 1;
-    equipArmor(battle.character);
+    upgradeArmor(battle.character);
   });
 }
 

@@ -88,3 +88,9 @@ export function equipArmor(character) {
     character.armorClass += character.armor.armorBonus;
   }
 }
+
+export function upgradeArmor(character) {
+  character.armorClass -= character.armor.armorBonus;
+  character.armor.armorBonus += 1;
+  equipArmor(character);
+}
