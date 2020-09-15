@@ -8,6 +8,7 @@ import {Battle} from './battle.js';
 import { getMonster } from './monsters.js';
 import {getLoot} from './lootTable.js';
 
+
 function displayStats(battle) {
   $("#player-health").text(battle.character.hp);
   $("#numHealthPot").text(battle.character.inventory[0].healthPotion);
@@ -145,8 +146,13 @@ function attachListeners() {
     }
   });
 
-  $("#start-button").click(function() {
+  $("#start-button").click(function() { // splash transition
     $("#splash").toggle();
+    $("#char-class").toggle();
+  });
+
+  $("#class-barbarian").click(function() {
+    $("#character-image").html(`<img class=display-img src="https://i.pinimg.com/736x/ca/f3/26/caf3269770ab71cf0abd3e85f14aaf86.jpg">`);
   })
 }
 
@@ -157,7 +163,7 @@ $(document).ready(function() {
   $("form#character").submit(function(event) {
     event.preventDefault();
     const name = $(`#name`).val();
-    const charClass = $(`#character-class`).val();
+    const charClass = $("#character-class").val();
     const acBonus = 0;
     const hpBonus = 0;
     const attBonus = 0;
@@ -165,7 +171,8 @@ $(document).ready(function() {
     $("#player-name").text(name);
     $("#player-img").html(`<img class=display-img src=${player.img}>`);
     $("#player-health").text(player.hp);
-    $("#character-creation").hide();
+    $("#intro").hide(); // new
+    $("#explore").show(); //new
     $("#gameplay").show();
     $("#message-board").prepend(`Welcome ${name}, You can start your adventure by exploring and battle monsters.<br>`);
     let buttons = $("#action-buttons");

@@ -20,9 +20,9 @@ h3 {
 }
 
 .btn-lg {
-  position: absolute;
+  position: relative;
   padding: 25px 35px;
-  left: 44%;
+  left: 41%;
   background-color: rgb(148, 179, 11);
   border: solid;
   margin-top: 50px;
@@ -36,6 +36,53 @@ h3 {
 .btn-lg:hover {background-color: rgba(218, 165, 32, 0.557)}
 
 /* Character Creation */
+#char-class {
+  display: none;
+}
+
+label {
+  margin-top: 10px;
+  margin-left: 30%;
+  font-family: 'Uncial Antiqua', cursive;
+  font-size: 35px;
+  color: cornsilk;
+}
+
+input {
+  margin-left: 35%;
+  width: 45%;
+  font-family: 'Uncial Antiqua', cursive;
+  font-size: 35px;
+}
+
+#character-class {
+  margin-top: 50px;
+}
+
+.btn {
+  width: 25%;
+  table-layout: fixed;
+  padding: 10px 35px;
+  background-color: rgb(148, 179, 11);
+  border: solid;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: 'Uncial Antiqua', cursive;
+  font-size: 20px;
+}
+
+.btn:hover {background-color: rgba(218, 165, 32, 0.557)}
+
+
+.btn.btn-success {
+  margin-left: 45%;
+}
+
+#character-image {
+  
+}
+
+
 
 
 #explore {
@@ -70,6 +117,7 @@ h3 {
 }
 
 #message-box {
+  display: none;
   height: 300px;
   width: 500px;
   overflow-y: scroll;

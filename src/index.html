@@ -5,20 +5,46 @@
   <title>Dungeons and Dragons</title>
 </head>
 <body>
-  <!--splash-->
-  <div class="container" id="splash">
-    <div id="welcome">
+      <!--splash-->
+  <div class="container" id="intro">
+    <div id="splash">
       <h3>Welcome to </h3>
       <h1>Our Totally Complete RPG</h1>
       <button type="button" class="btn-lg" id="start-button">Start</button>
     </div>
-  <!--Character Creation-->
-    <div id="char-creation">
-      
+      <!--Character Creation-->  
+    <div id="char-class">
+      <form id="character">
+        <label for="character-name">What is your characters name?</label><br>
+          <input type="text"  class="wide-font set-width" id="name"><br>
+          <div id="character-class">
+            <button type="button" id="class-barbarian" value="barbarian" class="btn">Barbarian</button><br>
+            <button type="button" value="bard" class="btn">Bard</button><br>
+            <button type="button" value="cleric" class="btn">Cleric</button><br>
+            <button type="button" value="druid" class="btn">Druid</button><br>
+            <button type="button" value="fighter" class="btn">fighter</button><br>
+            <button type="button" value="monk" class="btn">Monk</button><br>
+            <button type="button" value="paladin" class="btn">Paladin</button><br>
+            <button type="button" value="ranger" class="btn">Ranger</button><br>
+            <button type="button" value="rogue" class="btn">Rogue</button><br>
+            <button type="button" value="sorcerer" class="btn">Sorcerer</button><br>
+            <button type="button" value="warlock" class="btn">Warlock</button><br>
+            <button type="button" value="wizard" class="btn">Wizard</button><br>
+          </div>  
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-6">
+            <div id="character-image">
+
+            </div>
+          </div>  
+        </div>  
+        <button type="submit" class="btn btn-success" id="submit">Submit</button>
+      </form>
     </div>
   </div>
   <div class="container" id="explore">
-    <div id="character-creation">
+   <!-- <div id="character-creation">
       <form id="character">
         <div class="form-group">
           <div>
@@ -49,6 +75,7 @@
         </div>
         <button type="submit" class="btn btn-success">Submit</button>
       </form>
+      -->
       <!-- <form id="character-points">
         <div class="card">
         </div>

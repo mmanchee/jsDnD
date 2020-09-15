@@ -1,4 +1,4 @@
-class BarbarianCharacter {
+export class BarbarianCharacter {
   constructor(name, armorClass, hpBonus, attBonus){
     this.name = name;
     this.maxHP = 12;
