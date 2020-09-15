@@ -162,8 +162,14 @@ function attachListeners() {
     }
   });
   $(`#upgradeWeapon`).on("click", function() {
+    battle.character.attack -= battle.character.weapon.attack;
+    battle.character.damage[2] -= battle.character.weapon.damage[2];
     battle.character.weapon.attack += 1;
+    battle.character.weapon.damage[2] += 1;
+    battle.character.attack += battle.character.weapon.attack;
+    battle.character.damage[2] += battle.character.weapon.damage[2];
   });
+  
   $(`#upgradeArmor`).on("click", function() {
     battle.character.armor.armorBonus += 1;
   });

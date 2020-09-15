@@ -2,43 +2,50 @@ export const weaponList = [
   {
     name: "Great Axe",
     attack: 0,
-    damage: [1,12],
+    damage: [1,12,0],
     hands: 2
   },
   {
     name: "Dagger",
     attack: 0,
-    damage: [1,4],
+    damage: [1,4,0],
     hands: 1
   },
   {
     name: "Mace",
     attack: 0,
-    damage: [1,6],
+    damage: [1,6,0],
     hands: 1
   },
   {
     name: "Long Sword",
     attack: 0,
-    damage: [1,8],
+    damage: [1,8,0],
     hands: 1
   },
   {
     name: "Short Sword",
     attack: 0,
-    damage: [1,6],
+    damage: [1,6,0],
     hands: 1
   },
   {
     name: "Quarterstaff",
     attack: 0,
-    damage: [1,6],
+    damage: [1,6,0],
     hands: 2
   },
   {
     name: "Bow",
     attack: 0,
-    damage: [1,8],
+    damage: [1,8,0],
     hands: 2
   }
-]
+];
+
+// export function equipWeapon(character) {
+//   character.attack += character.weapon.attack;
+//   character.damage[0] = character.weapon.damage[0];
+//   character.damage[1] = character.weapon.damage[1];
+//   character.damage[2] += character.weapon.damage[2]; 
+// }

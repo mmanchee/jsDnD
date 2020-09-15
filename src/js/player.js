@@ -1,3 +1,6 @@
+// import { weaponList } from "./weapons";
+// import {equipWeapon} from './weaponList.js';
+
 class BarbarianCharacter {
   constructor(name, armorClass, hpBonus, attBonus){
     this.name = name;
@@ -5,15 +8,15 @@ class BarbarianCharacter {
     this.hp = 12 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1, 12];
-    this.actions = [{name: "Rage Attack", attack: 1, damage: [2,12], limit: 5}];
+    this.damage = [1,12,attBonus];
+    this.actions = [{name: "Rage Attack", attack: 1, damage: [2,12,0], limit: 5}];
     this.lvl = 1;
     this.exp = 0;
     this.money = 100;
     this.weapon = {
       name: "Great Axe",
       attack: 0,
-      damage: [1,12],
+      damage: [1,12,0],
       hands: 2
     };
     this.armor = {
@@ -33,15 +36,15 @@ class BardCharacter {
     this.hp = 8 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1, 6];
-    this.actions = [{name: "Seduce", attack: 1, damage: [1,200]}];
+    this.damage = [1,6,0];
+    this.actions = [{name: "Seduce", attack: 1, damage: [1,200,0]}];
     this.lvl = 1;
     this.exp = 0;
     this.money = 100;
     this.weapon = {
       name: "Short Sword",
       attack: 0,
-      damage: [1,6],
+      damage: [1,6,0],
       hands: 1
     };
     this.armor = {
@@ -61,15 +64,15 @@ class ClericCharacter {
     this.hp = 8 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1, 6];
-    this.actions = [{name: "Turn Undead", attack: 8, damage: [2,10]}];
+    this.damage = [1,6,0];
+    this.actions = [{name: "Turn Undead", attack: 8, damage: [2,10,0]}];
     this.lvl = 1;
     this.exp = 0;
     this.money = 100;
     this.weapon = {
       name: "Mace",
       attack: 0,
-      damage: [1,6],
+      damage: [1,6,0],
       hands: 1
     };
     this.armor = {
@@ -89,15 +92,15 @@ class DruidCharacter {
     this.hp = 8 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1, 4];
-    this.actions = [{name: "Summon Bear", attack: 3, damage: [2,20]}];
+    this.damage = [1,6,0];
+    this.actions = [{name: "Summon Bear", attack: 3, damage: [2,20,0]}];
     this.lvl = 1;
     this.exp = 0;
     this.money = 100;
     this.weapon = {
       name: "Quarterstaff",
       attack: 0,
-      damage: [1,6],
+      damage: [1,6,0],
       hands: 2
     };
     this.armor = {
@@ -117,15 +120,15 @@ class FighterCharacter {
     this.hp = 10 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1, 8];
-    this.actions = [{name: "Flail Wildly", attack:8, damage: [2,12]}];
+    this.damage = [1,8,0];
+    this.actions = [{name: "Flail Wildly", attack:8, damage: [2,12,0]}];
     this.lvl = 1;
     this.exp = 0;
     this.money = 100;
     this.weapon = {
       name: "Long Sword",
       attack: 0,
-      damage: [1,8],
+      damage: [1,8,0],
       hands: 1
     };
     this.armor = {
@@ -145,15 +148,15 @@ class MonkCharacter {
     this.hp = 8 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1, 4];
-    this.actions = [{name: "Judo Chop", attack: 9999, damage: [1,2]}];
+    this.damage = [1,6,0];
+    this.actions = [{name: "Judo Chop", attack: 9999, damage: [1,4,0]}];
     this.lvl = 1;
     this.exp = 0;
     this.money = 100;
     this.weapon = {
       name: "Quarterstaff",
       attack: 0,
-      damage: [1,6],
+      damage: [1,6,0],
       hands: 2
     };
     this.armor = {
@@ -173,15 +176,15 @@ class PaladinCharacter {
     this.hp = 10 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1, 6];
-    this.actions = [{name: "Smite", attack: 3, damage: [2,20]}];
+    this.damage = [1,6,0];
+    this.actions = [{name: "Smite", attack: 3, damage: [2,20,0]}];
     this.lvl = 1;
     this.exp = 0;
     this.money = 100;
     this.weapon = {
       name: "Short Sword",
       attack: 0,
-      damage: [1,6],
+      damage: [1,6,0],
       hands: 1
     };
     this.armor = {
@@ -201,15 +204,15 @@ class RangerCharacter {
     this.hp = 10 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1, 6];
-    this.actions = [{name: "Rapid Fire", attack: 4, damage: [2,16]}];
+    this.damage = [1,8,0];
+    this.actions = [{name: "Rapid Fire", attack: 4, damage: [2,16,0]}];
     this.lvl = 1;
     this.exp = 0;
     this.money = 100;
     this.weapon = {
       name: "Bow",
       attack: 0,
-      damage: [1,8],
+      damage: [1,8,0],
       hands: 2
     };
     this.armor = {
@@ -229,15 +232,15 @@ class RogueCharacter {
     this.hp = 8 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1, 4];
-    this.actions = [{name: "Sneak Attack", attack: 2, damage: [4,6]}];
+    this.damage = [1,4,0];
+    this.actions = [{name: "Sneak Attack", attack: 2, damage: [4,6,0]}];
     this.lvl = 1;
     this.exp = 0;
     this.money = 100;
     this.weapon = {
       name: "Dagger",
       attack: 0,
-      damage: [1,4],
+      damage: [1,4,0],
       hands: 1
     };
     this.armor = {
@@ -256,16 +259,16 @@ class SorcererCharacter {
     this.maxHP = 6;
     this.hp = 6 + hpBonus;
     this.armorClass = armorClass;
-    this.attack = 30 + attBonus;
-    this.damage = [1, 4];
-    this.actions = [{name: "Scorn of Force", attack: 9999, damage: [3,12], limit: 3}];
+    this.attack = attBonus;
+    this.damage = [1,6,0];
+    this.actions = [{name: "Scorn of Force", attack: 9999, damage: [3,12,0], limit: 3}];
     this.lvl = 1;
     this.exp = 0;
     this.money = 100;
     this.weapon = {
       name: "Quarterstaff",
       attack: 0,
-      damage: [1,6],
+      damage: [1,6,0],
       hands: 2
     };
     this.armor = {
@@ -284,16 +287,16 @@ class WarlockCharacter {
     this.maxHP = 8;
     this.hp = 8 + hpBonus;
     this.armorClass = armorClass;
-    this.attack = 30 + attBonus;
-    this.damage = [1, 4];
-    this.actions = [{name: "Eldritch Blast", attack: 9999, damage: [8,4], limit: 3}];
+    this.attack = attBonus;
+    this.damage = [1,6,0];
+    this.actions = [{name: "Eldritch Blast", attack: 9999, damage: [8,4,0], limit: 3}];
     this.lvl = 1;
     this.exp = 0;
     this.money = 100;
     this.weapon = {
       name: "Quarterstaff",
       attack: 0,
-      damage: [1,6],
+      damage: [1,6,0],
       hands: 2
     };
     this.armor = {
@@ -312,16 +315,16 @@ class WizardCharacter {
     this.maxHP = 6;
     this.hp = 6 + hpBonus;
     this.armorClass = armorClass;
-    this.attack = 30 + attBonus;
-    this.damage = [1, 4];
-    this.actions = [{name: "Fireball", attack: 9999, damage: [5,6], limit: 3}];
+    this.attack = attBonus;
+    this.damage = [1,6,0];
+    this.actions = [{name: "Fireball", attack: 9999, damage: [5,6,0], limit: 3}];
     this.lvl = 1;
     this.exp = 0;
     this.money = 100;
     this.weapon = {
       name: "Quarterstaff",
       attack: 0,
-      damage: [1,6],
+      damage: [1,6,0],
       hands: 2
     };
     this.armor = {
