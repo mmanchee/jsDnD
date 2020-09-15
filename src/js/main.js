@@ -36,15 +36,23 @@ function displayStats(battle) {
 
 function charStatListeners() {
   $('#bonus-points').text(statRoll());
+  $("input[name='strength']").val(10);
+  $("input[name='dexterity']").val(10);
+  $("input[name='intelligence']").val(10);
+  $("input[name='wisdom']").val(10);
+  $("input[name='charisma']").val(10);
+  $("input[name='constitution']").val(10);
   $('.stat-plus').click(function(event) {
     event.preventDefault();
     let fieldName = $(this).attr('field');
     let currentVal = parseInt($(`input[name=${fieldName}]`).val());
     if (!isNaN(currentVal) && currentVal >= 8 && currentVal < 18) {
       let bp = parseInt($('#bonus-points').text());
-      if (bp >= 1) {
+      let check = 0;
+      currentVal > 13 ? currentVal > 15 ? check = 3 : check = 2 : check = 1;
+      if (bp >= check) {
         $(`input[name=${fieldName}]`).val(currentVal + 1);
-        $('#bonus-points').text(bp - 1);
+        $('#bonus-points').text(bp - check);
       }
     } else if (currentVal === 18) {
       false;
@@ -57,9 +65,11 @@ function charStatListeners() {
     let fieldName = $(this).attr('field');
     let currentVal = parseInt($(`input[name=${fieldName}]`).val());
     if (!isNaN(currentVal) && currentVal > 8) {
+      let check = 0;
+      currentVal > 14 ? currentVal > 16 ? check = 3 : check = 2 : check = 1;
       let bp = parseInt($('#bonus-points').text());
       $(`input[name=${fieldName}]`).val(currentVal - 1);
-      $('#bonus-points').text(bp + 1);
+      $('#bonus-points').text(bp + check);
     } else {
       $(`input[name=${fieldName}]`).val(8);
     }
