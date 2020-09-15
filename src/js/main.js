@@ -144,6 +144,10 @@ function attachListeners() {
       }
     }
   });
+
+  $("#start-button").click(function() {
+    $("#splash").toggle();
+  })
 }
 
 let player;

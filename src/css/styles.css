@@ -1,3 +1,49 @@
+/* Splash */
+body {
+background-image: url('../assets/img/splash2.jpg');
+}
+
+h1 {
+  text-align: center;
+  color:cornsilk;
+  font-family: 'Uncial Antiqua', cursive;
+  font-size: 80px;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+h3 {
+  margin-top: 15%;
+  text-align: center;
+  color: cornsilk;
+  font-family: 'Uncial Antiqua', cursive;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+.btn-lg {
+  position: absolute;
+  padding: 25px 35px;
+  left: 44%;
+  background-color: rgb(148, 179, 11);
+  border: solid;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-family: 'Uncial Antiqua', cursive;
+  font-size: 40px;
+  border-radius: 15px;
+  box-shadow: 1px 2px rgb(40, 39, 39);
+}
+
+.btn-lg:hover {background-color: rgba(218, 165, 32, 0.557)}
+
+/* Character Creation */
+
+
+#explore {
+  display: none;
+}
+
+
+
 .align-item {
   align-items: center;
   justify-content: center;
