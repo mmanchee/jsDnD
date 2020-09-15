@@ -178,9 +178,9 @@ $(document).ready(function() {
     buttons.empty();
     player.actions.forEach(function(action) {
       if (!action.limit) {
-        buttons.append(`<button class="btn btn-info col-4 m-3" id='second-attack'>${action.name} </button>`);
+        buttons.append(`<button class="btn btn-info" id='second-attack'>${action.name}</button>`);
       } else {
-        buttons.append(`<button class="btn btn-info col-4 m-3" id='second-attack'>${action.name} X<span id='action-limit'>${action.limit}</span></button>`);
+        buttons.append(`<button class="btn btn-info" id='second-attack'>${action.name} (X<span id='action-limit'>${action.limit}</span>)</button>`);
       }
     });
   });
