@@ -67,6 +67,24 @@ export const armorList = [
   {
     name: "Shield",
     armorBonus: 2,
-    type: "sheild"
+    type: "shield"
   },
-]
+];
+
+export function equipArmor(character) {
+  if (character.armor.type === "heavy") {
+    if (character.armorClass < 0) {
+      character.armorClass += character.armor.armorBonus;
+    } else {
+      character.armorClass = character.armor.armorBonus;
+    }
+  } else if (character.armor.type === "medium") {
+    if (character.armorClass <= 2) {
+      character.armorClass += character.armor.armorBonus;
+    } else {
+      character.armorClass = character.armor.armorBonus + 2;
+    }
+  } else if (character.armor.type === "light") {
+    character.armorClass += character.armor.armorBonus;
+  }
+}

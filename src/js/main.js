@@ -7,6 +7,7 @@ import {Monster} from './monsters.js';
 import {Battle} from './battle.js';
 import {getMonster} from './monsters.js';
 import {getLoot} from './lootTable.js';
+import {equipArmor} from './armors.js';
 
 function displayStats(battle) {
   $("#goldCount").text(battle.character.money);
@@ -171,7 +172,9 @@ function attachListeners() {
   });
   
   $(`#upgradeArmor`).on("click", function() {
+    battle.character.armorClass -= battle.character.armor.armorBonus;
     battle.character.armor.armorBonus += 1;
+    equipArmor(battle.character);
   });
 }
 
@@ -187,6 +190,7 @@ $(document).ready(function() {
     const hpBonus = 0;
     const attBonus = 0;
     player = getCharacter(name, charClass, acBonus, hpBonus, attBonus);
+    equipArmor(player);
     $("#player-name").text(name);
     $("#player-img").html(`<img class=display-img src=${player.img}>`);
     $("#player-health").text(player.hp);
