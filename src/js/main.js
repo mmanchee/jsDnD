@@ -161,6 +161,9 @@ function attachListeners() {
       }
     }
   });
+  $("#icon-journal").on("click", function() {
+    $("#character-menu").show();
+  })
 }
 
 let player;

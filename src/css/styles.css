@@ -34,3 +34,29 @@
 #message-board {
   margin: 5%;
 }
+
+#icon-journal {
+  height: 100%;
+  width: 40px;
+  float: right;
+}
+
+#nav-main {
+  height: 60px;
+  border: 1px lightgray solid;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 5px;
+}
+
+#character-menu {
+  display: none;
+  border: 1px lightgray solid;
+  margin-bottom: 30px;
+}
+
+.menu-option {
+  margin: 5px;
+  border: 1px lightgray solid;
+  padding: 5px;
+}
