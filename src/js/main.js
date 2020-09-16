@@ -1,4 +1,4 @@
-import $ from 'jquery';
+import $ from 'jquery'; 
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './../css/styles.css';
@@ -18,6 +18,7 @@ import {displayMonsterHealth} from './monsters.js';
 import { addExp } from './roleFunctions.js';
 import { updatePlayer } from './charSheetBack.js';
 // import {MonstersURLPIC} from './monsters.js';
+import {menuCamp} from './menu.js';
 
 let player;
 
@@ -329,25 +330,33 @@ function classListener() {
     $("#character-display").html(`<img class=display-img src=${imageArray[arrayPlace]}>`);
   });
   // Nav Menu Listeners
-  $("#icon-journal").on("click", function() {
-    $("#character-menu").toggle();
+  $("#icon-menu").on("click", function() {
+    $("#character-menu").show();
   });
   $("#menu-option-travel").on("click", function() {
-    $("#character-menu").toggle();
-
+    $("#character-settings").hide();
+    $("#character-menu").hide();
   });
   $("#menu-option-character").on("click", function() {
-    $("#character-menu").toggle();
+    $("#character-menu").hide();
+    $("#settings-character-name").text(player.name);
+    $("#settings-character-level").text("1");
+    $("#settings-character-class").text(player.charClass);
+    $("#character-settings").show();
 
   });
   $("#menu-option-town").on("click", function() {
-    $("#character-menu").toggle();
+    $("#character-settings").hide();
+    $("#character-menu").hide();
 
   });
   $("#menu-option-camp").on("click", function() {
-    $("#character-menu").toggle();
+    $("#character-settings").hide();
+    $("#character-menu").hide();
+    let message = menuCamp(player);
+    $("#message-board").prepend(message);
   });
-}
+};
 
 function charSheetListener() {
   $("#character-sheet").on('click', function() {
