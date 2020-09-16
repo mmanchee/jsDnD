@@ -154,33 +154,44 @@ label {
   margin: 5%;
 }
 
+/*    Menu    */
 
-#icon-journal {
-  height: 100%;
-  width: 40px;
-  float: right;
+#icon-menu { 
+  width: 200px;
 }
 
 #nav-main {
   display: none;
-  height: 60px;
-  border: 1px lightgray solid;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  border-radius: 10px;
+  border: 3px black solid;
   padding: 5px;
 }
 
 #character-menu {
   display: none;
-  border: 1px lightgray solid;
+  border: 3px black solid;
+  border-radius: 10px;
   margin-bottom: 30px;
+  margin-top: 30px;
 }
 
 .menu-option {
   margin: 10px;
-  border: 1px lightgray solid;
+  border: 3px black solid;
+  border-radius: 10px;
   padding: 5px;
 }
+
+#character-settings {
+  display: none;
+  border: 3px black solid;
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/*     ~      */
+
 .card-img-overlay {
   background-image: url(https://i.pinimg.com/originals/84/c3/28/84c32877e97de90347c4847034be496c.jpg);
   background-size: 100% 100%;

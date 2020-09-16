@@ -231,22 +231,28 @@ function classListener() {
     $("#character-display").html(`<img class=display-img src=${imageArray[arrayPlace]}>`);
   });
   // Nav Menu Listeners
-  $("#icon-journal").on("click", function() {
+  $("#icon-menu").on("click", function() {
     $("#character-menu").show();
   });
   $("#menu-option-travel").on("click", function() {
+    $("#character-settings").hide();
     $("#character-menu").hide();
-
   });
   $("#menu-option-character").on("click", function() {
     $("#character-menu").hide();
+    $("#settings-character-name").text(player.name);
+    $("#settings-character-level").text("1");
+    $("#settings-character-class").text(player.charClass);
+    $("#character-settings").show();
 
   });
   $("#menu-option-town").on("click", function() {
+    $("#character-settings").hide();
     $("#character-menu").hide();
 
   });
   $("#menu-option-camp").on("click", function() {
+    $("#character-settings").hide();
     $("#character-menu").hide();
     let message = menuCamp(player);
     $("#message-board").prepend(message);
