@@ -136,7 +136,7 @@ label {
   width: 500px;
 }
 
-#battle-buttons, #gameplay, #start-over, #char-class, #char-stats, #explore, #townMap {
+#battle-buttons, #gameplay, #start-over, #char-class, #char-stats, #explore, #townMap, #character-sheet {
   display: none;
 }
 

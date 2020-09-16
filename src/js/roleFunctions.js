@@ -39,7 +39,7 @@ export function diceRollDMG(num, side, mod) {      // diceRoll(1, 6);
 
 export function addExp(player, monXP) {
   player.exp += monXP;
-  newPlayer = checkPoints(player);
+  let newPlayer = checkPoints(player);
   return newPlayer;
 }
 

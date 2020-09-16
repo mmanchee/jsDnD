@@ -14,7 +14,8 @@ import {upgradeWeapon} from './weapons.js';
 import {upgradeArmor} from './armors.js';
 import { CharacterStats } from './player.js';
 import {displayMonsterHealth} from './monsters.js';
-import { addExp } from './roleFunction.js';
+import { addExp } from './roleFunctions.js';
+import { updatePlayer } from './charSheetBack.js';
 // import {MonstersURLPIC} from './monsters.js';
 
 let player;
@@ -162,11 +163,11 @@ function attachListeners() {
       $("#show-town").toggle();
       if (turn === 0) {
         $("#message-board").prepend(`You beat the ${battle.monster.name}<br>`);
-          message = battle.getMoney();
-          message += "<br>";
-          message += getLoot(monster.challengeRating, player);
-          $("#message-board").prepend(message);
-          player = addExp(player, monster.exp);
+        message = battle.getMoney();
+        message += "<br>";
+        message += getLoot(monster.challengeRating, player);
+        $("#message-board").prepend(message);
+        player = addExp(player, monster.exp);
       } else {
         $("#message-board").prepend(`The ${battle.monster.name} has defeated you!<br>`);  // return to character creation?
         $("#player-img").html("<img class=player-img src=https://www.pngitem.com/pimgs/m/23-238931_skull-logo-free-skull-and-cross-bones-svg.png>");
@@ -281,43 +282,37 @@ function classListener() {
   });
 }
 
-// function charSheetListener() {
-//   $("#cs-player-img").html(player.img);
-//   $("#cs-name").html(player.name);
-//   $("#cs-class").html(player.playerClass);
-//   $("#cs-level").html(player.lvl);
-//   $("#cs-exp").html(player.exp);
-//   $("#cs-hp").html(player.hp);
-//   $("#cs-hp-max").html(player.maxHP);
-//   $("#cs-bonus-points").html(player.img);
-//   $("#cs-weapon-bonus").html(player.weapon.level);
-//   $("#cs-armor-bonus").html(player.armor.level);
-//   $("#cs-health-potions").html(player.inventory[0].healthPotion);
-//   $("#cs-str-stat").html(player.charStats.strength);
-//   $("#cs-dex-stat").html(player.charStats.dexterity);
-//   $("#cs-int-stat").html(player.charStats.intelligence);
-//   $("#cs-wis-stat").html(player.charStats.wisdom);
-//   $("#cs-cha-stat").html(player.charStats.charisma);
-//   $("#cs-con-stat").html(player.charStats.constitution);
-// }
-
-function checkPoints() {
-  let exp = player.exp;
-  let lvl = player.lvl;
-  let newLvl = 0;
-  let expArray = [300,900,2700,6500,14000,23000,34000,48000,64000,85000,100000,120000,140000,165000,195000,225000,265000,305000,355000];
-  let levelArray = [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
-  for (let i = 0; i < expArray; i++) {
-    if (expArray[i] > exp) {
-      newLvl = levelArray[i];
-    }
-  }
-  newLvl++;
-  if (newLvl > lvl) {
-    let dif = newLvl - lvl;
-    player.lvl = newLvl;
-    player.bonusPoints += dif;
-  }
+function charSheetListener() {
+  $("#character-sheet").on('click', function() {
+    $("#cs-player-img").html(player.img);
+    $("#cs-name").html(player.name);
+    $("#cs-class").html(player.playerClass);
+    $("#cs-level").html(player.lvl);
+    $("#cs-exp").html(player.exp);
+    $("#cs-hp").html(player.hp);
+    $("#cs-hp-max").html(player.maxHP);
+    $("#cs-bonus-points").html(player.bonusPoints);
+    $("#cs-weapon-bonus").html(player.weapon.level);
+    $("#cs-armor-bonus").html(player.armor.level);
+    $("#cs-health-potions").html(player.inventory[0].healthPotion);
+    $("#cs-gold").html(player.money);
+    $("#cs-str-stat").html(player.charStats.strength);
+    $("#cs-dex-stat").html(player.charStats.dexterity);
+    $("#cs-int-stat").html(player.charStats.intelligence);
+    $("#cs-wis-stat").html(player.charStats.wisdom);
+    $("#cs-cha-stat").html(player.charStats.charisma);
+    $("#cs-con-stat").html(player.charStats.constitution);
+  });
+  $("#confirm-upgrade").on('click', function() {
+    let strength = $("#cs-str-stat").val();
+    let dexterity = $("#cs-dex-stat").val();
+    let intelligence = $("#cs-int-stat").val();
+    let wisdom = $("#cs-wis-stat").val();
+    let charisma = $("#cs-cha-stat").val();
+    let constitution = $("#cs-con-stat").val();
+    let bonusPoints = $("#cs-bonus-points").val();
+    player = updatePlayer(strength,dexterity,intelligence,wisdom,charisma,constitution,bonusPoints, player);
+  });
 }
 
 
@@ -325,7 +320,7 @@ $(document).ready(function() {
   charStatListeners();
   attachListeners();
   classListener();
-  // charSheetListener();
+  charSheetListener();
   $("#start-button").click(function() { // splash transition
     $("#splash").toggle();
     $("#char-class").toggle();
