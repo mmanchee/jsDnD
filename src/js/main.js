@@ -259,11 +259,11 @@ $(document).ready(function() {
     $("#splash").toggle();
     $("#char-class").toggle();
   });
-  $("#confirm-class").click(function() {
+  $("#confirm-class").click(function() { // character class transition
     $("#char-class").toggle();
     $("#char-stats").toggle();
   });
-  $("#confirm-stats").click(function(event) {
+  $("#confirm-stats").click(function(event) { // character stats transition
     event.preventDefault();
     $("#char-stats").toggle();
     const name = $(`#name`).val();

@@ -26,7 +26,7 @@ class BarbarianCharacter {
       type: "medium"
     };
     this.inventory = [{healthPotion: 1}];
-    this.img = "https://i.pinimg.com/736x/ca/f3/26/caf3269770ab71cf0abd3e85f14aaf86.jpg";
+    this.img = imageArray[0];
   }
 }
 
@@ -55,7 +55,7 @@ class BardCharacter {
       type: "light"
     };
     this.inventory = [{healthPotion: 1}];
-    this.img = "https://i.pinimg.com/originals/b7/0e/d6/b70ed6eea7b09eea2d6612ddd099f188.png";
+    this.img = imageArray[1];
   }
 }
 
@@ -84,7 +84,7 @@ class ClericCharacter {
       type: "medium"
     };
     this.inventory = [{healthPotion: 1}];
-    this.img = "https://oldschoolroleplaying.com/wp-content/uploads/2019/05/Cleric-Two.jpg";
+    this.img = imageArray[2];
   }
 }
 
@@ -113,7 +113,7 @@ class DruidCharacter {
       type: "medium"
     };
     this.inventory = [{healthPotion: 1}];
-    this.img = "https://i2.wp.com/nerdarchy.com/wp-content/uploads/2015/11/PZO1121-ElfDruid.jpg?resize=774%2C1000&ssl=1";
+    this.img = imageArray[3];
   }
 }
 
@@ -142,7 +142,7 @@ class FighterCharacter {
       type: "medium"
     };
     this.inventory = [{healthPotion: 1}];
-    this.img = "https://vignette.wikia.nocookie.net/eladriells-dd/images/f/f4/Fighter.jpg/revision/latest?cb=20190324022153";
+    this.img = imageArray[4];
   }
 }
 
@@ -171,7 +171,7 @@ class MonkCharacter {
       type: "light"
     };
     this.inventory = [{healthPotion: 1}];
-    this.img = "https://oldschoolroleplaying.com/wp-content/uploads/2019/03/monk-five.jpg";
+    this.img = imageArray[5];
   }
 }
 
@@ -200,7 +200,7 @@ class PaladinCharacter {
       type: "medium"
     };
     this.inventory = [{healthPotion: 1}];
-    this.img = "https://oldschoolroleplaying.com/wp-content/uploads/2019/03/Paladin-Two-569x1024.png";
+    this.img = imageArray[6];
   }
 }
 
@@ -229,7 +229,7 @@ class RangerCharacter {
       type: "medium"
     };
     this.inventory = [{healthPotion: 1}];
-    this.img = "https://oldschoolroleplaying.com/wp-content/uploads/2019/04/ranger-two.jpg";
+    this.img = imageArray[7];
   }
 }
 
@@ -258,7 +258,7 @@ class RogueCharacter {
       type: "light"
     };
     this.inventory = [{healthPotion: 1}];
-    this.img = "https://i.pinimg.com/originals/21/2d/71/212d710a1ce457d541cfaa5345534851.png";
+    this.img = imageArray[8];
   }
 }
 
@@ -287,7 +287,7 @@ class SorcererCharacter {
       type: "light"
     };
     this.inventory = [{healthPotion: 1}];
-    this.img = "https://i.pinimg.com/originals/b1/ce/a3/b1cea385f37b7c271c18da08b0bf574e.png";
+    this.img = imageArray[9];
   }
 }
 
@@ -316,7 +316,7 @@ class WarlockCharacter {
       type: "light"
     };
     this.inventory = [{healthPotion: 1}];
-    this.img = "https://wizardofthetavern.com/wp-content/uploads/2019/05/warlock.jpg";
+    this.img = imageArray[10];
   }
 }
 
@@ -345,7 +345,7 @@ class WizardCharacter {
       type: "light"
     };
     this.inventory = [{healthPotion: 1}];
-    this.img = "https://i.pinimg.com/originals/54/5e/cb/545ecb06834f6fe5afd5faebcae19a5a.png";
+    this.img = imageArray[11];
   }
 }
 
@@ -429,11 +429,32 @@ export function getCharacter(name, charClass, statClass) {
   return character;
 }
 
-export let imageArray = ["https://i.pinimg.com/736x/ca/f3/26/caf3269770ab71cf0abd3e85f14aaf86.jpg", "https://i.pinimg.com/originals/b7/0e/d6/b70ed6eea7b09eea2d6612ddd099f188.png", 
-  "https://oldschoolroleplaying.com/wp-content/uploads/2019/05/Cleric-Two.jpg", "https://i2.wp.com/nerdarchy.com/wp-content/uploads/2015/11/PZO1121-ElfDruid.jpg?resize=774%2C1000&ssl=1", 
-  "https://vignette.wikia.nocookie.net/eladriells-dd/images/f/f4/Fighter.jpg/revision/latest?cb=20190324022153", "https://oldschoolroleplaying.com/wp-content/uploads/2019/03/monk-five.jpg", 
-  "https://oldschoolroleplaying.com/wp-content/uploads/2019/03/Paladin-Two-569x1024.png", "https://oldschoolroleplaying.com/wp-content/uploads/2019/04/ranger-two.jpg", 
-  "https://i.pinimg.com/originals/21/2d/71/212d710a1ce457d541cfaa5345534851.png", "https://i.pinimg.com/originals/b1/ce/a3/b1cea385f37b7c271c18da08b0bf574e.png", 
-  "https://wizardofthetavern.com/wp-content/uploads/2019/05/warlock.jpg", "https://i.pinimg.com/originals/54/5e/cb/545ecb06834f6fe5afd5faebcae19a5a.png"];
+export let imageArray = [
+  "https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/342/420/618/636272680339895080.png", 
+  "https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/369/420/618/636272705936709430.png", 
+  "http://howreroll.com/wp-content/uploads/2015/10/radovan.png", 
+  "https://www.arcanewonders.com/wp-content/uploads/2018/10/Druid.png", 
+  "https://i.imgur.com/ByV5Mul.png", 
+  "https://i.pinimg.com/originals/6e/ce/fb/6ecefb67d6d50d94f49902b7e7e5848b.png", 
+  "https://i2.wp.com/nerdarchy.com/wp-content/uploads/2016/03/Heroes-VI-Paladin-Haven-Hero.png", 
+  "https://i.pinimg.com/originals/12/c7/b6/12c7b6b6da8bf3bcaec746e2d6cc975a.png", 
+  "https://i0.wp.com/nerdarchy.com/wp-content/uploads/2018/04/rogue.png", 
+  "https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/485/420/618/636274643818663058.png", 
+  "https://vignette.wikia.nocookie.net/forgottenrealms/images/9/9c/Sword_Coast_Legends_-_Companion_-_Hommet_Shaw.png", 
+  "https://i.pinimg.com/originals/22/b0/d1/22b0d1edb14d2c4a4b629afcfae0d4ed.png"
+];
 
 export let descriptionArray = [];
+
+// "https://i.pinimg.com/736x/ca/f3/26/caf3269770ab71cf0abd3e85f14aaf86.jpg", 
+//   "https://i.pinimg.com/originals/b7/0e/d6/b70ed6eea7b09eea2d6612ddd099f188.png", 
+//   "https://oldschoolroleplaying.com/wp-content/uploads/2019/05/Cleric-Two.jpg", 
+//   "https://i2.wp.com/nerdarchy.com/wp-content/uploads/2015/11/PZO1121-ElfDruid.jpg?resize=774%2C1000&ssl=1", 
+//   "https://vignette.wikia.nocookie.net/eladriells-dd/images/f/f4/Fighter.jpg/revision/latest?cb=20190324022153", 
+//   "https://oldschoolroleplaying.com/wp-content/uploads/2019/03/monk-five.jpg", 
+//   "https://oldschoolroleplaying.com/wp-content/uploads/2019/03/Paladin-Two-569x1024.png", 
+//   "https://oldschoolroleplaying.com/wp-content/uploads/2019/04/ranger-two.jpg", 
+//   "https://i.pinimg.com/originals/21/2d/71/212d710a1ce457d541cfaa5345534851.png", 
+//   "https://i.pinimg.com/originals/b1/ce/a3/b1cea385f37b7c271c18da08b0bf574e.png", 
+//   "https://wizardofthetavern.com/wp-content/uploads/2019/05/warlock.jpg", 
+//   "https://i.pinimg.com/originals/54/5e/cb/545ecb06834f6fe5afd5faebcae19a5a.png"
