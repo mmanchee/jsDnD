@@ -141,6 +141,7 @@ label {
 }
 
 #message-box {
+  background-color: black;
   display: none;
   height: 300px;
   width: 500px;
@@ -187,4 +188,44 @@ label {
 
 #townMap {
   height: 900px;
+}
+
+#townMap {
+  height: 900px;
+}
+
+#shopButtons .btn {
+  color: white;
+}
+
+#weaponry .btn {
+  position: absolute;
+  top: 38%;
+  left: 55%;
+  font-weight: bold;
+  width: 110px;
+}
+
+#armory .btn {
+  position: absolute;
+  font-weight: bold;
+  width: 110px;
+  top: 51%;
+  left: 15%;
+}
+
+#alchemist .btn {
+  position: absolute;
+  font-weight: bold;
+  width: 110px;
+  top: 28%;
+  left: 28%;
+}
+
+#inn .btn {
+  position: absolute;
+  font-weight: bold;
+  width: 110px;
+  top: 60%;
+  left: 58%;
 }

@@ -133,15 +133,13 @@
     <div id="explore">
       <div id="gameplay">
         <div class="row mt-5">
-          <!-- <div class="col-2">
-            <button type="button" class="btn btn-info col-4 m-3" id="inventory">Inventory</button>
-          </div> -->
           <div class="col-5">
             <div class="card align-item box-size">
               <h2><span id="player-name"></span></h2>
               <div id="player-img"></div>
               <p>Health: <span id="player-health"></span> Gold: <span id="goldCount"></span></p>
-              <button type="button" class="btn btn-warning" id="explore">Explore</button>
+              <button type="button" class="btn btn-warning" id="explore-button">Explore</button>
+              <button type="button" class="btn btn-warning" id="show-town">Go to Town</button>
               <button type="button" onclick="window.location.reload()" id="start-over">Start Again</button>
             </div>
             <div class="mt-3" id="battle-buttons">
@@ -162,23 +160,36 @@
           </div>
         </div>
       </div>
-      <div class="card align-items-start"id="message-box">
-        <div id="message-board">
-    
-        </div>
-        <div id=townMap>
-          <div class="row">
-            <div class="card" style="width: 1200px; height: 800px">
-              <div class="card-img-overlay">
-                
+      <div class="card align-items-start" id="message-box">
+        <div id="message-board"></div>
+      </div>
+      <div id="townMap">
+        <div class="row">
+          <div class="card" style="width: 1200px; height: 800px">
+            <div class="card-img-overlay">
+              <div id="shopButtons">
+                <div id="weaponry">
+                  <button class="btn bg-transparent">Bloodbath & Beyond</button>
+                </div>
+                <div id="armory">
+                  <button class="btn bg-transparent">Gnome Depot</button>
+                </div>
+                <div id="alchemist">
+                  <button class="btn bg-transparent">Victorious Secret</button>
+                </div>
+                <div id="inn">
+                <button class="btn bg-transparent">The Gobble Inn</button>
+                </div>
               </div>
             </div>
           </div>
-          <button type="button" class="btn btn-info col-4 m-3" id="show-gameplay">Go Explore</button>
         </div>
+        <button type="button" class="btn btn-info col-4 m-3" id="show-gameplay">Go Explore</button>
+      </div>
       <div id="gameover"></div>
       <div id="test"></div>
     </div>
+    <div id="#error"></div>
   </div>
 </body>
 </html>

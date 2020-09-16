@@ -85,7 +85,7 @@ function charStatListeners() {
 function attachListeners() {
   let monster;
   let battle;
-  $("button#explore").on("click", function() {
+  $("button#explore-button").on("click", function() {
     let chosenMonsterURLPIC = getMonster(player.lvl-5,player.lvl+1);
     let promise = new Promise(function(resolve, reject) {
       let request = new XMLHttpRequest();
@@ -108,9 +108,11 @@ function attachListeners() {
       $("#monster-name").text(monster.name);
       $("#monster-health").text("Healthy");
       $("#battle-buttons").toggle();
-      $("button#explore").toggle();
+      $("button#explore-button").toggle();
       $("#show-town").toggle();
       displayStats(battle);
+    }, function (error) {
+      $("#error").text(`${error}`);
     });
   });
   $(`button#melee-attack`).on("click", function() {
@@ -133,7 +135,7 @@ function attachListeners() {
       $("#monster-img").html("");
       $("#monster-name").text("NPC");
       $("#monster-health").text("");
-      $("button#explore").toggle();
+      $("button#explore-button").toggle();
       $("#show-town").toggle();
       if (turn === 0) {
         $("#message-board").prepend(`You beat the ${battle.monster.name}<br>`);
@@ -142,7 +144,7 @@ function attachListeners() {
         $("#player-img").html("<img class=player-img src=https://www.pngitem.com/pimgs/m/23-238931_skull-logo-free-skull-and-cross-bones-svg.png>");
         $("#player-name").text("You Are Dead");
         $("#start-over").show();
-        $("button#explore").hide();
+        $("button#explore-button").hide();
         $("#show-town").hide();
       }
     }
@@ -153,7 +155,7 @@ function attachListeners() {
     $("#monster-name").text("NPC");
     $("#monster-health").text("");
     $("#battle-buttons").toggle();
-    $("button#explore").toggle();
+    $("button#explore-button").toggle();
     $("#show-town").toggle();
     $("#message-board").prepend("You flee<br>");
   });
@@ -187,7 +189,7 @@ function attachListeners() {
         $("#monster-img").html("");
         $("#monster-name").text("NPC");
         $("#monster-health").text("");
-        $("button#explore").toggle();
+        $("button#explore-button").toggle();
         $("#show-town").toggle();
         if (turn === 0) {
           $("#message-board").prepend(`You beat the ${battle.monster.name}<br>`);
@@ -196,7 +198,7 @@ function attachListeners() {
           $("#player-img").html("<img class=player-img src=https://www.pngitem.com/pimgs/m/23-238931_skull-logo-free-skull-and-cross-bones-svg.png>");
           $("#player-name").text("You Are Dead");
           $("#start-over").show();
-          $("button#explore").hide();
+          $("button#explore-button").hide();
           $("#show-town").hide();
         }
       }
@@ -261,11 +263,11 @@ $(document).ready(function() {
     $("#splash").toggle();
     $("#char-class").toggle();
   });
-  $("#confirm-class").click(function() {
+  $("#confirm-class").click(function() { // character class transition
     $("#char-class").toggle();
     $("#char-stats").toggle();
   });
-  $("#confirm-stats").click(function(event) {
+  $("#confirm-stats").click(function(event) { // character stats transition
     event.preventDefault();
     $("#char-stats").toggle();
     const name = $(`#name`).val();
@@ -277,9 +279,7 @@ $(document).ready(function() {
     const charisma = $("#cha-stat").val();
     const constitution = $("#con-stat").val();
     let charStats = new CharacterStats(strength, dexterity, intelligence, wisdom, charisma, constitution);
-    console.log(name, charClass, charStats);
     player = getCharacter(name, charClass, charStats);
-    console.log(player);
     equipArmor(player);
     $("#player-name").text(name);
     $("#player-img").html(`<img class=display-img src=${player.img}>`);
@@ -292,6 +292,7 @@ $(document).ready(function() {
     $("#nav-character-class").text(charClass);
     $("#nav-main").show();
     $("#gameplay").show();
+    //$("#message-box").show(); // stuff
     $("#message-board").prepend(`Welcome ${name}, You can start your adventure by exploring and battling monsters.<br>`);
     let buttons = $("#action-buttons");
     buttons.empty();
