@@ -38,6 +38,7 @@
 #icon-journal {
   height: 100%;
   width: 40px;
+  float: right;
 }
 
 #nav-main {
