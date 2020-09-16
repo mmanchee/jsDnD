@@ -135,3 +135,11 @@ input {
 #message-board {
   margin: 5%;
 }
+
+.stat-plus {
+  border-radius: 50%;
+}
+
+.stat-minus {
+  border-radius: 50%;
+}

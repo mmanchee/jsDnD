@@ -42,44 +42,55 @@
         <button type="button" class="btn btn-success" id="confirm">Confirm</button>
       </form>
     </div>
-  </div>
-  <div class="container" id="explore">
-   <!-- <div id="character-creation">
-      <form id="character">
-        <div class="form-group">
-          <div>
-            <h2>Welcome to this RPG</h2>
+    <div class="container" id="explore">
+      <form >
+        <div class="row">
+          <div class="col-2">
+            <a tabindex="0" class="btn mb-2" data-toggle="popover" data-trigger="focus" title="Strength" data-content="Effects your chance to hit and damage total">STR</a><br>
+            <a tabindex="0" class="btn mb-2" data-toggle="popover" data-trigger="focus" title="Dexterity" data-content="Effects your ability to dodge from an enemy">DEX</a><br>
+            <a tabindex="0" class="btn mb-2" data-toggle="popover" data-trigger="focus" title="Intelligence" data-content="Effects your ability to think under pressure">INT</a><br>
+            <a tabindex="0" class="btn mb-2" data-toggle="popover" data-trigger="focus" title="Wisdom" data-content="Effects your ability to avoid enemies">WIS</a><br>
+            <a tabindex="0" class="btn mb-2" data-toggle="popover" data-trigger="focus" title="Charisma" data-content="Effects your bardering skills at the store">CHA</a><br>
+            <a tabindex="0" class="btn" data-toggle="popover" data-trigger="focus" title="Constitution" data-content="Effects your health bonus">CON</a><br>
           </div>
-          <div class="well">
-            <label for="character-name">What is your characters name?</label>
+          <div class="col-4">
+            <div class="mb-2">
+              <button type='button' class='btn btn-info stat-minus' field='strength'>-</button>
+              <input type='text' name='strength' value='10' class='col-2 text-center'>
+              <button type='button' class='btn btn-info stat-plus' field='strength'>+</button>
+            </div>
+            <div class="mt-2 mb-2">
+              <button type='button' class='btn btn-info stat-minus' field='dexterity'>-</button>
+              <input type='text' name='dexterity' value='10' class='col-2 text-center'>
+              <button type='button' class='btn btn-info stat-plus' field='dexterity'>+</button>
+            </div>
+            <div class="mt-2 mb-2">
+              <button type='button' class='btn btn-info stat-minus' field='intelligence'>-</button>
+              <input type='text' name='intelligence' value='10' class='col-2 text-center'>
+              <button type='button' class='btn btn-info stat-plus' field='intelligence'>+</button>
+            </div>
+            <div class="mt-2 mb-2">
+              <button type='button' class='btn btn-info stat-minus' field='wisdom'>-</button>
+              <input type='text' name='wisdom' value='10' class='col-2 text-center'>
+              <button type='button' class='btn btn-info stat-plus' field='wisdom'>+</button>
+            </div>
+            <div class="mt-2 mb-2">
+              <button type='button' class='btn btn-info stat-minus' field='charisma'>-</button>
+              <input type='text' name='charisma' value='10' class='col-2 text-center'>
+              <button type='button' class='btn btn-info stat-plus' field='charisma'>+</button>
+            </div>
+            <div class="mt-2">
+              <button type='button' class='btn btn-info stat-minus' field='constitution'>-</button>
+              <input type='text' name='constitution' value='10' class='col-2 text-center'>
+              <button type='button' class='btn btn-info stat-plus' field='constitution'>+</button>
+            </div>
           </div>
-          <input type="text"  class="form-control" id="name">
-          <br>
-          <div class="form-row">
-            <label for="character-class" class="form-label m">What class?</label>
-            <select class="form-control col-3" id="character-class" name="character-class">
-              <option value="barbarian">Barbarian</option>
-              <option value="bard">Bard</option>
-              <option value="cleric">Cleric</option>
-              <option value="druid">Druid</option>
-              <option value="fighter">Fighter</option>
-              <option value="monk">Monk</option>
-              <option value="paladin">Paladin</option>
-              <option value="ranger">Ranger</option>
-              <option value="rogue">Rogue</option>
-              <option value="sorcerer">Sorcerer</option>
-              <option value="warlock">Warlock</option>
-              <option value="wizard">Wizard</option>
-            </select>
-          </div>          
+          <div class ="col-3">
+            <p class="">Bonus Points</p>
+            <p id="bonus-points"></p>
+          </div>
         </div>
-        <button type="submit" class="btn btn-success">Submit</button>
       </form>
-      -->
-      <!-- <form id="character-points">
-        <div class="card">
-        </div>
-      </form> -->
     </div>
     <div id="gameplay">
       <div class="row mt-5">
@@ -90,7 +101,7 @@
           <div class="card align-item box-size">
             <h2><span id="player-name"></span></h2>
             <div id="player-img"></div>
-            <p>Health: <span id="player-health"></span></p>
+            <p>Health: <span id="player-health"></span> Gold: <span id="goldCount"></span></p>
             <button type="button" class="btn btn-warning" id="explore">Explore</button>
             <button type="button" onclick="window.location.reload()" id="start-over">Start Again</button>
           </div>
@@ -99,12 +110,13 @@
             <div id="action-buttons"></div>
             <button type="button" class="btn btn-info col-4 m-3" id="flee">Flee</button>
             <button type="button" class="btn btn-info col-4 m-3" id="healthPotion">Health Potions (X<span id="numHealthPot"></span>)</button>
+            <button type="button" class="btn btn-info col-4 m-3" id="upgradeWeapon">Upgrade Weapon</button>
+            <button type="button" class="btn btn-info col-4 m-3" id="upgradeArmor">Upgrade Armor</button>
           </div>
         </div>
         <div class="col-5">
           <div class="card align-item box-size">
             <h2 id="monster-name">NPC</h2>
-            <p>CHARACTER</p>
             <div id="monster-img"></div>
             <p>Health: <span id="monster-health"></span></p>
           </div>
