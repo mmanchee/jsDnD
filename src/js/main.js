@@ -161,8 +161,25 @@ function attachListeners() {
       }
     }
   });
+  // Nav Menu Listeners
   $("#icon-journal").on("click", function() {
     $("#character-menu").show();
+  })
+  $("#menu-option-travel").on("click", function() {
+    $("#character-menu").hide();
+
+  })
+  $("#menu-option-character").on("click", function() {
+    $("#character-menu").hide();
+
+  })
+  $("#menu-option-town").on("click", function() {
+    $("#character-menu").hide();
+
+  })
+  $("#menu-option-camp").on("click", function() {
+    $("#character-menu").hide();
+
   })
 }
 
@@ -183,6 +200,10 @@ $(document).ready(function() {
     $("#player-health").text(player.hp);
     $("#goldCount").text(player.money);
     $("#character-creation").hide();
+    $("#nav-character-name").text(player.name);
+    $("#nav-character-level").text("1");
+    $("#nav-character-class").text(charClass);
+    $("#nav-main").show();
     $("#gameplay").show();
     $("#message-board").prepend(`Welcome ${name}, You can start your adventure by exploring and battling monsters.<br>`);
     let buttons = $("#action-buttons");

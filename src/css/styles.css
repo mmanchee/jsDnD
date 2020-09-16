@@ -38,10 +38,10 @@
 #icon-journal {
   height: 100%;
   width: 40px;
-  float: right;
 }
 
 #nav-main {
+  display: none;
   height: 60px;
   border: 1px lightgray solid;
   margin-top: 30px;
@@ -56,7 +56,7 @@
 }
 
 .menu-option {
-  margin: 5px;
+  margin: 10px;
   border: 1px lightgray solid;
   padding: 5px;
 }
