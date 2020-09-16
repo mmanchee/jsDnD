@@ -291,7 +291,7 @@ $(document).ready(function() {
     $("#nav-character-class").text(charClass);
     $("#nav-main").show();
     $("#gameplay").show();
-    //$("#message-box").show();
+    //$("#message-box").show(); // stuff
     $("#message-board").prepend(`Welcome ${name}, You can start your adventure by exploring and battling monsters.<br>`);
     let buttons = $("#action-buttons");
     buttons.empty();
