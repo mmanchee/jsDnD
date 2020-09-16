@@ -2,7 +2,7 @@
 // import {equipWeapon} from './weaponList.js';
 
 class BarbarianCharacter {
-  constructor(name, armorClass, hpBonus, attBonus){
+  constructor(name, armorClass, hpBonus, attBonus, statClass){
     this.name = name;
     this.maxHP = 12;
     this.hp = 12 + hpBonus;
@@ -10,6 +10,7 @@ class BarbarianCharacter {
     this.attack = attBonus;
     this.damage = [1,12,attBonus];
     this.actions = [{name: "Rage Attack", attack: 1, damage: [2,12,0], limit: 5}];
+    this.charStats = statClass;
     this.lvl = 1;
     this.exp = 0;
     this.money = 100;
@@ -30,7 +31,7 @@ class BarbarianCharacter {
 }
 
 class BardCharacter {
-  constructor(name, armorClass, hpBonus, attBonus){
+  constructor(name, armorClass, hpBonus, attBonus, statClass){
     this.name = name;
     this.maxHP = 8;
     this.hp = 8 + hpBonus;
@@ -38,6 +39,7 @@ class BardCharacter {
     this.attack = attBonus;
     this.damage = [1,6,0];
     this.actions = [{name: "Seduce", attack: 1, damage: [1,200,0]}];
+    this.charStats = statClass;
     this.lvl = 1;
     this.exp = 0;
     this.money = 100;
@@ -58,7 +60,7 @@ class BardCharacter {
 }
 
 class ClericCharacter {
-  constructor(name, armorClass, hpBonus, attBonus){
+  constructor(name, armorClass, hpBonus, attBonus, statClass){
     this.name = name;
     this.maxHP = 8;
     this.hp = 8 + hpBonus;
@@ -66,6 +68,7 @@ class ClericCharacter {
     this.attack = attBonus;
     this.damage = [1,6,0];
     this.actions = [{name: "Turn Undead", attack: 8, damage: [2,10,0]}];
+    this.charStats = statClass;
     this.lvl = 1;
     this.exp = 0;
     this.money = 100;
@@ -86,7 +89,7 @@ class ClericCharacter {
 }
 
 class DruidCharacter {
-  constructor(name, armorClass, hpBonus, attBonus){
+  constructor(name, armorClass, hpBonus, attBonus, statClass){
     this.name = name;
     this.maxHP = 8;
     this.hp = 8 + hpBonus;
@@ -94,6 +97,7 @@ class DruidCharacter {
     this.attack = attBonus;
     this.damage = [1,6,0];
     this.actions = [{name: "Summon Bear", attack: 3, damage: [2,20,0]}];
+    this.charStats = statClass;
     this.lvl = 1;
     this.exp = 0;
     this.money = 100;
@@ -114,7 +118,7 @@ class DruidCharacter {
 }
 
 class FighterCharacter {
-  constructor(name, armorClass, hpBonus, attBonus){
+  constructor(name, armorClass, hpBonus, attBonus, statClass){
     this.name = name;
     this.maxHP = 10;
     this.hp = 10 + hpBonus;
@@ -122,6 +126,7 @@ class FighterCharacter {
     this.attack = attBonus;
     this.damage = [1,8,0];
     this.actions = [{name: "Flail Wildly", attack:8, damage: [2,12,0]}];
+    this.charStats = statClass;
     this.lvl = 1;
     this.exp = 0;
     this.money = 100;
@@ -142,7 +147,7 @@ class FighterCharacter {
 }
 
 class MonkCharacter {
-  constructor(name, armorClass, hpBonus, attBonus){
+  constructor(name, armorClass, hpBonus, attBonus, statClass){
     this.name = name;
     this.maxHP = 8;
     this.hp = 8 + hpBonus;
@@ -150,6 +155,7 @@ class MonkCharacter {
     this.attack = attBonus;
     this.damage = [1,6,0];
     this.actions = [{name: "Judo Chop", attack: 9999, damage: [1,4,0]}];
+    this.charStats = statClass;
     this.lvl = 1;
     this.exp = 0;
     this.money = 100;
@@ -170,7 +176,7 @@ class MonkCharacter {
 }
 
 class PaladinCharacter {
-  constructor(name, armorClass, hpBonus, attBonus){
+  constructor(name, armorClass, hpBonus, attBonus, statClass){
     this.name = name;
     this.maxHP = 10;
     this.hp = 10 + hpBonus;
@@ -178,6 +184,7 @@ class PaladinCharacter {
     this.attack = attBonus;
     this.damage = [1,6,0];
     this.actions = [{name: "Smite", attack: 3, damage: [2,20,0]}];
+    this.charStats = statClass;
     this.lvl = 1;
     this.exp = 0;
     this.money = 100;
@@ -198,7 +205,7 @@ class PaladinCharacter {
 }
 
 class RangerCharacter {
-  constructor(name, armorClass, hpBonus, attBonus){
+  constructor(name, armorClass, hpBonus, attBonus, statClass){
     this.name = name;
     this.maxHP = 10;
     this.hp = 10 + hpBonus;
@@ -206,6 +213,7 @@ class RangerCharacter {
     this.attack = attBonus;
     this.damage = [1,8,0];
     this.actions = [{name: "Rapid Fire", attack: 4, damage: [2,16,0]}];
+    this.charStats = statClass;
     this.lvl = 1;
     this.exp = 0;
     this.money = 100;
@@ -226,7 +234,7 @@ class RangerCharacter {
 }
 
 class RogueCharacter {
-  constructor(name, armorClass, hpBonus, attBonus){
+  constructor(name, armorClass, hpBonus, attBonus, statClass){
     this.name = name;
     this.maxHP = 8;
     this.hp = 8 + hpBonus;
@@ -234,6 +242,7 @@ class RogueCharacter {
     this.attack = attBonus;
     this.damage = [1,4,0];
     this.actions = [{name: "Sneak Attack", attack: 2, damage: [4,6,0]}];
+    this.charStats = statClass;
     this.lvl = 1;
     this.exp = 0;
     this.money = 100;
@@ -254,7 +263,7 @@ class RogueCharacter {
 }
 
 class SorcererCharacter {
-  constructor(name, armorClass, hpBonus, attBonus){
+  constructor(name, armorClass, hpBonus, attBonus, statClass){
     this.name = name;
     this.maxHP = 6;
     this.hp = 6 + hpBonus;
@@ -262,6 +271,7 @@ class SorcererCharacter {
     this.attack = attBonus;
     this.damage = [1,6,0];
     this.actions = [{name: "Scorn of Force", attack: 9999, damage: [3,12,0], limit: 3}];
+    this.charStats = statClass;
     this.lvl = 1;
     this.exp = 0;
     this.money = 100;
@@ -282,7 +292,7 @@ class SorcererCharacter {
 }
 
 class WarlockCharacter {
-  constructor(name, armorClass, hpBonus, attBonus){
+  constructor(name, armorClass, hpBonus, attBonus, statClass){
     this.name = name;
     this.maxHP = 8;
     this.hp = 8 + hpBonus;
@@ -290,6 +300,7 @@ class WarlockCharacter {
     this.attack = attBonus;
     this.damage = [1,6,0];
     this.actions = [{name: "Eldritch Blast", attack: 9999, damage: [8,4,0], limit: 3}];
+    this.charStats = statClass;
     this.lvl = 1;
     this.exp = 0;
     this.money = 100;
@@ -310,7 +321,7 @@ class WarlockCharacter {
 }
 
 class WizardCharacter {
-  constructor(name, armorClass, hpBonus, attBonus){
+  constructor(name, armorClass, hpBonus, attBonus, statClass){
     this.name = name;
     this.maxHP = 6;
     this.hp = 6 + hpBonus;
@@ -318,6 +329,7 @@ class WizardCharacter {
     this.attack = attBonus;
     this.damage = [1,6,0];
     this.actions = [{name: "Fireball", attack: 9999, damage: [5,6,0], limit: 3}];
+    this.charStats = statClass;
     this.lvl = 1;
     this.exp = 0;
     this.money = 100;
@@ -379,40 +391,40 @@ export function getCharacter(name, charClass, statClass) {
   let attBonus = statClass.strBonus;
   switch (charClass) {
   case "barbarian":
-    character = new BarbarianCharacter(name, (10 + acBonus), hpBonus, attBonus,);
+    character = new BarbarianCharacter(name, (10 + acBonus), hpBonus, attBonus, statClass);
     break;
   case "bard":
-    character = new BardCharacter(name, (10 + acBonus), hpBonus, attBonus);
+    character = new BardCharacter(name, (10 + acBonus), hpBonus, attBonus, statClass);
     break;
   case "cleric":
-    character = new ClericCharacter(name, (10 + acBonus), hpBonus, attBonus);
+    character = new ClericCharacter(name, (10 + acBonus), hpBonus, attBonus, statClass);
     break;
   case "druid":
-    character = new DruidCharacter(name, (10 + acBonus), hpBonus, attBonus);
+    character = new DruidCharacter(name, (10 + acBonus), hpBonus, attBonus, statClass);
     break;
   case "fighter":
-    character = new FighterCharacter(name, (10 + acBonus), hpBonus, attBonus);
+    character = new FighterCharacter(name, (10 + acBonus), hpBonus, attBonus, statClass);
     break;
   case "monk":
-    character = new MonkCharacter(name, (10 + acBonus), hpBonus, attBonus);
+    character = new MonkCharacter(name, (10 + acBonus), hpBonus, attBonus, statClass);
     break;
   case "paladin":
-    character = new PaladinCharacter(name, (10 + acBonus), hpBonus, attBonus);
+    character = new PaladinCharacter(name, (10 + acBonus), hpBonus, attBonus, statClass);
     break;
   case "ranger":
-    character = new RangerCharacter(name, (10 + acBonus), hpBonus, attBonus);
+    character = new RangerCharacter(name, (10 + acBonus), hpBonus, attBonus, statClass);
     break;
   case "rogue":
-    character = new RogueCharacter(name, (10 + acBonus), hpBonus, attBonus);
+    character = new RogueCharacter(name, (10 + acBonus), hpBonus, attBonus, statClass);
     break;
   case "sorcerer":
-    character = new SorcererCharacter(name, (10 + acBonus), hpBonus, attBonus);
+    character = new SorcererCharacter(name, (10 + acBonus), hpBonus, attBonus, statClass);
     break;
   case "warlock":
-    character = new WarlockCharacter(name, (10 + acBonus), hpBonus, attBonus);
+    character = new WarlockCharacter(name, (10 + acBonus), hpBonus, attBonus, statClass);
     break;
   case "wizard":
-    character = new WizardCharacter(name, (10 + acBonus), hpBonus, attBonus);
+    character = new WizardCharacter(name, (10 + acBonus), hpBonus, attBonus, statClass);
   }
   return character;
 }

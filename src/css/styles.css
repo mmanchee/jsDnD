@@ -1,12 +1,12 @@
 /* Splash */
 body {
 background-image: url('../assets/img/splash2.jpg');
+font-family: 'Uncial Antiqua', cursive;
+color:cornsilk;
 }
 
 h1 {
   text-align: center;
-  color:cornsilk;
-  font-family: 'Uncial Antiqua', cursive;
   font-size: 80px;
   text-shadow: 2px 2px 5px rgb(0, 0, 0);
 }
@@ -14,12 +14,10 @@ h1 {
 h3 {
   margin-top: 15%;
   text-align: center;
-  color: cornsilk;
-  font-family: 'Uncial Antiqua', cursive;
   text-shadow: 2px 2px 5px rgb(0, 0, 0);
 }
 
-.btn-lg {
+.btn-splash {
   position: relative;
   padding: 25px 35px;
   left: 41%;
@@ -27,58 +25,60 @@ h3 {
   border: solid;
   margin-top: 50px;
   margin-bottom: 30px;
-  font-family: 'Uncial Antiqua', cursive;
   font-size: 40px;
   border-radius: 15px;
   box-shadow: 1px 2px rgb(40, 39, 39);
 }
 
-.btn-lg:hover {background-color: rgba(218, 165, 32, 0.557)}
 
-/* Character Creation */
-#char-class {
-  display: none;
+.btn-splash:hover {
+  background-color: rgba(218, 165, 32, 0.557)
 }
 
+/* Character Creation */
 label {
   margin-top: 10px;
   margin-left: 30%;
-  font-family: 'Uncial Antiqua', cursive;
   font-size: 35px;
-  color: cornsilk;
 }
 
-input {
+.input-name {
   margin-left: 35%;
   width: 45%;
-  font-family: 'Uncial Antiqua', cursive;
   font-size: 35px;
 }
 
-#character-buttons {
+#class-buttons {
   margin-top: 50px;
 }
-
 .btn {
-  width: 50%;
-  table-layout: fixed;
-  padding: 10px 35px;
   background-color: rgb(148, 179, 11);
   border: solid;
+  border-radius: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
-  font-family: 'Uncial Antiqua', cursive;
   font-size: 20px;
 }
 
-.btn:hover {background-color: rgba(218, 165, 32, 0.557)}
-
-
-.btn.btn-success {
-  width: 35%;
-  margin-left: 40%;
+.btn:hover {
+  background-color: rgba(218, 165, 32, 0.557)
+}
+.btn-class {
+  width: 75%;
+  table-layout: fixed;
+  padding: 10px 35px;
 }
 
+.centering {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-confirm {
+  width: 30%;
+  text-align: center;
+  padding: 10px 35px;
+}
 
 #character-display {
   float: right;
@@ -90,17 +90,34 @@ input {
   margin-right: 15%;
 }
 
-/* Explore */
-
-#explore {
-  display: none;
+/* Character Stats */
+.stat-plus {
+  border-radius: 50%;
+  text-align: center;
+  padding: 10px 20px;
 }
 
+.stat-minus {
+  border-radius: 50%;
+  text-align: center;
+  padding: 10px 20px;
+}
 
+.stat-num {
+  width: 30%;
+  font-size: 35px;
+}
+
+.btn-stats {
+  width: 50%;
+  text-align: center;
+  margin: 5% 0 5% 0;
+}
+/* Explore */
 
 .align-item {
   align-items: center;
-  justify-content: center;
+  
   margin-top: 2%;
 }
 
@@ -119,7 +136,7 @@ input {
   width: 500px;
 }
 
-#battle-buttons, #gameplay, #start-over {
+#battle-buttons, #gameplay, #start-over, #char-class, #char-stats, #explore {
   display: none;
 }
 
@@ -136,13 +153,7 @@ input {
   margin: 5%;
 }
 
-.stat-plus {
-  border-radius: 50%;
-}
 
-.stat-minus {
-  border-radius: 50%;
-}
 #icon-journal {
   height: 100%;
   width: 40px;

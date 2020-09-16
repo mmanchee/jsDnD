@@ -228,31 +228,32 @@ function classListener() {
   $(".select-class").click(function(event) {
     event.preventDefault();
     let className = $(this).attr('value');
+    $("#confirm-class").val(`${className}`);
     className = className.toUpperCase();
     let arrayPlace = $(this).attr('field');
-    $(`#selected-class`).html(`<h3 id="character-class">${className}</h3>`);
+    $(`#selected-class`).html(`${className}`);
     $("#character-display").html(`<img class=display-img src=${imageArray[arrayPlace]}>`);
   });
   // Nav Menu Listeners
   $("#icon-journal").on("click", function() {
     $("#character-menu").show();
-  })
+  });
   $("#menu-option-travel").on("click", function() {
     $("#character-menu").hide();
 
-  })
+  });
   $("#menu-option-character").on("click", function() {
     $("#character-menu").hide();
 
-  })
+  });
   $("#menu-option-town").on("click", function() {
     $("#character-menu").hide();
 
-  })
+  });
   $("#menu-option-camp").on("click", function() {
     $("#character-menu").hide();
 
-  })
+  });
 }
 
 let player;
@@ -265,28 +266,30 @@ $(document).ready(function() {
     $("#splash").toggle();
     $("#char-class").toggle();
   });
-  $("form#character").submit(function(event) {
+  $("#confirm-class").click(function() {
+    $("#char-class").toggle();
+    $("#char-stats").toggle();
+  });
+  $("#confirm-stats").click(function(event) {
     event.preventDefault();
+    $("#char-stats").toggle();
     const name = $(`#name`).val();
-    const charClass = $("#character-class").val();
-    const acBonus = 0;
-    const hpBonus = 0;
-    const attBonus = 0;
-    const strength = 0;
-    const dexterity = 0;
-    const intelligence = 0;
-    const wisdom = 0;
-    const charisma = 0;
-    const constitution = 0;
-    let will = new CharacterStats(strength, dexterity, intelligence, wisdom, charisma, constitution);
-    equipArmor(will);
-    player = getCharacter(name, charClass, acBonus, hpBonus, attBonus);
+    const charClass = $("#confirm-class").val();
+    const strength = $("#str-stat").val();
+    const dexterity = $("#dex-stat").val();
+    const intelligence = $("#int-stat").val();
+    const wisdom = $("#wis-stat").val();
+    const charisma = $("#cha-stat").val();
+    const constitution = $("#con-stat").val();
+    let charStats = new CharacterStats(strength, dexterity, intelligence, wisdom, charisma, constitution);
+    console.log(name, charClass, charStats);
+    player = getCharacter(name, charClass, charStats);
+    console.log(player);
     equipArmor(player);
     $("#player-name").text(name);
     $("#player-img").html(`<img class=display-img src=${player.img}>`);
     $("#player-health").text(player.hp);
-    $("#intro").hide(); // new
-    $("#explore").show(); //new
+    $("#explore").toggle();
     $("#goldCount").text(player.money);
     $("#character-creation").hide();
     $("#nav-character-name").text(player.name);

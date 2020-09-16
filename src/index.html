@@ -10,89 +10,92 @@
     <div id="splash">
       <h3>Welcome to </h3>
       <h1>Our Totally Complete RPG</h1>
-      <button type="button" class="btn-lg" id="start-button">Start</button>
+      <button type="button" class="btn-splash" id="start-button">Start</button>
     </div>
-      <!--Character Creation-->  
+      <!--Character Creation Class-->  
     <div id="char-class">
-  
-    <div id="character-creation">
-      <form id="character">
+      <div id="character-creation">
         <label for="character-name">What is your characters name?</label><br>
-        <input type="text" class="wide-font set-width" id="name"><br>
+        <input type="text" class="wide-font set-width input-name" id="name"><br>
         <div class="row">
           <div class="col-4">
-            <div id="character-buttons">
-              <button type="button" value="barbarian" class="btn select-class" field="0">Barbarian</button><br>
-              <button type="button" value="bard" class="btn select-class" field="1">Bard</button><br>
-              <button type="button" value="cleric" class="btn select-class" field="2">Cleric</button><br>
-              <button type="button" value="druid" class="btn select-class" field="3">Druid</button><br>
-              <button type="button" value="fighter" class="btn select-class" field="4">fighter</button><br>
-              <button type="button" value="monk" class="btn select-class" field="5">Monk</button><br>
-              <button type="button" value="paladin" class="btn select-class" field="6">Paladin</button><br>
-              <button type="button" value="ranger" class="btn select-class" field="7">Ranger</button><br>
-              <button type="button" value="rogue" class="btn select-class" field="8">Rogue</button><br>
-              <button type="button" value="sorcerer" class="btn select-class" field="9">Sorcerer</button><br>
-              <button type="button" value="warlock" class="btn select-class" field="10">Warlock</button><br>
-              <button type="button" value="wizard" class="btn select-class" field="11">Wizard</button><br>
+            <div id="class-buttons">
+              <button type="button" value="barbarian" class="btn btn-class select-class" field="0">Barbarian</button><br>
+              <button type="button" value="bard" class="btn btn-class select-class" field="1">Bard</button><br>
+              <button type="button" value="cleric" class="btn btn-class select-class" field="2">Cleric</button><br>
+              <button type="button" value="druid" class="btn btn-class select-class" field="3">Druid</button><br>
+              <button type="button" value="fighter" class="btn btn-class select-class" field="4">fighter</button><br>
+              <button type="button" value="monk" class="btn btn-class select-class" field="5">Monk</button><br>
+              <button type="button" value="paladin" class="btn btn-class select-class" field="6">Paladin</button><br>
+              <button type="button" value="ranger" class="btn btn-class select-class" field="7">Ranger</button><br>
+              <button type="button" value="rogue" class="btn btn-class select-class" field="8">Rogue</button><br>
+              <button type="button" value="sorcerer" class="btn btn-class select-class" field="9">Sorcerer</button><br>
+              <button type="button" value="warlock" class="btn btn-class select-class" field="10">Warlock</button><br>
+              <button type="button" value="wizard" class="btn btn-class select-class" field="11">Wizard</button><br>
             </div>
           </div>
           <div class="col-7">
-            <div id="selected-class"></div><br>
+            <h3 id="character-class"></h3><br>
             <div id="character-display"></div>
           </div>
         </div>
-        <button type="button" class="btn btn-success" id="confirm">Confirm</button>
-      </form>
+        <div class="centering">
+          <button type="button" class="btn btn-confirm" value="" id="confirm-class">Confirm</button>
+        </div>
+      </div>
     </div>
-    <div class="container" id="explore">
-      <form >
-        <div class="row">
-          <div class="col-2">
-            <a tabindex="0" class="btn mb-2" data-toggle="popover" data-trigger="focus" title="Strength" data-content="Effects your chance to hit and damage total">STR</a><br>
-            <a tabindex="0" class="btn mb-2" data-toggle="popover" data-trigger="focus" title="Dexterity" data-content="Effects your ability to dodge from an enemy">DEX</a><br>
-            <a tabindex="0" class="btn mb-2" data-toggle="popover" data-trigger="focus" title="Intelligence" data-content="Effects your ability to think under pressure">INT</a><br>
-            <a tabindex="0" class="btn mb-2" data-toggle="popover" data-trigger="focus" title="Wisdom" data-content="Effects your ability to avoid enemies">WIS</a><br>
-            <a tabindex="0" class="btn mb-2" data-toggle="popover" data-trigger="focus" title="Charisma" data-content="Effects your bardering skills at the store">CHA</a><br>
-            <a tabindex="0" class="btn" data-toggle="popover" data-trigger="focus" title="Constitution" data-content="Effects your health bonus">CON</a><br>
+    <!-- Character Creation Stats-->
+    <div id="char-stats">
+      <label class="mb-4">Select your stats</label><br>
+      <div class="row">
+        <div class="col-4">
+          <a tabindex="0" class="btn btn-stats" data-toggle="popover" data-trigger="focus" title="Strength" data-content="Effects your chance to hit and damage total">STR</a><br>
+          <a tabindex="0" class="btn btn-stats" data-toggle="popover" data-trigger="focus" title="Dexterity" data-content="Effects your ability to dodge from an enemy">DEX</a><br>
+          <a tabindex="0" class="btn btn-stats" data-toggle="popover" data-trigger="focus" title="Intelligence" data-content="Effects your ability to think under pressure">INT</a><br>
+          <a tabindex="0" class="btn btn-stats" data-toggle="popover" data-trigger="focus" title="Wisdom" data-content="Effects your ability to avoid enemies">WIS</a><br>
+          <a tabindex="0" class="btn btn-stats" data-toggle="popover" data-trigger="focus" title="Charisma" data-content="Effects your bardering skills at the store">CHA</a><br>
+          <a tabindex="0" class="btn btn-stats" data-toggle="popover" data-trigger="focus" title="Constitution" data-content="Effects your health bonus">CON</a><br>
+        </div>
+        <div class="col-5">
+          <div class="mb-2">
+            <button type='button' class='btn btn-info stat-minus' field='strength'>-</button>
+            <input type='text' id="str-stat" name='strength' value='10' class='col-2 text-center stat-num'>
+            <button type='button' class='btn btn-info stat-plus' field='strength'>+</button>
           </div>
-          <div class="col-4">
-            <div class="mb-2">
-              <button type='button' class='btn btn-info stat-minus' field='strength'>-</button>
-              <input type='text' name='strength' value='10' class='col-2 text-center'>
-              <button type='button' class='btn btn-info stat-plus' field='strength'>+</button>
-            </div>
-            <div class="mt-2 mb-2">
-              <button type='button' class='btn btn-info stat-minus' field='dexterity'>-</button>
-              <input type='text' name='dexterity' value='10' class='col-2 text-center'>
-              <button type='button' class='btn btn-info stat-plus' field='dexterity'>+</button>
-            </div>
-            <div class="mt-2 mb-2">
-              <button type='button' class='btn btn-info stat-minus' field='intelligence'>-</button>
-              <input type='text' name='intelligence' value='10' class='col-2 text-center'>
-              <button type='button' class='btn btn-info stat-plus' field='intelligence'>+</button>
-            </div>
-            <div class="mt-2 mb-2">
-              <button type='button' class='btn btn-info stat-minus' field='wisdom'>-</button>
-              <input type='text' name='wisdom' value='10' class='col-2 text-center'>
-              <button type='button' class='btn btn-info stat-plus' field='wisdom'>+</button>
-            </div>
-            <div class="mt-2 mb-2">
-              <button type='button' class='btn btn-info stat-minus' field='charisma'>-</button>
-              <input type='text' name='charisma' value='10' class='col-2 text-center'>
-              <button type='button' class='btn btn-info stat-plus' field='charisma'>+</button>
-            </div>
-            <div class="mt-2">
-              <button type='button' class='btn btn-info stat-minus' field='constitution'>-</button>
-              <input type='text' name='constitution' value='10' class='col-2 text-center'>
-              <button type='button' class='btn btn-info stat-plus' field='constitution'>+</button>
-            </div>
+          <div class="mt-2 mb-2">
+            <button type='button' class='btn btn-info stat-minus' field='dexterity'>-</button>
+            <input type='text' id="dex-stat" name='dexterity' value='10' class='col-2 text-center stat-num'>
+            <button type='button' class='btn btn-info stat-plus' field='dexterity'>+</button>
           </div>
-          <div class ="col-3">
-            <p class="">Bonus Points</p>
-            <p id="bonus-points"></p>
+          <div class="mt-2 mb-2">
+            <button type='button' class='btn btn-info stat-minus' field='intelligence'>-</button>
+            <input type='text' id="int-stat" name='intelligence' value='10' class='col-2 text-center stat-num'>
+            <button type='button' class='btn btn-info stat-plus' field='intelligence'>+</button>
+          </div>
+          <div class="mt-2 mb-2">
+            <button type='button' class='btn btn-info stat-minus' field='wisdom'>-</button>
+            <input type='text' id="wis-stat" name='wisdom' value='10' class='col-2 text-center stat-num'>
+            <button type='button' class='btn btn-info stat-plus' field='wisdom'>+</button>
+          </div>
+          <div class="mt-2 mb-2">
+            <button type='button' class='btn btn-info stat-minus' field='charisma'>-</button>
+            <input type='text' id="cha-stat" name='charisma' value='10' class='col-2 text-center stat-num'>
+            <button type='button' class='btn btn-info stat-plus' field='charisma'>+</button>
+          </div>
+          <div class="mt-2">
+            <button type='button' class='btn btn-info stat-minus' field='constitution'>-</button>
+            <input type='text' id="con-stat" name='constitution' value='10' class='col-2 text-center stat-num'>
+            <button type='button' class='btn btn-info stat-plus' field='constitution'>+</button>
           </div>
         </div>
-      </form>
+        <div class ="col-3">
+          <label class="">Bonus Points</label>
+          <label id="bonus-points"></label>
+        </div>
+      </div>
+      <div class="centering mt-4">
+        <button type="button" class="btn btn-confirm" id="confirm-stats">Confirm</button>
+      </div>
     </div>
     <div class="container">
       <div id="nav-main" class="navbar">
@@ -126,44 +129,48 @@
           </div>
         </div>
       </div>
-    <div id="gameplay">
-      <div class="row mt-5">
-        <!-- <div class="col-2">
-          <button type="button" class="btn btn-info col-4 m-3" id="inventory">Inventory</button>
-        </div> -->
-        <div class="col-5">
-          <div class="card align-item box-size">
-            <h2><span id="player-name"></span></h2>
-            <div id="player-img"></div>
-            <p>Health: <span id="player-health"></span> Gold: <span id="goldCount"></span></p>
-            <button type="button" class="btn btn-warning" id="explore">Explore</button>
-            <button type="button" onclick="window.location.reload()" id="start-over">Start Again</button>
+    </div>
+    <div id="explore">
+      <div id="gameplay">
+        <div class="row mt-5">
+          <!-- <div class="col-2">
+            <button type="button" class="btn btn-info col-4 m-3" id="inventory">Inventory</button>
+          </div> -->
+          <div class="col-5">
+            <div class="card align-item box-size">
+              <h2><span id="player-name"></span></h2>
+              <div id="player-img"></div>
+              <p>Health: <span id="player-health"></span> Gold: <span id="goldCount"></span></p>
+              <button type="button" class="btn btn-warning" id="explore">Explore</button>
+              <button type="button" onclick="window.location.reload()" id="start-over">Start Again</button>
+            </div>
+            <div class="mt-3" id="battle-buttons">
+              <button type="button" class="btn btn-info col-4 m-3" id="melee-attack">Melee Attack</button>
+              <div id="action-buttons"></div>
+              <button type="button" class="btn btn-info col-4 m-3" id="flee">Flee</button>
+              <button type="button" class="btn btn-info col-4 m-3" id="healthPotion">Health Potions (X<span id="numHealthPot"></span>)</button>
+              <button type="button" class="btn btn-info col-4 m-3" id="upgradeWeapon">Upgrade Weapon</button>
+              <button type="button" class="btn btn-info col-4 m-3" id="upgradeArmor">Upgrade Armor</button>
+            </div>
           </div>
-          <div class="mt-3" id="battle-buttons">
-            <button type="button" class="btn btn-info col-4 m-3" id="melee-attack">Melee Attack</button>
-            <div id="action-buttons"></div>
-            <button type="button" class="btn btn-info col-4 m-3" id="flee">Flee</button>
-            <button type="button" class="btn btn-info col-4 m-3" id="healthPotion">Health Potions (X<span id="numHealthPot"></span>)</button>
-            <button type="button" class="btn btn-info col-4 m-3" id="upgradeWeapon">Upgrade Weapon</button>
-            <button type="button" class="btn btn-info col-4 m-3" id="upgradeArmor">Upgrade Armor</button>
-          </div>
-        </div>
-        <div class="col-5">
-          <div class="card align-item box-size">
-            <h2 id="monster-name">NPC</h2>
-            <div id="monster-img"></div>
-            <p>Health: <span id="monster-health"></span></p>
+          <div class="col-5">
+            <div class="card align-item box-size">
+              <h2 id="monster-name">NPC</h2>
+              <div id="monster-img"></div>
+              <p>Health: <span id="monster-health"></span></p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="card align-items-start"id="message-box">
-      <div id="message-board">
-  
+      <div class="card align-items-start"id="message-box">
+        <div id="message-board">
+    
+        </div>
       </div>
+      <div id="gameover"></div>
+      <div id="test"></div>
     </div>
-    <div id="gameover"></div>
-    <div id="test"></div>
+    
   </div>
 </body>
 </html>
