@@ -17,14 +17,18 @@ class BarbarianCharacter {
     this.money = 100;
     this.weapon = {
       name: "Great Axe",
+      lvl: 0,
       attack: 0,
       damage: [1,12,0],
-      hands: 2
+      hands: 2,
+      cost: 300
     };
     this.armor = {
       name: "Breastplate",
+      lvl: 0,
       armorBonus: 14,
-      type: "medium"
+      type: "medium",
+      cost: 4000
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[0];
@@ -40,7 +44,7 @@ class BardCharacter {
     this.hp = this.maxHP;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1,6,0];
+    this.damage = [1,6,attBonus];
     this.actions = [{name: "Seduce", attack: 1, damage: [1,200,0]}];
     this.charStats = statClass;
     this.lvl = 1;
@@ -48,14 +52,18 @@ class BardCharacter {
     this.money = 100;
     this.weapon = {
       name: "Short Sword",
+      lvl: 0,
       attack: 0,
       damage: [1,6,0],
-      hands: 1
+      hands: 1,
+      cost: 100
     };
     this.armor = {
       name: "Leather",
+      lvl: 0,
       armorBonus: 11,
-      type: "light"
+      type: "light",
+      cost: 100
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[1];
@@ -71,7 +79,7 @@ class ClericCharacter {
     this.hp = this.maxHP;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1,6,0];
+    this.damage = [1,6,attBonus];
     this.actions = [{name: "Turn Undead", attack: 8, damage: [2,10,0]}];
     this.charStats = statClass;
     this.lvl = 1;
@@ -79,14 +87,18 @@ class ClericCharacter {
     this.money = 100;
     this.weapon = {
       name: "Mace",
+      lvl: 0,
       attack: 0,
       damage: [1,6,0],
-      hands: 1
+      hands: 1,
+      cost: 50
     };
     this.armor = {
       name: "Breastplate",
+      lvl: 0,
       armorBonus: 14,
-      type: "medium"
+      type: "medium",
+      cost: 4000
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[2];
@@ -102,7 +114,7 @@ class DruidCharacter {
     this.hp = this.maxHP;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1,6,0];
+    this.damage = [1,6,attBonus];
     this.actions = [{name: "Summon Bear", attack: 3, damage: [2,20,0]}];
     this.charStats = statClass;
     this.lvl = 1;
@@ -110,14 +122,18 @@ class DruidCharacter {
     this.money = 100;
     this.weapon = {
       name: "Quarterstaff",
+      lvl: 0,
       attack: 0,
       damage: [1,6,0],
-      hands: 2
+      hands: 2,
+      cost: 10
     };
     this.armor = {
       name: "Hide",
+      lvl: 0,
       armorBonus: 10,
-      type: "medium"
+      type: "medium",
+      cost: 100
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[3];
@@ -133,7 +149,7 @@ class FighterCharacter {
     this.hp = this.maxHP;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1,8,0];
+    this.damage = [1,8,attBonus];
     this.actions = [{name: "Flail Wildly", attack:8, damage: [2,12,0]}];
     this.charStats = statClass;
     this.lvl = 1;
@@ -141,14 +157,18 @@ class FighterCharacter {
     this.money = 100;
     this.weapon = {
       name: "Long Sword",
+      lvl: 0,
       attack: 0,
       damage: [1,8,0],
-      hands: 1
+      hands: 1,
+      cost: 150
     };
     this.armor = {
       name: "Breastplate",
+      lvl: 0,
       armorBonus: 14,
-      type: "medium"
+      type: "medium",
+      cost: 4000
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[4];
@@ -164,7 +184,7 @@ class MonkCharacter {
     this.hp = this.maxHP;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1,6,0];
+    this.damage = [1,6,attBonus];
     this.actions = [{name: "Judo Chop", attack: 9999, damage: [1,4,0]}];
     this.charStats = statClass;
     this.lvl = 1;
@@ -172,14 +192,18 @@ class MonkCharacter {
     this.money = 100;
     this.weapon = {
       name: "Quarterstaff",
+      lvl: 0,
       attack: 0,
       damage: [1,6,0],
-      hands: 2
+      hands: 2,
+      cost: 10
     };
     this.armor = {
       name: "Shirt",
+      lvl: 0,
       armorBonus: 10,
-      type: "light"
+      type: "light",
+      cost: 10
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[5];
@@ -195,7 +219,7 @@ class PaladinCharacter {
     this.hp = this.maxHP;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1,6,0];
+    this.damage = [1,6,attBonus];
     this.actions = [{name: "Smite", attack: 3, damage: [2,20,0]}];
     this.charStats = statClass;
     this.lvl = 1;
@@ -203,14 +227,18 @@ class PaladinCharacter {
     this.money = 100;
     this.weapon = {
       name: "Short Sword",
+      lvl: 0,
       attack: 0,
       damage: [1,6,0],
-      hands: 1
+      hands: 1,
+      cost: 100
     };
     this.armor = {
       name: "Breastplate",
+      lvl: 0,
       armorBonus: 14,
-      type: "medium"
+      type: "medium",
+      cost: 4000
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[6];
@@ -226,7 +254,7 @@ class RangerCharacter {
     this.hp = this.maxHP;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1,8,0];
+    this.damage = [1,8,attBonus];
     this.actions = [{name: "Rapid Fire", attack: 4, damage: [2,16,0]}];
     this.charStats = statClass;
     this.lvl = 1;
@@ -234,14 +262,18 @@ class RangerCharacter {
     this.money = 100;
     this.weapon = {
       name: "Bow",
+      lvl: 0,
       attack: 0,
       damage: [1,8,0],
-      hands: 2
+      hands: 2,
+      cost: 150
     };
     this.armor = {
       name: "Hide",
+      lvl: 0,
       armorBonus: 12,
-      type: "medium"
+      type: "medium",
+      cost: 100
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[7];
@@ -257,7 +289,7 @@ class RogueCharacter {
     this.hp = this.maxHP;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1,4,0];
+    this.damage = [1,4,attBonus];
     this.actions = [{name: "Sneak Attack", attack: 2, damage: [4,6,0]}];
     this.charStats = statClass;
     this.lvl = 1;
@@ -265,14 +297,18 @@ class RogueCharacter {
     this.money = 100;
     this.weapon = {
       name: "Dagger",
+      lvl: 0,
       attack: 0,
       damage: [1,4,0],
-      hands: 1
+      hands: 1,
+      cost: 5
     };
     this.armor = {
       name: "Studded Leather",
+      lvl: 0,
       armorBonus: 12,
-      type: "light"
+      type: "light",
+      cost: 450
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[8];
@@ -288,7 +324,7 @@ class SorcererCharacter {
     this.hp = this.maxHP;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1,6,0];
+    this.damage = [1,6,attBonus];
     this.actions = [{name: "Scorn of Force", attack: 9999, damage: [3,12,0], limit: 3}];
     this.charStats = statClass;
     this.lvl = 1;
@@ -296,14 +332,18 @@ class SorcererCharacter {
     this.money = 100;
     this.weapon = {
       name: "Quarterstaff",
+      lvl: 0,
       attack: 0,
       damage: [1,6,0],
-      hands: 2
+      hands: 2,
+      cost: 10
     };
     this.armor = {
       name: "Leather",
+      lvl: 0,
       armorBonus: 11,
-      type: "light"
+      type: "light",
+      cost: 100
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[9];
@@ -319,7 +359,7 @@ class WarlockCharacter {
     this.hp = this.maxHP;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1,6,0];
+    this.damage = [1,6,attBonus];
     this.actions = [{name: "Eldritch Blast", attack: 9999, damage: [8,4,0], limit: 3}];
     this.charStats = statClass;
     this.lvl = 1;
@@ -327,14 +367,18 @@ class WarlockCharacter {
     this.money = 100;
     this.weapon = {
       name: "Quarterstaff",
+      lvl: 0,
       attack: 0,
       damage: [1,6,0],
-      hands: 2
+      hands: 2,
+      cost: 10
     };
     this.armor = {
       name: "Studded Leather",
+      lvl: 0,
       armorBonus: 12,
-      type: "light"
+      type: "light",
+      cost: 450
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[10];
@@ -350,7 +394,7 @@ class WizardCharacter {
     this.hp = this.maxHP;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1,6,0];
+    this.damage = [1,6,attBonus];
     this.actions = [{name: "Fireball", attack: 9999, damage: [5,6,0], limit: 3}];
     this.charStats = statClass;
     this.lvl = 1;
@@ -358,14 +402,18 @@ class WizardCharacter {
     this.money = 100;
     this.weapon = {
       name: "Quarterstaff",
+      lvl: 0,
       attack: 0,
       damage: [1,6,0],
-      hands: 2
+      hands: 2,
+      cost: 10
     };
     this.armor = {
       name: "Shirt",
+      lvl: 0,
       armorBonus: 10,
-      type: "light"
+      type: "light",
+      cost: 10
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[11];
@@ -469,16 +517,3 @@ export let imageArray = [
 ];
 
 export let descriptionArray = [];
-
-// "https://i.pinimg.com/736x/ca/f3/26/caf3269770ab71cf0abd3e85f14aaf86.jpg", 
-//   "https://i.pinimg.com/originals/b7/0e/d6/b70ed6eea7b09eea2d6612ddd099f188.png", 
-//   "https://oldschoolroleplaying.com/wp-content/uploads/2019/05/Cleric-Two.jpg", 
-//   "https://i2.wp.com/nerdarchy.com/wp-content/uploads/2015/11/PZO1121-ElfDruid.jpg?resize=774%2C1000&ssl=1", 
-//   "https://vignette.wikia.nocookie.net/eladriells-dd/images/f/f4/Fighter.jpg/revision/latest?cb=20190324022153", 
-//   "https://oldschoolroleplaying.com/wp-content/uploads/2019/03/monk-five.jpg", 
-//   "https://oldschoolroleplaying.com/wp-content/uploads/2019/03/Paladin-Two-569x1024.png", 
-//   "https://oldschoolroleplaying.com/wp-content/uploads/2019/04/ranger-two.jpg", 
-//   "https://i.pinimg.com/originals/21/2d/71/212d710a1ce457d541cfaa5345534851.png", 
-//   "https://i.pinimg.com/originals/b1/ce/a3/b1cea385f37b7c271c18da08b0bf574e.png", 
-//   "https://wizardofthetavern.com/wp-content/uploads/2019/05/warlock.jpg", 
-//   "https://i.pinimg.com/originals/54/5e/cb/545ecb06834f6fe5afd5faebcae19a5a.png"

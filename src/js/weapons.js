@@ -49,9 +49,12 @@ export function equipWeapon(character) {
 }
 
 export function upgradeWeapon(character) {
+  character.weapon.lvl += 1;
   character.attack -= character.weapon.attack;
   character.damage[2] -= character.weapon.damage[2];
   character.weapon.attack += 1;
   character.weapon.damage[2] += 1;
+  character.weapon.cost *= 2;
+  character.money -= character.weapon.cost;
   equipWeapon(character);
 }
