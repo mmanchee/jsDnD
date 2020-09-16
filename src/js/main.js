@@ -217,49 +217,49 @@ function attachListeners() {
   $(`#weaponry-button`).on("click", function() {
     $(`#townMap`).toggle();
     $(`#bloodbath`).show();
-    $(`#weapon-lvl`).text(`${battle.character.weapon.lvl+1}`);
-    $(`#upgradeWeaponCost`).text(`${battle.character.weapon.cost*2}`);
+    $(`#weapon-lvl`).text(`${player.weapon.lvl+1}`);
+    $(`#upgradeWeaponCost`).text(`${player.weapon.cost*2}`);
   });
   $(`#upgradeWeapon`).on("click", function() {
-    if (battle.character.money < battle.character.weapon.cost*2) {
+    if (player.money < player.weapon.cost*2) {
       $("#message-board").prepend(`You don't have enough money!<br>`);
     } else {
-      upgradeWeapon(battle.character);
-      $("#message-board").prepend(`You upgraded your weapon to ${battle.character.weapon.lvl}!<br>`);
-      $(`#weapon-lvl`).text(battle.character.weapon.lvl+1);
-      $(`#upgradeWeaponCost`).text(battle.character.weapon.cost*2);
+      upgradeWeapon(player);
+      $("#message-board").prepend(`You upgraded your weapon to ${player.weapon.lvl}!<br>`);
+      $(`#weapon-lvl`).text(player.weapon.lvl+1);
+      $(`#upgradeWeaponCost`).text(player.weapon.cost*2);
     }
   });
   $(`#armory-button`).on("click", function() {
     $(`#townMap`).toggle();
     $(`#gnome`).show();
-    $(`armor-lvl`).text(battle.character.armor.lvl+1);
-    $(`#upgradeArmorCost`).text(battle.character.armor.cost*2);
+    $(`#armor-lvl`).text(player.armor.lvl+1);
+    $(`#upgradeArmorCost`).text(player.armor.cost*2);
   });
   $(`#upgradeArmor`).on("click", function() {
-    if (battle.character.money < battle.character.armor.cost*2) {
+    if (player.money < player.armor.cost*2) {
       $("#message-board").prepend(`You don't have enough money!<br>`);
     } else {
-      upgradeArmor(battle.character);
-      $("#message-board").prepend(`You upgraded your weapon to ${battle.character.armor.lvl}!<br>`);
-      $(`armor-lvl`).text(battle.character.armor.lvl+1);
-      $(`#upgradeArmorCost`).text(battle.character.armor.cost*2);
+      upgradeArmor(player);
+      $("#message-board").prepend(`You upgraded your weapon to ${player.armor.lvl}!<br>`);
+      $(`armor-lvl`).text(player.armor.lvl+1);
+      $(`#upgradeArmorCost`).text(player.armor.cost*2);
     }
   });
   
   $(`#alchemist-button`).on("click", function() {
     $(`#townMap`).toggle();
     $(`#victorious`).show();
-    $(`.numHealthPot`).text(battle.character.inventory[0].healthPotion);
+    $(`.numHealthPot`).text(player.inventory[0].healthPotion);
   });
 
   $(`#buyPotion`).on("click", function() {
-    if (battle.character.money < 100) {
+    if (player.money < 100) {
       $("#message-board").prepend(`You don't have enough money!<br>`);
     } else {
-      battle.character.inventory[0].healthPotion += 1;
-      battle.character.money -= 100;
-      $(`.numHealthPot`).text(battle.character.inventory[0].healthPotion);
+      player.inventory[0].healthPotion += 1;
+      player.money -= 100;
+      $(`.numHealthPot`).text(player.inventory[0].healthPotion);
     }
   });
 
@@ -269,11 +269,11 @@ function attachListeners() {
   });
 
   $(`#buyRoom`).on("click", function() {
-    if (battle.character.money < 100) {
+    if (player.money < 100) {
       $("#message-board").prepend(`You don't have enough money!<br>`);
     } else {
-      battle.character.hp = battle.character.maxHP;
-      battle.character.money -= 100;
+      player.hp = player.maxHP;
+      player.money -= 100;
       $("#message-board").prepend(`You slept soundly, you did it.<br>`);
     }
   });
@@ -283,6 +283,8 @@ function attachListeners() {
     $(`#townMap`).toggle();
     $(`#bloodbath`).hide();
     $(`#gnome`).hide();
+    $(`#gobble`).hide();
+    $(`#victorious`).hide();  
   });
 }
 
@@ -314,6 +316,7 @@ function classListener() {
   });
   $("#menu-option-camp").on("click", function() {
     $("#character-menu").hide();
+
   });
 }
 

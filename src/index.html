@@ -186,46 +186,54 @@
         <button type="button" class="btn btn-info col-4 m-3" id="show-gameplay">Go Explore</button>
       </div>
       <div id="bloodbath">
-        <div class="card" style="width:400px">
+        <div class="row justify-content-center">
+          <div class="card" style="width:400px">
           <img class="card-img-top" src="assets/img/blacksmith.jpg" alt="Card image">
-          <div class="card-body">
-            <h4 class="card-title">Blacksmith</h4>
-            <p class="card-text">"What a dinky weapon, would you like me to upgrade your weapon?"</p>
-            <button type="button" class="btn btn-info col-4 m-3" id="upgradeWeapon">Upgrade Weapon to <span id="weapon-lvl"></span> (X <span id="upgradeWeaponCost"></span>Gold)</button>
-            <button type="button" class="btn btn-secondary col-4 m-3 back-town">Back to Town</button>
+            <div class="card-body">
+              <h4 class="card-title">Blacksmith</h4>
+              <p class="card-text">"What a dinky weapon, would you like me to upgrade your weapon?"</p>
+              <button type="button" class="btn btn-info" id="upgradeWeapon">Upgrade Weapon +<span id="weapon-lvl"></span><br>Cost: <span id="upgradeWeaponCost"></span> Gold</button>
+              <button type="button" class="btn btn-secondary back-town">Back to Town</button>
+            </div>
           </div>
         </div>
       </div>
       <div id="gnome">
-        <div class="card" style="width:400px">
-          <img class="card-img-top" src="assets/img/armourer.jpg" alt="Card image">
-          <div class="card-body">
-            <h4 class="card-title">Armourer</h4>
-            <p class="card-text">"Your armor looks a little beat up, would you like me to upgrade your Armor?"</p>
-            <button type="button" class="btn btn-info col-4 m-3" id="upgradeArmor">Upgrade Armor to <span id="armor-lvl"></span> (X <span id="upgradeArmorCost"></span>Gold)</button>
-            <button type="button" class="btn btn-secondary col-4 m-3 back-town">Back to Town</button>
-          </div>
+        <div class="row justify-content-center">
+          <div class="card" style="width:400px">
+            <img class="card-img-top" src="assets/img/armourer.jpg" alt="Card image">
+            <div class="card-body">
+              <h4 class="card-title">Armourer</h4>
+              <p class="card-text">"Your armor looks a little beat up, would you like me to upgrade your Armor?"</p>
+              <button type="button" class="btn btn-info" id="upgradeArmor">Upgrade Armor +<span id="armor-lvl"></span><br>Cost: <span id="upgradeArmorCost"></span> Gold</button>
+              <button type="button" class="btn btn-secondary back-town">Back to Town</button>
+            </div>
+          </div>  
         </div>
       </div>
       <div id="victorious">
-        <div class="card" style="width:400px">
-          <img class="card-img-top" src="assets/img/alchemy.jpg" alt="Card image">
-          <div class="card-body">
-            <h4 class="card-title">Alchemist</h4>
-            <p class="card-text">"You need some health potions? I have plenty!"</p>
-            <button type="button" class="btn btn-info col-4 m-3" id="buyPotion">Buy Health Potion (You have <span class="numHealthPot"></span>) (X 100 Gold)</button>
-            <button type="button" class="btn btn-secondary col-4 m-3 back-town">Back to Town</button>
+        <div class="row justify-content-center">
+          <div class="card" style="width:400px">
+            <img class="card-img-top" src="assets/img/alchemy.jpg" alt="Card image">
+            <div class="card-body">
+              <h4 class="card-title">Alchemist</h4>
+              <p class="card-text">"You need some health potions? I have plenty!"</p>
+              <button type="button" class="btn btn-info" id="buyPotion">Buy Health Potion<br>(You have <span class="numHealthPot"></span>)<br>Cost: 100 Gold</button>
+              <button type="button" class="btn btn-secondary back-town">Back to Town</button>
+            </div>
           </div>
         </div>  
       </div>
       <div id="gobble">
-        <div class="card" style="width:400px">
-          <img class="card-img-top" src="assets/img/innkeeper.jpg" alt="Card image">
-          <div class="card-body">
-            <h4 class="card-title">Innkeeper</h4>
-            <p class="card-text">"Only 100 gold to stay the night, you'll be feeling better than ever when you wake up!"</p>
-            <button type="button" class="btn btn-info col-4 m-3" id="buyRoom">Stay the night at the Gobble Inn</button>
-            <button type="button" class="btn btn-secondary col-4 m-3 back-town">Back to Town</button>
+        <div class="row justify-content-center">
+          <div class="card" style="width:400px">
+            <img class="card-img-top" src="assets/img/innkeeper.jpg" alt="Card image">
+            <div class="card-body">
+              <h4 class="card-title">Innkeeper</h4>
+              <p class="card-text">"Only 100 gold to stay the night, you'll be feeling better than ever when you wake up!"</p>
+              <button type="button" class="btn btn-info" id="buyRoom">Stay the night at the Gobble Inn</button>
+              <button type="button" class="btn btn-secondary back-town">Back to Town</button>
+            </div>
           </div>
         </div> 
       </div>

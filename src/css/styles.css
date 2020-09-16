@@ -1,9 +1,10 @@
 /* Splash */
 body {
-background-image: url('../assets/img/splash2.jpg');
-background-repeat: no-repeat;
-font-family: 'Uncial Antiqua', cursive;
-color:cornsilk;
+  background-image: url('../assets/img/splash2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Uncial Antiqua', cursive;
+  color:cornsilk;
 }
 
 h1 {
@@ -123,18 +124,18 @@ label {
 }
 
 .display-img {
-  width: 450px;
-  height: 450px;
+  width: 350px;
+  height: 350px;
 }
 
 .player-img {
-  width: 450px;
-  height: 450px;
+  width: 350px;
+  height: 350px;
 }
 
 .box-size {
-  height: 500px;
-  width: 500px;
+  height: 400px;
+  width: 400px;
 }
 
 #battle-buttons, #gameplay, #start-over, #char-class, #char-stats, #explore, #townMap, #bloodbath, #gnome, #victorious, #gobble {
@@ -237,4 +238,36 @@ label {
   left: 58%;
   font-size: 14px;
   padding: 5px;
+}
+
+#gobble .btn {
+  width: 350px;
+}
+
+#victorious .btn {
+  width: 350px;
+}
+
+#gnome .btn {
+  width: 350px;
+}
+
+#bloodbath .btn {
+  width: 350px;
+}
+
+#gobble {
+  color: black;
+}
+
+#victorious {
+  color: black;
+}
+
+#gnome {
+  color: black;
+}
+
+#bloodbath {
+  color: black;
 }
