@@ -2,7 +2,6 @@
 body {
   background-image: url('../assets/img/splash2.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
   font-family: 'Uncial Antiqua', cursive;
   color:cornsilk;
 }
@@ -240,34 +239,22 @@ label {
   padding: 5px;
 }
 
-#gobble .btn {
-  width: 350px;
-}
-
-#victorious .btn {
-  width: 350px;
-}
-
-#gnome .btn {
-  width: 350px;
-}
-
-#bloodbath .btn {
-  width: 350px;
-}
-
-#gobble {
+#shops {
   color: black;
 }
 
-#victorious {
-  color: black;
+#shops .btn{
+  width: 350px;
 }
 
-#gnome {
-  color: black;
+.card-img-top {
+  max-height: 300px;
 }
 
-#bloodbath {
-  color: black;
+.forestBackground {
+  background-size: cover;
+}
+
+#message-box {
+  margin-top: 5px;
 }

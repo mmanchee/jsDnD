@@ -300,23 +300,22 @@ function classListener() {
   });
   // Nav Menu Listeners
   $("#icon-journal").on("click", function() {
-    $("#character-menu").show();
+    $("#character-menu").toggle();
   });
   $("#menu-option-travel").on("click", function() {
-    $("#character-menu").hide();
+    $("#character-menu").toggle();
 
   });
   $("#menu-option-character").on("click", function() {
-    $("#character-menu").hide();
+    $("#character-menu").toggle();
 
   });
   $("#menu-option-town").on("click", function() {
-    $("#character-menu").hide();
+    $("#character-menu").toggle();
 
   });
   $("#menu-option-camp").on("click", function() {
-    $("#character-menu").hide();
-
+    $("#character-menu").toggle();
   });
 }
 
@@ -336,7 +335,7 @@ $(document).ready(function() {
   });
   $("#confirm-stats").click(function(event) { // character stats transition
     event.preventDefault();
-    $('body').css('background-image', `url(${forest})`); // change background image
+    $('body').css('background-image', `url(${forest})`, 'class="forestBackground"'); // change background image
     $("#char-stats").toggle();
     const name = $(`#name`).val();
     const charClass = $("#confirm-class").val();

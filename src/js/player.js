@@ -41,7 +41,7 @@ class BardCharacter {
     this.hp = 8 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1,6,0];
+    this.damage = [1,6,attBonus];
     this.actions = [{name: "Seduce", attack: 1, damage: [1,200,0]}];
     this.charStats = statClass;
     this.lvl = 1;
@@ -74,7 +74,7 @@ class ClericCharacter {
     this.hp = 8 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1,6,0];
+    this.damage = [1,6,attBonus];
     this.actions = [{name: "Turn Undead", attack: 8, damage: [2,10,0]}];
     this.charStats = statClass;
     this.lvl = 1;
@@ -107,7 +107,7 @@ class DruidCharacter {
     this.hp = 8 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1,6,0];
+    this.damage = [1,6,attBonus];
     this.actions = [{name: "Summon Bear", attack: 3, damage: [2,20,0]}];
     this.charStats = statClass;
     this.lvl = 1;
@@ -140,7 +140,7 @@ class FighterCharacter {
     this.hp = 10 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1,8,0];
+    this.damage = [1,8,attBonus];
     this.actions = [{name: "Flail Wildly", attack:8, damage: [2,12,0]}];
     this.charStats = statClass;
     this.lvl = 1;
@@ -173,7 +173,7 @@ class MonkCharacter {
     this.hp = 8 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1,6,0];
+    this.damage = [1,6,attBonus];
     this.actions = [{name: "Judo Chop", attack: 9999, damage: [1,4,0]}];
     this.charStats = statClass;
     this.lvl = 1;
@@ -206,7 +206,7 @@ class PaladinCharacter {
     this.hp = 10 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1,6,0];
+    this.damage = [1,6,attBonus];
     this.actions = [{name: "Smite", attack: 3, damage: [2,20,0]}];
     this.charStats = statClass;
     this.lvl = 1;
@@ -239,7 +239,7 @@ class RangerCharacter {
     this.hp = 10 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1,8,0];
+    this.damage = [1,8,attBonus];
     this.actions = [{name: "Rapid Fire", attack: 4, damage: [2,16,0]}];
     this.charStats = statClass;
     this.lvl = 1;
@@ -272,7 +272,7 @@ class RogueCharacter {
     this.hp = 8 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1,4,0];
+    this.damage = [1,4,attBonus];
     this.actions = [{name: "Sneak Attack", attack: 2, damage: [4,6,0]}];
     this.charStats = statClass;
     this.lvl = 1;
@@ -305,7 +305,7 @@ class SorcererCharacter {
     this.hp = 6 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1,6,0];
+    this.damage = [1,6,attBonus];
     this.actions = [{name: "Scorn of Force", attack: 9999, damage: [3,12,0], limit: 3}];
     this.charStats = statClass;
     this.lvl = 1;
@@ -338,7 +338,7 @@ class WarlockCharacter {
     this.hp = 8 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1,6,0];
+    this.damage = [1,6,attBonus];
     this.actions = [{name: "Eldritch Blast", attack: 9999, damage: [8,4,0], limit: 3}];
     this.charStats = statClass;
     this.lvl = 1;
@@ -371,7 +371,7 @@ class WizardCharacter {
     this.hp = 6 + hpBonus;
     this.armorClass = armorClass;
     this.attack = attBonus;
-    this.damage = [1,6,0];
+    this.damage = [1,6,attBonus];
     this.actions = [{name: "Fireball", attack: 9999, damage: [5,6,0], limit: 3}];
     this.charStats = statClass;
     this.lvl = 1;
