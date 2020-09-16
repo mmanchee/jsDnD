@@ -2,6 +2,7 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './../css/styles.css';
+import forest from '../assets/img/forest.jpg';
 import {getCharacter} from './player.js';
 import {Monster} from './monsters.js';
 import {Battle} from './battle.js';
@@ -22,7 +23,7 @@ function displayStats(battle) {
   if (battle.character.actions[0].limit) {
     $("#action-limit").text(battle.character.actions[0].limit);
   }
-  $("#numHealthPot").text(battle.character.inventory[0].healthPotion);
+  $(".numHealthPot").text(battle.character.inventory[0].healthPotion);
   let endBattle = false;
   let message = displayMonsterHealth(battle.monster);
   $("#monster-health").text(message);
@@ -82,6 +83,7 @@ function charStatListeners() {
     trigger: 'focus'
   });
 }
+
 function attachListeners() {
   let monster;
   let battle;
@@ -204,12 +206,6 @@ function attachListeners() {
       }
     }
   });
-  $(`#upgradeWeapon`).on("click", function() {
-    upgradeWeapon(battle.character);
-  });
-  $(`#upgradeArmor`).on("click", function() {
-    upgradeArmor(battle.character);
-  });
   $(`#show-town`).on("click", function() {
     $(`#gameplay`).toggle();
     $(`#townMap`).toggle();
@@ -217,6 +213,76 @@ function attachListeners() {
   $(`#show-gameplay`).on("click", function() {
     $(`#gameplay`).toggle();
     $(`#townMap`).toggle();
+  });
+  $(`#weaponry-button`).on("click", function() {
+    $(`#townMap`).toggle();
+    $(`#bloodbath`).show();
+    $(`#weapon-lvl`).text(`${battle.character.weapon.lvl+1}`);
+    $(`#upgradeWeaponCost`).text(`${battle.character.weapon.cost*2}`);
+  });
+  $(`#upgradeWeapon`).on("click", function() {
+    if (battle.character.money < battle.character.weapon.cost*2) {
+      $("#message-board").prepend(`You don't have enough money!<br>`);
+    } else {
+      upgradeWeapon(battle.character);
+      $("#message-board").prepend(`You upgraded your weapon to ${battle.character.weapon.lvl}!<br>`);
+      $(`#weapon-lvl`).text(battle.character.weapon.lvl+1);
+      $(`#upgradeWeaponCost`).text(battle.character.weapon.cost*2);
+    }
+  });
+  $(`#armory-button`).on("click", function() {
+    $(`#townMap`).toggle();
+    $(`#gnome`).show();
+    $(`armor-lvl`).text(battle.character.armor.lvl+1);
+    $(`#upgradeArmorCost`).text(battle.character.armor.cost*2);
+  });
+  $(`#upgradeArmor`).on("click", function() {
+    if (battle.character.money < battle.character.armor.cost*2) {
+      $("#message-board").prepend(`You don't have enough money!<br>`);
+    } else {
+      upgradeArmor(battle.character);
+      $("#message-board").prepend(`You upgraded your weapon to ${battle.character.armor.lvl}!<br>`);
+      $(`armor-lvl`).text(battle.character.armor.lvl+1);
+      $(`#upgradeArmorCost`).text(battle.character.armor.cost*2);
+    }
+  });
+  
+  $(`#alchemist-button`).on("click", function() {
+    $(`#townMap`).toggle();
+    $(`#victorious`).show();
+    $(`.numHealthPot`).text(battle.character.inventory[0].healthPotion);
+  });
+
+  $(`#buyPotion`).on("click", function() {
+    if (battle.character.money < 100) {
+      $("#message-board").prepend(`You don't have enough money!<br>`);
+    } else {
+      battle.character.inventory[0].healthPotion += 1;
+      battle.character.money -= 100;
+      $(`.numHealthPot`).text(battle.character.inventory[0].healthPotion);
+    }
+  });
+
+  $(`#inn-button`).on("click", function() {
+    $(`#townMap`).toggle();
+    $(`#gobble`).show();
+  });
+
+  $(`#buyRoom`).on("click", function() {
+    if (battle.character.money < 100) {
+      $("#message-board").prepend(`You don't have enough money!<br>`);
+    } else {
+      battle.character.hp = battle.character.maxHP;
+      battle.character.money -= 100;
+      $("#message-board").prepend(`You slept soundly, you did it.<br>`);
+    }
+  });
+
+  // back to town map
+  $(`button.back-town`).on("click", function() {
+    $(`#townMap`).toggle();
+    $(`#bloodbath`).hide();
+    $(`#gnome`).hide();
   });
 }
 
@@ -248,7 +314,6 @@ function classListener() {
   });
   $("#menu-option-camp").on("click", function() {
     $("#character-menu").hide();
-
   });
 }
 
@@ -268,6 +333,7 @@ $(document).ready(function() {
   });
   $("#confirm-stats").click(function(event) { // character stats transition
     event.preventDefault();
+    $('body').css('background-image', `url(${forest})`); // change background image
     $("#char-stats").toggle();
     const name = $(`#name`).val();
     const charClass = $("#confirm-class").val();
@@ -291,7 +357,7 @@ $(document).ready(function() {
     $("#nav-character-class").text(charClass);
     $("#nav-main").show();
     $("#gameplay").show();
-    //$("#message-box").show(); // stuff
+    $("#message-box").show();
     $("#message-board").prepend(`Welcome ${name}, You can start your adventure by exploring and battling monsters.<br>`);
     let buttons = $("#action-buttons");
     buttons.empty();

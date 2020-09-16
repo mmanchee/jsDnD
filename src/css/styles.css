@@ -1,6 +1,7 @@
 /* Splash */
 body {
 background-image: url('../assets/img/splash2.jpg');
+background-repeat: no-repeat;
 font-family: 'Uncial Antiqua', cursive;
 color:cornsilk;
 }
@@ -136,18 +137,18 @@ label {
   width: 500px;
 }
 
-#battle-buttons, #gameplay, #start-over, #char-class, #char-stats, #explore, #townMap {
+#battle-buttons, #gameplay, #start-over, #char-class, #char-stats, #explore, #townMap, #bloodbath, #gnome, #victorious, #gobble {
   display: none;
 }
 
 #message-box {
   background-color: black;
   display: none;
-  height: 300px;
+  height: 100px;
   width: 500px;
   overflow-y: scroll;
-  padding: 10px;
-  margin-top: 75px;
+  margin-top: 100px;
+  margin-left: 10%;
 }
 
 #message-board {
@@ -204,6 +205,8 @@ label {
   left: 55%;
   font-weight: bold;
   width: 110px;
+  font-size: 14px;
+  padding: 5px;
 }
 
 #armory .btn {
@@ -212,6 +215,8 @@ label {
   width: 110px;
   top: 51%;
   left: 15%;
+  font-size: 14px;
+  padding: 5px;
 }
 
 #alchemist .btn {
@@ -220,6 +225,8 @@ label {
   width: 110px;
   top: 28%;
   left: 28%;
+  font-size: 14px;
+  padding: 5px;
 }
 
 #inn .btn {
@@ -228,4 +235,6 @@ label {
   width: 110px;
   top: 60%;
   left: 58%;
+  font-size: 14px;
+  padding: 5px;
 }

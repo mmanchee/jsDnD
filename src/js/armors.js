@@ -90,7 +90,10 @@ export function equipArmor(character) {
 }
 
 export function upgradeArmor(character) {
+  character.armor.lvl += 1;
   character.armorClass -= character.armor.armorBonus;
   character.armor.armorBonus += 1;
+  character.armor.cost *= 2;
+  character.money -= character.armor.cost;
   equipArmor(character);
 }

@@ -138,17 +138,19 @@
               <h2><span id="player-name"></span></h2>
               <div id="player-img"></div>
               <p>Health: <span id="player-health"></span> Gold: <span id="goldCount"></span></p>
-              <button type="button" class="btn btn-warning" id="explore-button">Explore</button>
-              <button type="button" class="btn btn-warning" id="show-town">Go to Town</button>
+              <div class="col-5 text-left">
+                <button type="button" class="btn btn-warning" id="explore-button">Explore</button>
+              </div>
+              <div class="col-5 text-right">
+                <button type="button" class="btn btn-warning" id="show-town">Go to Town</button>
+              </div>
               <button type="button" onclick="window.location.reload()" id="start-over">Start Again</button>
             </div>
             <div class="mt-3" id="battle-buttons">
               <button type="button" class="btn btn-info col-4 m-3" id="melee-attack">Melee Attack</button>
               <div id="action-buttons"></div>
               <button type="button" class="btn btn-info col-4 m-3" id="flee">Flee</button>
-              <button type="button" class="btn btn-info col-4 m-3" id="healthPotion">Health Potions (X<span id="numHealthPot"></span>)</button>
-              <button type="button" class="btn btn-info col-4 m-3" id="upgradeWeapon">Upgrade Weapon</button>
-              <button type="button" class="btn btn-info col-4 m-3" id="upgradeArmor">Upgrade Armor</button>
+              <button type="button" class="btn btn-info col-4 m-3" id="healthPotion">Health Potions (X<span class="numHealthPot"></span>)</button>
             </div>
           </div>
           <div class="col-5">
@@ -160,25 +162,22 @@
           </div>
         </div>
       </div>
-      <div class="card align-items-start" id="message-box">
-        <div id="message-board"></div>
-      </div>
       <div id="townMap">
         <div class="row">
           <div class="card" style="width: 1200px; height: 800px">
             <div class="card-img-overlay">
               <div id="shopButtons">
                 <div id="weaponry">
-                  <button class="btn bg-transparent">Bloodbath & Beyond</button>
+                  <button class="btn bg-transparent" id="weaponry-button">Bloodbath & Beyond</button>
                 </div>
                 <div id="armory">
-                  <button class="btn bg-transparent">Gnome Depot</button>
+                  <button class="btn bg-transparent" id="armory-button">Gnome Depot</button>
                 </div>
                 <div id="alchemist">
-                  <button class="btn bg-transparent">Victorious Secret</button>
+                  <button class="btn bg-transparent" id="alchemist-button">Victorious Secret</button>
                 </div>
                 <div id="inn">
-                <button class="btn bg-transparent">The Gobble Inn</button>
+                <button class="btn bg-transparent" id="inn-button">The Gobble Inn</button>
                 </div>
               </div>
             </div>
@@ -186,8 +185,55 @@
         </div>
         <button type="button" class="btn btn-info col-4 m-3" id="show-gameplay">Go Explore</button>
       </div>
-      <div id="gameover"></div>
-      <div id="test"></div>
+      <div id="bloodbath">
+        <div class="card" style="width:400px">
+          <img class="card-img-top" src="assets/img/blacksmith.jpg" alt="Card image">
+          <div class="card-body">
+            <h4 class="card-title">Blacksmith</h4>
+            <p class="card-text">"What a dinky weapon, would you like me to upgrade your weapon?"</p>
+            <button type="button" class="btn btn-info col-4 m-3" id="upgradeWeapon">Upgrade Weapon to <span id="weapon-lvl"></span> (X <span id="upgradeWeaponCost"></span>Gold)</button>
+            <button type="button" class="btn btn-secondary col-4 m-3 back-town">Back to Town</button>
+          </div>
+        </div>
+      </div>
+      <div id="gnome">
+        <div class="card" style="width:400px">
+          <img class="card-img-top" src="assets/img/armourer.jpg" alt="Card image">
+          <div class="card-body">
+            <h4 class="card-title">Armourer</h4>
+            <p class="card-text">"Your armor looks a little beat up, would you like me to upgrade your Armor?"</p>
+            <button type="button" class="btn btn-info col-4 m-3" id="upgradeArmor">Upgrade Armor to <span id="armor-lvl"></span> (X <span id="upgradeArmorCost"></span>Gold)</button>
+            <button type="button" class="btn btn-secondary col-4 m-3 back-town">Back to Town</button>
+          </div>
+        </div>
+      </div>
+      <div id="victorious">
+        <div class="card" style="width:400px">
+          <img class="card-img-top" src="assets/img/alchemy.jpg" alt="Card image">
+          <div class="card-body">
+            <h4 class="card-title">Alchemist</h4>
+            <p class="card-text">"You need some health potions? I have plenty!"</p>
+            <button type="button" class="btn btn-info col-4 m-3" id="buyPotion">Buy Health Potion (You have <span class="numHealthPot"></span>) (X 100 Gold)</button>
+            <button type="button" class="btn btn-secondary col-4 m-3 back-town">Back to Town</button>
+          </div>
+        </div>  
+      </div>
+      <div id="gobble">
+        <div class="card" style="width:400px">
+          <img class="card-img-top" src="assets/img/innkeeper.jpg" alt="Card image">
+          <div class="card-body">
+            <h4 class="card-title">Innkeeper</h4>
+            <p class="card-text">"Only 100 gold to stay the night, you'll be feeling better than ever when you wake up!"</p>
+            <button type="button" class="btn btn-info col-4 m-3" id="buyRoom">Stay the night at the Gobble Inn</button>
+            <button type="button" class="btn btn-secondary col-4 m-3 back-town">Back to Town</button>
+          </div>
+        </div> 
+      </div>
+      <div class="row">
+        <div class="card align-items-start col-8" style="width: 6rem;" id="message-box">
+          <div id="message-board"></div>
+        </div>
+      </div>  
     </div>
     <div id="#error"></div>
   </div>

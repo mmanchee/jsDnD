@@ -16,14 +16,18 @@ class BarbarianCharacter {
     this.money = 100;
     this.weapon = {
       name: "Great Axe",
+      lvl: 0,
       attack: 0,
       damage: [1,12,0],
-      hands: 2
+      hands: 2,
+      cost: 300
     };
     this.armor = {
       name: "Breastplate",
+      lvl: 0,
       armorBonus: 14,
-      type: "medium"
+      type: "medium",
+      cost: 4000
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[0];
@@ -45,14 +49,18 @@ class BardCharacter {
     this.money = 100;
     this.weapon = {
       name: "Short Sword",
+      lvl: 0,
       attack: 0,
       damage: [1,6,0],
-      hands: 1
+      hands: 1,
+      cost: 100
     };
     this.armor = {
       name: "Leather",
+      lvl: 0,
       armorBonus: 11,
-      type: "light"
+      type: "light",
+      cost: 100
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[1];
@@ -74,14 +82,18 @@ class ClericCharacter {
     this.money = 100;
     this.weapon = {
       name: "Mace",
+      lvl: 0,
       attack: 0,
       damage: [1,6,0],
-      hands: 1
+      hands: 1,
+      cost: 50
     };
     this.armor = {
       name: "Breastplate",
+      lvl: 0,
       armorBonus: 14,
-      type: "medium"
+      type: "medium",
+      cost: 4000
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[2];
@@ -103,14 +115,18 @@ class DruidCharacter {
     this.money = 100;
     this.weapon = {
       name: "Quarterstaff",
+      lvl: 0,
       attack: 0,
       damage: [1,6,0],
-      hands: 2
+      hands: 2,
+      cost: 10
     };
     this.armor = {
       name: "Hide",
+      lvl: 0,
       armorBonus: 10,
-      type: "medium"
+      type: "medium",
+      cost: 100
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[3];
@@ -132,14 +148,18 @@ class FighterCharacter {
     this.money = 100;
     this.weapon = {
       name: "Long Sword",
+      lvl: 0,
       attack: 0,
       damage: [1,8,0],
-      hands: 1
+      hands: 1,
+      cost: 150
     };
     this.armor = {
       name: "Breastplate",
+      lvl: 0,
       armorBonus: 14,
-      type: "medium"
+      type: "medium",
+      cost: 4000
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[4];
@@ -161,14 +181,18 @@ class MonkCharacter {
     this.money = 100;
     this.weapon = {
       name: "Quarterstaff",
+      lvl: 0,
       attack: 0,
       damage: [1,6,0],
-      hands: 2
+      hands: 2,
+      cost: 10
     };
     this.armor = {
       name: "Shirt",
+      lvl: 0,
       armorBonus: 10,
-      type: "light"
+      type: "light",
+      cost: 10
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[5];
@@ -190,14 +214,18 @@ class PaladinCharacter {
     this.money = 100;
     this.weapon = {
       name: "Short Sword",
+      lvl: 0,
       attack: 0,
       damage: [1,6,0],
-      hands: 1
+      hands: 1,
+      cost: 100
     };
     this.armor = {
       name: "Breastplate",
+      lvl: 0,
       armorBonus: 14,
-      type: "medium"
+      type: "medium",
+      cost: 4000
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[6];
@@ -219,14 +247,18 @@ class RangerCharacter {
     this.money = 100;
     this.weapon = {
       name: "Bow",
+      lvl: 0,
       attack: 0,
       damage: [1,8,0],
-      hands: 2
+      hands: 2,
+      cost: 150
     };
     this.armor = {
       name: "Hide",
+      lvl: 0,
       armorBonus: 12,
-      type: "medium"
+      type: "medium",
+      cost: 100
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[7];
@@ -248,14 +280,18 @@ class RogueCharacter {
     this.money = 100;
     this.weapon = {
       name: "Dagger",
+      lvl: 0,
       attack: 0,
       damage: [1,4,0],
-      hands: 1
+      hands: 1,
+      cost: 5
     };
     this.armor = {
       name: "Studded Leather",
+      lvl: 0,
       armorBonus: 12,
-      type: "light"
+      type: "light",
+      cost: 450
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[8];
@@ -277,14 +313,18 @@ class SorcererCharacter {
     this.money = 100;
     this.weapon = {
       name: "Quarterstaff",
+      lvl: 0,
       attack: 0,
       damage: [1,6,0],
-      hands: 2
+      hands: 2,
+      cost: 10
     };
     this.armor = {
       name: "Leather",
+      lvl: 0,
       armorBonus: 11,
-      type: "light"
+      type: "light",
+      cost: 100
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[9];
@@ -306,14 +346,18 @@ class WarlockCharacter {
     this.money = 100;
     this.weapon = {
       name: "Quarterstaff",
+      lvl: 0,
       attack: 0,
       damage: [1,6,0],
-      hands: 2
+      hands: 2,
+      cost: 10
     };
     this.armor = {
       name: "Studded Leather",
+      lvl: 0,
       armorBonus: 12,
-      type: "light"
+      type: "light",
+      cost: 450
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[10];
@@ -335,14 +379,18 @@ class WizardCharacter {
     this.money = 100;
     this.weapon = {
       name: "Quarterstaff",
+      lvl: 0,
       attack: 0,
       damage: [1,6,0],
-      hands: 2
+      hands: 2,
+      cost: 10
     };
     this.armor = {
       name: "Shirt",
+      lvl: 0,
       armorBonus: 10,
-      type: "light"
+      type: "light",
+      cost: 10
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[11];
