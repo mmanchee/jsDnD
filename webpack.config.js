@@ -36,7 +36,10 @@ module.exports = {
         exclude: /node_modules/,
         loader: "eslint-loader"
       },
+<<<<<<< HEAD
       
+=======
+>>>>>>> 29668d5e0a3971c6ade9f9ec43ff92f65965ceea
       {
         test: /\.(gif|png|jpe?g)$/,
         use: [
@@ -55,7 +58,11 @@ module.exports = {
         use: [
           'html-loader'
         ]
+<<<<<<< HEAD
       },
+=======
+      }
+>>>>>>> 29668d5e0a3971c6ade9f9ec43ff92f65965ceea
     ]
   }
 };

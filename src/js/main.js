@@ -233,6 +233,26 @@ function classListener() {
     $(`#selected-class`).html(`<h3 id="character-class">${className}</h3>`);
     $("#character-display").html(`<img class=display-img src=${imageArray[arrayPlace]}>`);
   });
+  // Nav Menu Listeners
+  $("#icon-journal").on("click", function() {
+    $("#character-menu").show();
+  })
+  $("#menu-option-travel").on("click", function() {
+    $("#character-menu").hide();
+
+  })
+  $("#menu-option-character").on("click", function() {
+    $("#character-menu").hide();
+
+  })
+  $("#menu-option-town").on("click", function() {
+    $("#character-menu").hide();
+
+  })
+  $("#menu-option-camp").on("click", function() {
+    $("#character-menu").hide();
+
+  })
 }
 
 let player;
@@ -269,6 +289,10 @@ $(document).ready(function() {
     $("#explore").show(); //new
     $("#goldCount").text(player.money);
     $("#character-creation").hide();
+    $("#nav-character-name").text(player.name);
+    $("#nav-character-level").text("1");
+    $("#nav-character-class").text(charClass);
+    $("#nav-main").show();
     $("#gameplay").show();
     $("#message-board").prepend(`Welcome ${name}, You can start your adventure by exploring and battling monsters.<br>`);
     let buttons = $("#action-buttons");
