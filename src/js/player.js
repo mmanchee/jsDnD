@@ -3,6 +3,7 @@
 
 class BarbarianCharacter {
   constructor(name, armorClass, hpBonus, attBonus, statClass){
+    this.playerClass = "Barbarian";
     this.name = name;
     this.maxHP = 12;
     this.hp = 12 + hpBonus;
@@ -32,6 +33,7 @@ class BarbarianCharacter {
 
 class BardCharacter {
   constructor(name, armorClass, hpBonus, attBonus, statClass){
+    this.playerClass = "Bard";
     this.name = name;
     this.maxHP = 8;
     this.hp = 8 + hpBonus;
@@ -61,6 +63,7 @@ class BardCharacter {
 
 class ClericCharacter {
   constructor(name, armorClass, hpBonus, attBonus, statClass){
+    this.playerClass = "Cleric";
     this.name = name;
     this.maxHP = 8;
     this.hp = 8 + hpBonus;
@@ -90,6 +93,7 @@ class ClericCharacter {
 
 class DruidCharacter {
   constructor(name, armorClass, hpBonus, attBonus, statClass){
+    this.playerClass = "Druid";
     this.name = name;
     this.maxHP = 8;
     this.hp = 8 + hpBonus;
@@ -119,6 +123,7 @@ class DruidCharacter {
 
 class FighterCharacter {
   constructor(name, armorClass, hpBonus, attBonus, statClass){
+    this.playerClass = "Fighter";
     this.name = name;
     this.maxHP = 10;
     this.hp = 10 + hpBonus;
@@ -148,6 +153,7 @@ class FighterCharacter {
 
 class MonkCharacter {
   constructor(name, armorClass, hpBonus, attBonus, statClass){
+    this.playerClass = "Monk";
     this.name = name;
     this.maxHP = 8;
     this.hp = 8 + hpBonus;
@@ -177,6 +183,7 @@ class MonkCharacter {
 
 class PaladinCharacter {
   constructor(name, armorClass, hpBonus, attBonus, statClass){
+    this.playerClass = "Paladin";
     this.name = name;
     this.maxHP = 10;
     this.hp = 10 + hpBonus;
@@ -206,6 +213,7 @@ class PaladinCharacter {
 
 class RangerCharacter {
   constructor(name, armorClass, hpBonus, attBonus, statClass){
+    this.playerClass = "Ranger";
     this.name = name;
     this.maxHP = 10;
     this.hp = 10 + hpBonus;
@@ -235,6 +243,7 @@ class RangerCharacter {
 
 class RogueCharacter {
   constructor(name, armorClass, hpBonus, attBonus, statClass){
+    this.playerClass = "Rogue";
     this.name = name;
     this.maxHP = 8;
     this.hp = 8 + hpBonus;
@@ -264,6 +273,7 @@ class RogueCharacter {
 
 class SorcererCharacter {
   constructor(name, armorClass, hpBonus, attBonus, statClass){
+    this.playerClass = "Sorcerer";
     this.name = name;
     this.maxHP = 6;
     this.hp = 6 + hpBonus;
@@ -293,6 +303,7 @@ class SorcererCharacter {
 
 class WarlockCharacter {
   constructor(name, armorClass, hpBonus, attBonus, statClass){
+    this.playerClass = "Warlock";
     this.name = name;
     this.maxHP = 8;
     this.hp = 8 + hpBonus;
@@ -322,6 +333,7 @@ class WarlockCharacter {
 
 class WizardCharacter {
   constructor(name, armorClass, hpBonus, attBonus, statClass){
+    this.playerClass = "Wizard";
     this.name = name;
     this.maxHP = 6;
     this.hp = 6 + hpBonus;

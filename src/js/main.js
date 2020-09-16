@@ -252,12 +252,28 @@ function classListener() {
   });
 }
 
+function charSheetListener() {
+  $("#cs-player-img").html(player.img);
+  $("#cs-name").html(player.name);
+  $("#cs-class").html(player.class);
+  $("#cs-player-img").html(player.img);
+  $("#cs-player-img").html(player.img);
+  $("#cs-player-img").html(player.img);
+  $("#cs-player-img").html(player.img);
+  $("#cs-player-img").html(player.img);
+  $("#cs-player-img").html(player.img);
+  $("#cs-player-img").html(player.img);
+  $("#cs-player-img").html(player.img);
+
+}
+
 let player;
 
 $(document).ready(function() {
   charStatListeners();
   attachListeners();
   classListener();
+  charSheetListener();
   $("#start-button").click(function() { // splash transition
     $("#splash").toggle();
     $("#char-class").toggle();

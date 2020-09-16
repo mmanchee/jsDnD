@@ -191,5 +191,67 @@
     </div>
     <div id="#error"></div>
   </div>
+  <div id="character-sheet">
+    <div class="row">
+      <div class="col-6">
+        <div id="cs-player-img"></div>
+        <div class="">
+          <div class="col-4">
+            <a tabindex="0" class="btn btn-stats" data-toggle="popover" data-trigger="focus" title="Strength" data-content="Effects your chance to hit and damage total">STR</a><br>
+            <a tabindex="0" class="btn btn-stats" data-toggle="popover" data-trigger="focus" title="Dexterity" data-content="Effects your ability to dodge from an enemy">DEX</a><br>
+            <a tabindex="0" class="btn btn-stats" data-toggle="popover" data-trigger="focus" title="Intelligence" data-content="Effects your ability to think under pressure">INT</a><br>
+            <a tabindex="0" class="btn btn-stats" data-toggle="popover" data-trigger="focus" title="Wisdom" data-content="Effects your ability to avoid enemies">WIS</a><br>
+            <a tabindex="0" class="btn btn-stats" data-toggle="popover" data-trigger="focus" title="Charisma" data-content="Effects your bardering skills at the store">CHA</a><br>
+            <a tabindex="0" class="btn btn-stats" data-toggle="popover" data-trigger="focus" title="Constitution" data-content="Effects your health bonus">CON</a><br>
+          </div>
+          <div class="col-5">
+            <div class="mb-2">
+              <button type='button' class='btn btn-info stat-minus' field='cs-strength'>-</button>
+              <input type='text' id="cs-str-stat" name='cs-strength' value='10' class='col-2 text-center stat-num'>
+              <button type='button' class='btn btn-info stat-plus' field='cs-strength'>+</button>
+            </div>
+            <div class="mt-2 mb-2">
+              <button type='button' class='btn btn-info stat-minus' field='cs-dexterity'>-</button>
+              <input type='text' id="cs-dex-stat" name='cs-dexterity' value='10' class='col-2 text-center stat-num'>
+              <button type='button' class='btn btn-info stat-plus' field='cs-dexterity'>+</button>
+            </div>
+            <div class="mt-2 mb-2">
+              <button type='button' class='btn btn-info stat-minus' field='cs-intelligence'>-</button>
+              <input type='text' id="cs-int-stat" name='cs-intelligence' value='10' class='col-2 text-center stat-num'>
+              <button type='button' class='btn btn-info stat-plus' field='cs-intelligence'>+</button>
+            </div>
+            <div class="mt-2 mb-2">
+              <button type='button' class='btn btn-info stat-minus' field='cs-wisdom'>-</button>
+              <input type='text' id="cs-wis-stat" name='cs-wisdom' value='10' class='col-2 text-center stat-num'>
+              <button type='button' class='btn btn-info stat-plus' field='cs-wisdom'>+</button>
+            </div>
+            <div class="mt-2 mb-2">
+              <button type='button' class='btn btn-info stat-minus' field='cs-charisma'>-</button>
+              <input type='text' id="cs-cha-stat" name='cs-charisma' value='10' class='col-2 text-center stat-num'>
+              <button type='button' class='btn btn-info stat-plus' field='cs-charisma'>+</button>
+            </div>
+            <div class="mt-2">
+              <button type='button' class='btn btn-info stat-minus' field='cs-constitution'>-</button>
+              <input type='text' id="cs-con-stat" name='cs-constitution' value='10' class='col-2 text-center stat-num'>
+              <button type='button' class='btn btn-info stat-plus' field='cs-constitution'>+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="">
+          <p class="">Name<br><span id="cs-name"></span></p>
+          <p class="">Class<br><span id="cs-class"></span></p>
+          <p class="">Level<br><span id="cs-level"></span></p>
+          <p class="">XP<br><span id="cs-exp"></span></p>
+          <p class="">HP<br><span id="cs-hp"></span> / <span id="cs-hp-max"></span></p>
+          <p class="">Bonus Points<br><span id="cs-bonus-points"></span></p>
+          <p class="">Weapon Bonus<br><span id="cs-weapon-bonus"></span></p>
+          <p class="">Armor Bonus<br><span id="cs-armor-bonus"></span></p>
+          <p class="">Potions<br><span id="cs-health-potions"></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
