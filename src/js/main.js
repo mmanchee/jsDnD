@@ -14,6 +14,7 @@ import {upgradeWeapon} from './weapons.js';
 import {upgradeArmor} from './armors.js';
 import { CharacterStats } from './player.js';
 import {displayMonsterHealth} from './monsters.js';
+import { addExp } from './roleFunction.js';
 // import {MonstersURLPIC} from './monsters.js';
 
 let player;
@@ -161,6 +162,11 @@ function attachListeners() {
       $("#show-town").toggle();
       if (turn === 0) {
         $("#message-board").prepend(`You beat the ${battle.monster.name}<br>`);
+          message = battle.getMoney();
+          message += "<br>";
+          message += getLoot(monster.challengeRating, player);
+          $("#message-board").prepend(message);
+          player = addExp(player, monster.exp);
       } else {
         $("#message-board").prepend(`The ${battle.monster.name} has defeated you!<br>`);  // return to character creation?
         $("#player-img").html("<img class=player-img src=https://www.pngitem.com/pimgs/m/23-238931_skull-logo-free-skull-and-cross-bones-svg.png>");
@@ -203,10 +209,6 @@ function attachListeners() {
         turn = 1;
       }
       if (endBattle === true) {
-        message = battle.getMoney();
-        $("#message-board").prepend(message);
-        message = getLoot(monster.challengeRating, player);
-        $("#message-board").prepend(message);
         $("#battle-buttons").toggle();
         $("#monster-img").html("");
         $("#monster-name").text("NPC");
@@ -215,6 +217,11 @@ function attachListeners() {
         $("#show-town").toggle();
         if (turn === 0) {
           $("#message-board").prepend(`You beat the ${battle.monster.name}<br>`);
+          message = battle.getMoney();
+          message += "<br>";
+          message += getLoot(monster.challengeRating, player);
+          $("#message-board").prepend(message);
+          player = addExp(player, monster.exp);
         } else {
           $("#message-board").prepend(`The ${battle.monster.name} has defeated you!<br>`);  // return to character creation?
           $("#player-img").html("<img class=player-img src=https://www.pngitem.com/pimgs/m/23-238931_skull-logo-free-skull-and-cross-bones-svg.png>");
@@ -294,6 +301,24 @@ function classListener() {
 //   $("#cs-con-stat").html(player.charStats.constitution);
 // }
 
+function checkPoints() {
+  let exp = player.exp;
+  let lvl = player.lvl;
+  let newLvl = 0;
+  let expArray = [300,900,2700,6500,14000,23000,34000,48000,64000,85000,100000,120000,140000,165000,195000,225000,265000,305000,355000];
+  let levelArray = [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+  for (let i = 0; i < expArray; i++) {
+    if (expArray[i] > exp) {
+      newLvl = levelArray[i];
+    }
+  }
+  newLvl++;
+  if (newLvl > lvl) {
+    let dif = newLvl - lvl;
+    player.lvl = newLvl;
+    player.bonusPoints += dif;
+  }
+}
 
 
 $(document).ready(function() {

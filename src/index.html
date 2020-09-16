@@ -195,7 +195,7 @@
     <div class="row">
       <div class="col-6">
         <div id="cs-player-img"></div>
-        <div class="">
+        <div class="row">
           <div class="col-4">
             <a tabindex="0" class="btn btn-stats" data-toggle="popover" data-trigger="focus" title="Strength" data-content="Effects your chance to hit and damage total">STR</a><br>
             <a tabindex="0" class="btn btn-stats" data-toggle="popover" data-trigger="focus" title="Dexterity" data-content="Effects your ability to dodge from an enemy">DEX</a><br>
@@ -204,7 +204,7 @@
             <a tabindex="0" class="btn btn-stats" data-toggle="popover" data-trigger="focus" title="Charisma" data-content="Effects your bardering skills at the store">CHA</a><br>
             <a tabindex="0" class="btn btn-stats" data-toggle="popover" data-trigger="focus" title="Constitution" data-content="Effects your health bonus">CON</a><br>
           </div>
-          <div class="col-5">
+          <div class="col-7">
             <div class="mb-2">
               <button type='button' class='btn btn-info stat-minus' field='cs-strength'>-</button>
               <input type='text' id="cs-str-stat" name='cs-strength' value='10' class='col-2 text-center stat-num' min="1">
@@ -238,7 +238,7 @@
           </div>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-4">
         <div class="">
           <p class="">Name<br><span id="cs-name"></span></p>
           <p class="">Class<br><span id="cs-class"></span></p>
@@ -252,6 +252,8 @@
         </div>
       </div>
     </div>
+    <div class="centering mt-4">
+      <button type="button" class="btn btn-confirm" id="confirm-stats">Confirm</button>
   </div>
 </body>
 </html>
