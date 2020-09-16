@@ -408,6 +408,7 @@ $(document).ready(function() {
   $("#confirm-stats").click(function(event) { // character stats transition
     event.preventDefault();
     $('body').css('background-image', `url(${forest})`, 'class="forestBackground"'); // change background image
+    $('body').addClass("forestBackground");
     $("#char-stats").toggle();
     const name = $(`#name`).val();
     const charClass = $("#confirm-class").val();
