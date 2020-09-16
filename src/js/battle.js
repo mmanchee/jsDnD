@@ -13,7 +13,7 @@ export class Battle {
     if (attackRoll > this.monster.armorClass) {
       let damageRoll = diceRollDMG(this.character.damage[0],this.character.damage[1],this.character.damage[2]);
       this.monster.healthPoints -= damageRoll;
-      message = `You hit for ${damageRoll}<br>`;
+      message = `You hit for ${damageRoll} damage<br>`;
     } else {
       message = `You missed!<br>`;
     }
@@ -58,16 +58,18 @@ export class Battle {
   }
 
   useHealthPotion() {
+    let message;
     if (this.character.inventory[0].healthPotion > 0) {
       this.character.inventory[0].healthPotion -= 1;
       this.character.hp += 10;
       if (this.character.hp > this.character.maxHP) {
         this.character.hp = this.character.maxHP;
       }
-      return true;
+      message = "You don't have any health potions to use!<br>";
     } else {
-      return false;
+      message = "SUSTENANCE<br>";
     }
+    return message;
   }
 
   getMoney() {
@@ -87,7 +89,7 @@ export class Battle {
       if (attackRoll > this.monster.armorClass) {
         let damageRoll = diceRollDMG(this.character.actions[0].damage[0],this.character.actions[0].damage[1],this.character.actions[0].damage[2]);
         this.monster.healthPoints -= damageRoll;
-        message = `You hit for ${damageRoll}<br>`;
+        message = `You hit for ${damageRoll} damage<br>`;
       } else {
         message = `You fucked up and missed!<br>`;
       }
@@ -95,8 +97,6 @@ export class Battle {
     }
   }
 }
-
-
 
 function sortAPIDice(dice) {
   let diceArray = dice.replace(/\D/g,'');

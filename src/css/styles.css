@@ -136,7 +136,7 @@ label {
   width: 500px;
 }
 
-#battle-buttons, #gameplay, #start-over, #char-class, #char-stats, #explore {
+#battle-buttons, #gameplay, #start-over, #char-class, #char-stats, #explore, #townMap {
   display: none;
 }
 
@@ -179,4 +179,12 @@ label {
   margin: 10px;
   border: 1px lightgray solid;
   padding: 5px;
+}
+.card-img-overlay {
+  background-image: url(https://i.pinimg.com/originals/84/c3/28/84c32877e97de90347c4847034be496c.jpg);
+  background-size: 100% 100%;
+}
+
+#townMap {
+  height: 900px;
 }

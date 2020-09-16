@@ -24,3 +24,20 @@ export function getMonster(challengeRatingMin,challengeRatingMax) {
   let chosenArray = monsterList[(Math.floor(Math.random() * (max - min + 1) + min))+4];
   return chosenArray[Math.floor(Math.random() * Math.floor(chosenArray.length))];
 }
+
+export function displayMonsterHealth(monster) {
+  let message;
+  let percentHP = monster.healthPoints / monster.maxHP;
+  if (percentHP > 0.75) {
+    message = "Tip-top Condition";
+  } else if (percentHP > 0.5) {
+    message = "Wounded";
+  } else if (percentHP > 0.25) {
+    message = "Weak";
+  } else if (percentHP > 0) {
+    message = "Dying";
+  } else {
+    message = "OOO you know he dead";
+  }
+  return message;
+}
