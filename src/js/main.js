@@ -1,4 +1,4 @@
-import $ from 'jquery';
+import $ from 'jquery'; 
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './../css/styles.css';
@@ -14,6 +14,7 @@ import {upgradeWeapon} from './weapons.js';
 import {upgradeArmor} from './armors.js';
 import { CharacterStats } from './player.js';
 import {displayMonsterHealth} from './monsters.js';
+import {menuCamp} from './menu.js';
 
 function displayStats(battle) {
   $("#goldCount").text(battle.character.money);
@@ -245,7 +246,8 @@ function classListener() {
   });
   $("#menu-option-camp").on("click", function() {
     $("#character-menu").hide();
-
+    let message = menuCamp(player);
+    $("#message-board").prepend(message);
   });
 }
 
