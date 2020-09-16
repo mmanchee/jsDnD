@@ -16,6 +16,8 @@ import { CharacterStats } from './player.js';
 import {displayMonsterHealth} from './monsters.js';
 // import {MonstersURLPIC} from './monsters.js';
 
+let player;
+
 function displayStats(battle) {
   $("#goldCount").text(battle.character.money);
   $("#player-health").text(battle.character.hp);
@@ -47,32 +49,52 @@ function charStatListeners() {
     event.preventDefault();
     let fieldName = $(this).attr('field');
     let currentVal = parseInt($(`input[name=${fieldName}]`).val());
-    if (!isNaN(currentVal) && currentVal >= 8 && currentVal < 18) {
-      let bp = parseInt($('#bonus-points').text());
+    let idVal = parseInt($(`input[name=${fieldName}]`).attr('min'));
+    let floor, ceil, bonusID;
+    if (idVal === 0) {
+      floor = 8;
+      ceil = 18;
+      bonusID = "#bonus-points";
+    } else {
+      floor = parseInt($(`input[name=cs-${fieldName}]`).attr('min'));
+      ceil = 30;
+      bonusID = "#cs-bonus-points";
+    }
+    if (!isNaN(currentVal) && currentVal >= floor && currentVal < ceil) {
+      let bp = parseInt($(bonusID).text());
       let check = 0;
       currentVal > 13 ? currentVal > 15 ? check = 3 : check = 2 : check = 1;
       if (bp >= check) {
         $(`input[name=${fieldName}]`).val(currentVal + 1);
-        $('#bonus-points').text(bp - check);
+        $(bonusID).text(bp - check);
       }
-    } else if (currentVal === 18) {
+    } else if (currentVal === ceil) {
       false;
     } else {
-      $(`input[name=${fieldName}]`).val(8);
+      $(`input[name=${fieldName}]`).val(floor);
     }
   });
   $(".stat-minus").click(function(event) {
     event.preventDefault();
     let fieldName = $(this).attr('field');
     let currentVal = parseInt($(`input[name=${fieldName}]`).val());
-    if (!isNaN(currentVal) && currentVal > 8) {
+    let idVal = parseInt($(`input[name=${fieldName}]`).attr('min'));
+    let floor, bonusID;
+    if (idVal === 0) {
+      floor = 8;
+      bonusID = "#bonus-points";
+    } else {
+      floor = parseInt($(`input[name=cs-${fieldName}]`).attr('min'));
+      bonusID = "#cs-bonus-points";
+    }
+    if (!isNaN(currentVal) && currentVal > floor) {
       let check = 0;
       currentVal > 14 ? currentVal > 16 ? check = 3 : check = 2 : check = 1;
-      let bp = parseInt($('#bonus-points').text());
+      let bp = parseInt($(bonusID).text());
       $(`input[name=${fieldName}]`).val(currentVal - 1);
-      $('#bonus-points').text(bp + check);
+      $(bonusID).text(bp + check);
     } else {
-      $(`input[name=${fieldName}]`).val(8);
+      $(`input[name=${fieldName}]`).val(floor);
     }
   });
   $(function () {
@@ -252,28 +274,33 @@ function classListener() {
   });
 }
 
-function charSheetListener() {
-  $("#cs-player-img").html(player.img);
-  $("#cs-name").html(player.name);
-  $("#cs-class").html(player.class);
-  $("#cs-player-img").html(player.img);
-  $("#cs-player-img").html(player.img);
-  $("#cs-player-img").html(player.img);
-  $("#cs-player-img").html(player.img);
-  $("#cs-player-img").html(player.img);
-  $("#cs-player-img").html(player.img);
-  $("#cs-player-img").html(player.img);
-  $("#cs-player-img").html(player.img);
+// function charSheetListener() {
+//   $("#cs-player-img").html(player.img);
+//   $("#cs-name").html(player.name);
+//   $("#cs-class").html(player.playerClass);
+//   $("#cs-level").html(player.lvl);
+//   $("#cs-exp").html(player.exp);
+//   $("#cs-hp").html(player.hp);
+//   $("#cs-hp-max").html(player.maxHP);
+//   $("#cs-bonus-points").html(player.img);
+//   $("#cs-weapon-bonus").html(player.weapon.level);
+//   $("#cs-armor-bonus").html(player.armor.level);
+//   $("#cs-health-potions").html(player.inventory[0].healthPotion);
+//   $("#cs-str-stat").html(player.charStats.strength);
+//   $("#cs-dex-stat").html(player.charStats.dexterity);
+//   $("#cs-int-stat").html(player.charStats.intelligence);
+//   $("#cs-wis-stat").html(player.charStats.wisdom);
+//   $("#cs-cha-stat").html(player.charStats.charisma);
+//   $("#cs-con-stat").html(player.charStats.constitution);
+// }
 
-}
 
-let player;
 
 $(document).ready(function() {
   charStatListeners();
   attachListeners();
   classListener();
-  charSheetListener();
+  // charSheetListener();
   $("#start-button").click(function() { // splash transition
     $("#splash").toggle();
     $("#char-class").toggle();
@@ -288,11 +315,17 @@ $(document).ready(function() {
     const name = $(`#name`).val();
     const charClass = $("#confirm-class").val();
     const strength = $("#str-stat").val();
+    $("input#cs-str-stat").attr('min', strength);
     const dexterity = $("#dex-stat").val();
+    $("input#cs-dex-stat").attr('min', dexterity);
     const intelligence = $("#int-stat").val();
+    $("input#cs-int-stat").attr('min', intelligence);
     const wisdom = $("#wis-stat").val();
+    $("input#cs-wis-stat").attr('min', wisdom);
     const charisma = $("#cha-stat").val();
+    $("input#cs-cha-stat").attr('min', charisma);
     const constitution = $("#con-stat").val();
+    $("input#cs-con-stat").attr('min', constitution);
     let charStats = new CharacterStats(strength, dexterity, intelligence, wisdom, charisma, constitution);
     player = getCharacter(name, charClass, charStats);
     equipArmor(player);

@@ -5,8 +5,8 @@ class BarbarianCharacter {
   constructor(name, armorClass, hpBonus, attBonus, statClass){
     this.playerClass = "Barbarian";
     this.name = name;
-    this.maxHP = 12;
-    this.hp = 12 + hpBonus;
+    this.maxHP = 12 + hpBonus;
+    this.hp = this.maxHP;
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1,12,attBonus];
@@ -28,6 +28,7 @@ class BarbarianCharacter {
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[0];
+    this.bonusPoints = 0;
   }
 }
 
@@ -35,8 +36,8 @@ class BardCharacter {
   constructor(name, armorClass, hpBonus, attBonus, statClass){
     this.playerClass = "Bard";
     this.name = name;
-    this.maxHP = 8;
-    this.hp = 8 + hpBonus;
+    this.maxHP = 8 + hpBonus;
+    this.hp = this.maxHP;
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1,6,0];
@@ -58,6 +59,7 @@ class BardCharacter {
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[1];
+    this.bonusPoints = 0;
   }
 }
 
@@ -65,8 +67,8 @@ class ClericCharacter {
   constructor(name, armorClass, hpBonus, attBonus, statClass){
     this.playerClass = "Cleric";
     this.name = name;
-    this.maxHP = 8;
-    this.hp = 8 + hpBonus;
+    this.maxHP = 8 + hpBonus;
+    this.hp = this.maxHP;
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1,6,0];
@@ -88,6 +90,7 @@ class ClericCharacter {
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[2];
+    this.bonusPoints = 0;
   }
 }
 
@@ -95,8 +98,8 @@ class DruidCharacter {
   constructor(name, armorClass, hpBonus, attBonus, statClass){
     this.playerClass = "Druid";
     this.name = name;
-    this.maxHP = 8;
-    this.hp = 8 + hpBonus;
+    this.maxHP = 8 + hpBonus;
+    this.hp = this.maxHP;
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1,6,0];
@@ -118,6 +121,7 @@ class DruidCharacter {
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[3];
+    this.bonusPoints = 0;
   }
 }
 
@@ -125,8 +129,8 @@ class FighterCharacter {
   constructor(name, armorClass, hpBonus, attBonus, statClass){
     this.playerClass = "Fighter";
     this.name = name;
-    this.maxHP = 10;
-    this.hp = 10 + hpBonus;
+    this.maxHP = 10 + hpBonus;
+    this.hp = this.maxHP;
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1,8,0];
@@ -148,6 +152,7 @@ class FighterCharacter {
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[4];
+    this.bonusPoints = 0;
   }
 }
 
@@ -155,8 +160,8 @@ class MonkCharacter {
   constructor(name, armorClass, hpBonus, attBonus, statClass){
     this.playerClass = "Monk";
     this.name = name;
-    this.maxHP = 8;
-    this.hp = 8 + hpBonus;
+    this.maxHP = 8 + hpBonus;
+    this.hp = this.maxHP;
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1,6,0];
@@ -178,6 +183,7 @@ class MonkCharacter {
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[5];
+    this.bonusPoints = 0;
   }
 }
 
@@ -185,8 +191,8 @@ class PaladinCharacter {
   constructor(name, armorClass, hpBonus, attBonus, statClass){
     this.playerClass = "Paladin";
     this.name = name;
-    this.maxHP = 10;
-    this.hp = 10 + hpBonus;
+    this.maxHP = 10 + hpBonus;
+    this.hp = this.maxHP;
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1,6,0];
@@ -208,6 +214,7 @@ class PaladinCharacter {
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[6];
+    this.bonusPoints = 0;
   }
 }
 
@@ -215,8 +222,8 @@ class RangerCharacter {
   constructor(name, armorClass, hpBonus, attBonus, statClass){
     this.playerClass = "Ranger";
     this.name = name;
-    this.maxHP = 10;
-    this.hp = 10 + hpBonus;
+    this.maxHP = 10 + hpBonus;
+    this.hp = this.maxHP;
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1,8,0];
@@ -238,6 +245,7 @@ class RangerCharacter {
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[7];
+    this.bonusPoints = 0;
   }
 }
 
@@ -245,8 +253,8 @@ class RogueCharacter {
   constructor(name, armorClass, hpBonus, attBonus, statClass){
     this.playerClass = "Rogue";
     this.name = name;
-    this.maxHP = 8;
-    this.hp = 8 + hpBonus;
+    this.maxHP = 8 + hpBonus;
+    this.hp = this.maxHP;
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1,4,0];
@@ -268,6 +276,7 @@ class RogueCharacter {
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[8];
+    this.bonusPoints = 0;
   }
 }
 
@@ -275,8 +284,8 @@ class SorcererCharacter {
   constructor(name, armorClass, hpBonus, attBonus, statClass){
     this.playerClass = "Sorcerer";
     this.name = name;
-    this.maxHP = 6;
-    this.hp = 6 + hpBonus;
+    this.maxHP = 6 + hpBonus;
+    this.hp = this.maxHP;
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1,6,0];
@@ -298,6 +307,7 @@ class SorcererCharacter {
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[9];
+    this.bonusPoints = 0;
   }
 }
 
@@ -305,8 +315,8 @@ class WarlockCharacter {
   constructor(name, armorClass, hpBonus, attBonus, statClass){
     this.playerClass = "Warlock";
     this.name = name;
-    this.maxHP = 8;
-    this.hp = 8 + hpBonus;
+    this.maxHP = 8 + hpBonus;
+    this.hp = this.maxHP;
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1,6,0];
@@ -328,6 +338,7 @@ class WarlockCharacter {
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[10];
+    this.bonusPoints = 0;
   }
 }
 
@@ -335,8 +346,8 @@ class WizardCharacter {
   constructor(name, armorClass, hpBonus, attBonus, statClass){
     this.playerClass = "Wizard";
     this.name = name;
-    this.maxHP = 6;
-    this.hp = 6 + hpBonus;
+    this.maxHP = 6 + hpBonus;
+    this.hp = this.maxHP;
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1,6,0];
@@ -358,6 +369,7 @@ class WizardCharacter {
     };
     this.inventory = [{healthPotion: 1}];
     this.img = imageArray[11];
+    this.bonusPoints = 0;
   }
 }
 
