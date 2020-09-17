@@ -29,9 +29,7 @@ export class Battle {
     let message;
     let damageRoll;
     let actionLength = this.monster.actions.length;
-    actionLength < 1 ? actionLength = 0 : false;
-    let ran =  Math.floor(Math.random() * actionLength);
-
+    let ran =  Math.round(Math.random() * (actionLength-1));
     for (let i = 0; i < 4; i++){
       if (this.monster.actions[ran].name === "Multiattack") {
         ran = Math.round(Math.random() * actionLength);
@@ -43,10 +41,14 @@ export class Battle {
     let rollTotal = this.monster.actions[ran].attack_bonus + diceRoll(1,20);
     if (rollTotal > this.character.armorClass) {
       for (let i=0; i<this.monster.actions[ran].damage.length; i++) {
-        let damageRollArray = sortAPIDice(this.monster.actions[ran].damage[i].damage_dice);
-        damageRoll = Math.ceil((diceRoll(damageRollArray[0],damageRollArray[1]) + damageRollArray[2]) / 5);
-        if (isNaN(damageRoll)) {
-          damageRoll = 1;
+        if (this.monster.actions[ran].damage[i].damage_dice) {
+          let damageRollArray = sortAPIDice(this.monster.actions[ran].damage[i].damage_dice);
+          damageRoll = Math.ceil((diceRoll(damageRollArray[0],damageRollArray[1]) + damageRollArray[2]) / 5);
+          if (isNaN(damageRoll)) {
+            damageRoll = 1;
+          }
+        } else {
+          break;
         }
         this.character.hp -= damageRoll;
       }
@@ -65,16 +67,16 @@ export class Battle {
       if (this.character.hp > this.character.maxHP) {
         this.character.hp = this.character.maxHP;
       }
-      message = "You don't have any health potions to use!<br>";
-    } else {
       message = "SUSTENANCE<br>";
+    } else {
+      message = "You don't have any health potions to use!<br>";
     }
     return message;
   }
 
   getMoney() {
     this.character.money += this.monster.gold;
-    const message = `${this.monster.name} dropped ${this.monster.gold} gold.<br>` ;
+    let message = `${this.monster.name} dropped ${this.monster.gold} gold.<br>` ;
     return message;
   }
 
