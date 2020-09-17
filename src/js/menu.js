@@ -9,7 +9,9 @@ export function menuCamp(character) {
     message = "You ran into trouble on the way to your camp. Prepare for battle!";
   } else if (roll > 1) {
     character.hp = character.maxHP;
-    character.actions[0].limit = 5;
+    if (character.actions[0].limit) {
+      character.actions[0].limit = 5;
+    }
     message = "Your health has been restored to full.<br>";
   } else if (roll == 2) {
     message = "You ran into trouble on the way to your camp. Prepare for battle!<br>";

@@ -45,7 +45,7 @@ linked at './src/assets/docs/DnD Project.pdf'
 |  a. Story, Add a fun story to the adventure | ... | Beyond |
 |  b. Quest Board, Add a quest board to the town | ... | Beyond |
 |  c. Animations, Add action animations | ... | Beyond |
-|  d. | ... | Beyond |
+|  d. Multiplayer, Add other players | ... | Beyond |
 |  e. | ... | Beyond |
 
 

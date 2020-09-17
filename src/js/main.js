@@ -16,7 +16,6 @@ import { CharacterStats } from './player.js';
 import { descriptionArray } from './player.js';
 import {displayMonsterHealth} from './monsters.js';
 import { addExp } from './rollFunctions.js';
-// import {MonstersURLPIC} from './monsters.js';
 import {menuCamp} from './menu.js';
 import { charSheetListener } from './charSheetFront';
 import { charStatListeners } from './charSheetFront';
@@ -119,6 +118,7 @@ function attachListeners() {
   });
   $(`button#flee`).on("click", function() {
     battle.flee();
+    $("#icon-menu").prop("disabled", false);
     $("#monster-img").html("");
     $("#monster-name").text("NPC");
     $("#monster-health").text("");
@@ -240,7 +240,9 @@ function attachListeners() {
       $("#message-board").prepend(`You don't have enough money!<br>`);
     } else {
       player.hp = player.maxHP;
-      player.actions[0].limit = 5;
+      if (player.actions[0].limit) {
+        player.actions[0].limit = 5;
+      }
       player.money -= 100;
       $("#message-board").prepend(`You slept soundly, you did it.<br>`);
     }

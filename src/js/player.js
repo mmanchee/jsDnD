@@ -539,7 +539,7 @@ export let descriptionArray = [
   "Description: A warrior who uses martial prowess and nature magic to combat threats on the edges of civilization<br>Hit Die: d10<br>Weapon of Choice: Bow<br>Armor of Choice: Hide<br>Special Attack: Rapid Fire",
   "Description: A scoundrel who uses stealth and trickery to overcome obstacles and enemies<br>Hit Die: d8<br>Weapon of Choice: Dagger<br>Armor of Choice: Studded Leather<br>Special Attack: Sneak Attack",
   "Description: A spellcaster who draws on inherent magic from a gift or bloodline<br>Hit Die: d6<br>Weapon of Choice: Quarterstaff<br>Armor of Choice: Leather<br>Special Attack: Scorn of Force",
-  "Description: A wielder of magic that is derived from a bargain with an extraplanar entity<br>Hit Die: b8<br>Weapon of Choice: Quarterstaff<br>Armor of Choice: Studded Leather<br>Special Attack: Eldritch Blast",
+  "Description: A wielder of magic that is derived from a bargain with an extraplanar entity<br>Hit Die: d8<br>Weapon of Choice: Quarterstaff<br>Armor of Choice: Studded Leather<br>Special Attack: Eldritch Blast",
   "Description: A scholarly magic-user capable of manipulating the structures of reality<br>Hit Die: d6<br>Weapon of Choice: Quarterstaff<br>Armor of Choice: Cloak<br>Special Attack: Fireball",
 
 ];
