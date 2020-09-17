@@ -1,50 +1,102 @@
-# _Dungeons and Dragons_
+# _Dungeons & Dragons_
 
-#### _Brief description of application, 9/9/2020_
+#### _Team Week 1 Project for Epicodus, September 17th, 2020_
 
-#### By _**List of contributors**_
+#### By _**William Donovan-Seid, Brian Harvey, David McCaslin, Mike Manchee, and Drew Parker**_
 
 ## Description
 
-_{This is a detailed description of your application. Its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }_
+Create a character using a D&D API. Character is then put up against random monsters and NPC's from the D&D API. Battles would have difficulty settings and that would determine the strength and number of monsters you face. Gain experience and advance your character. save characters to your machine with local storage and keep playing. Future thoughts; Story, multi-player, and database.
 
+<!-- Brainstorming
+linked at './src/assets/docs/DnD Project.pdf'
+ -->
 ### Specs
 | Spec | Input | Output |
 | :-------------     | :------------- | :------------- |
-|  1. ... | ... | ... |
+|  MVP (Build 1) | ... | MVP |
+|  a. Create the Battle Board | start game | battle board |
+|  b. MonstersList, use DnD5eapi.co API to create monster list | API call | List |
+|  c. Basic Player, Create basic player to play with | start game | player |
+|  d. Attack Function, Create a button and attack function | attack | damage |
+|  e. Health Function, Create a tag and health function | health change | report |
+|  f. Images, All Players and Monsters will have Images | start game | image |
+|  g. Flee Function, Create a button and flee function | flee | explore |
+|  Build 2 | ... | Build 2 |
+|  a. Armor Class Functionality, Introduce AC to Battle | ... | AC |
+|  b. 2nd Attack Function, Create a second button and attack function | 2nd attack | damage |
+|  c. Healing Potion Functionality, Create a health button and heal function | button | heal player |
+|  d. Creature Drops Functionality, Health potions and gold randomly drop from creatures | monster dead | drops |
+|  Build 3 | ... | Build 3 |
+|  a. Splash Page, Landing page to start the game | open website | start button |
+|  b. Character Creation, Create character from scratch (name and class)| start | new player |
+|  c. Stats Creation, Add stats and ability change Str, Wis, Int,... | new player| player has stats |
+|  d. Leveling Functionality, Add stat point, HP, and Level | Level button | player levels|
+|  Build 4 | ... | Build 4 |
+|  a. Weapon Bonus Functionality, Add bonus to weapon damage and attack | attack | bonus |
+|  b. Armor Bonus Functionality, Add bonus to armor | defend | less hits |
+|  Build 5 | ... | Build 5 |
+|  a. Town Functionality, Add an area to rest, gain health, and access the store | Town Button | Town |
+|  b. Stores Functionality, Add a place to buy health potions and upgrades to armor and weapons | Store| Buy Stuff |
+|  Build 6 | ... | Build 6|
+|  a. Menu Functionality, Add menu to Travel, go to Town, view character sheet | menu button | menu display |
+|  b. Campfire Functionality, Add a campfire to gain health but a chance of monster attack | Camp | Health or Monster |
+|  Build 7 and Beyond | ... | Beyond |
+|  a. Story, Add a fun story to the adventure | ... | Beyond |
+|  b. Quest Board, Add a quest board to the town | ... | Beyond |
+|  c. Animations, Add action animations | ... | Beyond |
+|  d. | ... | Beyond |
+|  e. | ... | Beyond |
+
 
 ## Setup/Installation Requirements
 
-* Download files from GitHub repository
-* Place all files in a single directory 
-* Open index.html in browser of choice
-* Have for with ...
+* Download option
+  * Download files from GitHub repository by click Code and Download Zip
+  * Extract files into a single directory 
+  * Run GitBASH in directory
+    * Type "npm install" - to install Node Package Manager and additional files
+    * Type "npm run start" - to open compiled browser and view project
+  * Have fun with The Exchange!
+
+* Cloning options
+  * For cloning please use the following GitHub [tutorial](https://docs.github.com/en/enterprise/2.16/user/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
+  * Place files into a single directory 
+  * Run GitBASH in directory
+    * Type "npm install" - to install Node Package Manager and additional files
+    * Type "npm run start" - to open compiled browser and view project
+  * Have fun with The Exchange!
 
 ## Known Bugs
 
-_{Are there issues that have not yet been resolved that you want to let users know you know?  Outline any issues that would impact use of your application.  Share any workarounds that are in place. }_
-
-## Support and contact details
-
-_{Let people know what to do if they run into any issues or have questions, ideas or concerns.  Encourage them to contact you or make a contribution to the code.}_
+no known bugs
 
 ## Technologies Used
 
-_{Tell me about the languages and tools you used to create this app. Assume that I know you probably used HTML and CSS. If you did something really cool using only HTML, point that out.}_
+Project Specific
+* API call with error handling
+  * API documentation located [Here](http://www.dnd5eapi.co/)
+
+Main Programs
 * HTML
 * CSS
   * Bootstrap
 * JavaScript
   * JQuery
+* NPM 
+  * JSON - WebPack Creation
+
 
 ### Other Links
-[GitHub](https://github.com/mmanchee)
+GitHub's
+[William Donovan-Seid](https://github.com/wdonovanseid)
+[Brian Harvey](https://github.com/brianharv)
+[David McCaslin](https://github.com/d-mccaslin)
+[Drew Parker](https://github.com/drewjparker91)
+[Mike Manchee](https://github.com/mmanchee)
+
 
 ### License
 
-Copyright (c) 2020 **_{List of contributors or company name}_**
+Copyright (c) 2020 **_{William Donovan-Seid, Brian Harvey, David McCaslin, Mike Manchee, and Drew Parker}_**
 Licensed under MIT
-
-co-author: William Donovan-Seid <wdstwo@live.com>
-Co-authored-by: Drew Parker <drewjparker91@gmail.com>
-co-authored-by: Mike Manchee <mikemanchee@>

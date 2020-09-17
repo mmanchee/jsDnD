@@ -528,4 +528,18 @@ export let imageArray = [
   "https://i.pinimg.com/originals/22/b0/d1/22b0d1edb14d2c4a4b629afcfae0d4ed.png"
 ];
 
-export let descriptionArray = [];
+export let descriptionArray = [
+  "Description: A fierce warrior of primitive background who can enter a battle rage <br>Hit Die: d12 <br>Weapon of Choice: Battle Axe<br>Armor of Choice: Breastplate<br>Special Attack: Rage Attack",
+  "Description: An inspiring magician whose power echoes the music of creation<br>Hit Die: d8<br>Weapon of Choice: Short Sword<br>Armor of Choice: Leather<br>Special Attack: Seduce",
+  "Description: A priestly champion who wields divine magic in service of a higher power<br>Hit Die: d8<br>Weapon of Choice: Mace<br>Armor of Choice: Breastplate<br>Special Attack: Turn Undead",
+  "Description: A priest of the Old Faith, wielding the powers of nature — moonlight and plant growth, fire and lightning — and adopting animal forms<br>Hit Die: d8<br>Weapon of Choice: QuarterStaff<br>Armor of Choice: Hide<br>Special Attack: Summon Bear",
+  "Description: A master of martial combat, skilled with a variety of weapons and armor<br>Hit Die: d10<br>Weapon of Choice: Long Sword<br>Armor of Choice: Breastplate<br>Special Attack: Flail Wildly",
+  "Description: A master of martial arts, harnessing the power of the body in pursuit of physical and spiritual perfection<br>Hit Die: d8<br>Weapon of Choice: Quarterstaff<br>Armor of Choice: Abs<br>Special Attack: Judo Chop",
+  "Description: A holy warrior bound to a sacred oath<br>Hit Die: d10<br>Weapon of Choice: Short Sword<br>Armor of Choice: Breastplate<br>Special Attack: Smite",
+  "Description: A warrior who uses martial prowess and nature magic to combat threats on the edges of civilization<br>Hit Die: d10<br>Weapon of Choice: Bow<br>Armor of Choice: Hide<br>Special Attack: Rapid Fire",
+  "Description: A scoundrel who uses stealth and trickery to overcome obstacles and enemies<br>Hit Die: d8<br>Weapon of Choice: Dagger<br>Armor of Choice: Studded Leather<br>Special Attack: Sneak Attack",
+  "Description: A spellcaster who draws on inherent magic from a gift or bloodline<br>Hit Die: d6<br>Weapon of Choice: Quarterstaff<br>Armor of Choice: Leather<br>Special Attack: Scorn of Force",
+  "Description: A wielder of magic that is derived from a bargain with an extraplanar entity<br>Hit Die: b8<br>Weapon of Choice: Quarterstaff<br>Armor of Choice: Studded Leather<br>Special Attack: Eldritch Blast",
+  "Description: A scholarly magic-user capable of manipulating the structures of reality<br>Hit Die: d6<br>Weapon of Choice: Quarterstaff<br>Armor of Choice: Cloak<br>Special Attack: Fireball",
+
+];

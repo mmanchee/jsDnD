@@ -13,6 +13,7 @@ import {equipArmor} from './armors.js';
 import {upgradeWeapon} from './weapons.js';
 import {upgradeArmor} from './armors.js';
 import { CharacterStats } from './player.js';
+import { descriptionArray } from './player.js';
 import {displayMonsterHealth} from './monsters.js';
 import { addExp } from './rollFunctions.js';
 // import {MonstersURLPIC} from './monsters.js';
@@ -47,6 +48,7 @@ function attachListeners() {
   let monster;
   let battle;
   $("button#explore-button").on("click", function() {
+    $("#icon-menu").prop("disabled", true);
     let chosenMonsterURLPIC = getMonster(player.lvl-5,player.lvl+1);
     let promise = new Promise(function(resolve, reject) {
       let request = new XMLHttpRequest();
@@ -88,10 +90,7 @@ function attachListeners() {
       turn = 1;
     }
     if (endBattle === true) {
-      message = battle.getMoney();
-      $("#message-board").prepend(message);
-      message = getLoot(monster.challengeRating, player);
-      $("#message-board").prepend(message);
+      $("#icon-menu").prop("disabled", false);
       $("#battle-buttons").toggle();
       $("#monster-img").html("");
       $("#monster-name").text("NPC");
@@ -106,6 +105,8 @@ function attachListeners() {
         message += `You gain ${monster.exp} experience<br>`;
         $("#message-board").prepend(message);
         player = addExp(player, monster.exp);
+        $("#nav-character-level").text(player.lvl);
+        $("#player-health").text(player.hp);
       } else {
         $("#message-board").prepend(`The ${battle.monster.name} has defeated you!<br>`);  // return to character creation?
         $("#player-img").html("<img class=player-img src=https://www.pngitem.com/pimgs/m/23-238931_skull-logo-free-skull-and-cross-bones-svg.png>");
@@ -149,6 +150,7 @@ function attachListeners() {
         turn = 1;
       }
       if (endBattle === true) {
+        $("#icon-menu").prop("disabled", false);
         $("#battle-buttons").toggle();
         $("#monster-img").html("");
         $("#monster-name").text("NPC");
@@ -162,6 +164,8 @@ function attachListeners() {
           message += getLoot(monster.challengeRating, player);
           $("#message-board").prepend(message);
           player = addExp(player, monster.exp);
+          $("#nav-character-level").text(player.lvl);
+          $("#player-health").text(player.hp);
         } else {
           $("#message-board").prepend(`The ${battle.monster.name} has defeated you!<br>`);  // return to character creation?
           $("#player-img").html("<img class=player-img src=https://www.pngitem.com/pimgs/m/23-238931_skull-logo-free-skull-and-cross-bones-svg.png>");
@@ -173,21 +177,12 @@ function attachListeners() {
       }
     }
   });
-  /*
-  $(`#show-town`).on("click", function() {
-    $(`#gameplay`).toggle();
-    $(`#townMap`).toggle();
-  });
-  $(`#show-gameplay`).on("click", function() {
-    $(`#gameplay`).toggle();
-    $(`#townMap`).toggle();
-  });
-  */
   $(`#weaponry-button`).on("click", function() {
     $(`#townMap`).toggle();
     $(`#bloodbath`).show();
     $(`#weapon-lvl`).text(`${player.weapon.lvl+1}`);
     $(`#upgradeWeaponCost`).text(`${player.weapon.cost*2}`);
+    $("#message-board").prepend(`As you approach the blacksmith you are overcome by the smell of blood and steel.<br>`);
   });
   $(`#upgradeWeapon`).on("click", function() {
     if (player.money < player.weapon.cost*2) {
@@ -204,6 +199,7 @@ function attachListeners() {
     $(`#gnome`).show();
     $(`#armor-lvl`).text(player.armor.lvl+1);
     $(`#upgradeArmorCost`).text(player.armor.cost*2);
+    $("#message-board").prepend(`The armorer looks at you skeptically as you open the door to his workshop.<br>`);
   });
   $(`#upgradeArmor`).on("click", function() {
     if (player.money < player.armor.cost*2) {
@@ -220,6 +216,7 @@ function attachListeners() {
     $(`#townMap`).toggle();
     $(`#victorious`).show();
     $(`.numHealthPot`).text(player.inventory[0].healthPotion);
+    $("#message-board").prepend(`An alchemist, interesting. You are intrigued, but wary.<br>`);
   });
 
   $(`#buyPotion`).on("click", function() {
@@ -235,6 +232,7 @@ function attachListeners() {
   $(`#inn-button`).on("click", function() {
     $(`#townMap`).toggle();
     $(`#gobble`).show();
+    $("#message-board").prepend(`You step in to a warm and musky inn. You could sure use some sleep and a warm meal.<br>`);
   });
 
   $(`#buyRoom`).on("click", function() {
@@ -266,7 +264,9 @@ function classListener() {
     className = className.toUpperCase();
     let arrayPlace = $(this).attr('field');
     $(`#selected-class`).html(`${className}`);
-    $("#character-display").html(`<img class=display-img src=${imageArray[arrayPlace]}>`);
+    let message = `<img class=display-img src=${imageArray[arrayPlace]}>`;
+    message += `<br><br><br><p>${descriptionArray[arrayPlace]}`;
+    $("#character-display").html(message);
   });
   // Nav Menu Listeners
   $("#icon-menu").on("click", function() {
@@ -293,6 +293,7 @@ function classListener() {
     $("#character-sheet").hide();
     $("#character-menu").toggle();
     $("#townMap").show();
+    $("#message-board").prepend(`You have arrived at the town.<br>`);
   });
   $("#menu-option-camp").on("click", function() {
     $("#character-sheet").hide();

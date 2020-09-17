@@ -1,5 +1,7 @@
 export function diceRoll(num, side) {      // diceRoll(1, 6);
   let roll = 0;
+  num = parseInt(num);
+  side = parseInt(side);
   for (let i = 0; i < num; i++) {
     roll += Math.ceil(Math.random() * side);
   }
@@ -8,9 +10,13 @@ export function diceRoll(num, side) {      // diceRoll(1, 6);
 
 export function diceRollDMG(num, side, mod) {      // diceRoll(1, 6);
   let roll = 0;
+  num = parseInt(num);
+  side = parseInt(side);
+  mod = parseInt(mod);
   for (let i = 0; i < num; i++) {
-    roll += Math.ceil(Math.random() * side) + mod;
+    roll += Math.ceil(Math.random() * side);
   }
+  roll += mod;
   return roll;                      // roll total
 }
 
@@ -40,8 +46,8 @@ function checkPoints(player) {
       let roll = (diceRoll(1,player.hpDice) + player.charStats.conBonus);
       player.maxHP += roll;
       player.hp += roll;
+      player.bonusPoints++;
     }
-    player.bonusPoints += dif;
   }
   return player;
 }

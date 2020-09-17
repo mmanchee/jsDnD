@@ -31,8 +31,8 @@ export class Battle {
     let actionLength = this.monster.actions.length;
     let ran =  Math.round(Math.random() * (actionLength-1));
     for (let i = 0; i < 4; i++){
-      if (this.monster.actions[ran].name === "Multiattack") {
-        ran = Math.round(Math.random() * actionLength);
+      if (isNaN(parseInt(this.monster.actions[ran].attack_bonus))) {
+        ran = Math.round(Math.random() * (actionLength-1));
       } else {
         i = 4;
       }
@@ -43,7 +43,10 @@ export class Battle {
       for (let i=0; i<this.monster.actions[ran].damage.length; i++) {
         if (this.monster.actions[ran].damage[i].damage_dice) {
           let damageRollArray = sortAPIDice(this.monster.actions[ran].damage[i].damage_dice);
-          damageRoll = Math.ceil((diceRoll(damageRollArray[0],damageRollArray[1]) + damageRollArray[2]) / 5);
+          if (damageRollArray.length < 3) {
+            damageRollArray.push(0);
+          }
+          damageRoll = Math.ceil(diceRollDMG(damageRollArray[0],damageRollArray[1],damageRollArray[2]));
           if (isNaN(damageRoll)) {
             damageRoll = 1;
           }
@@ -101,12 +104,9 @@ export class Battle {
 }
 
 function sortAPIDice(dice) {
-  let diceArray = dice.replace(/\D/g,'');
-  diceArray = diceArray.split("");
-  
-  /[-]/g.test(dice) ? diceArray[2] = "-" + diceArray[2] : false;
-  diceArray.forEach(function(n) {
-    diceArray[n] = parseInt(n);
-  });
+  let diceArray = dice.replace(/d/g,' ');
+  diceArray = dice.replace(/\D/g,' ');
+  diceArray = diceArray.split(" ");
+  /[-]/g.test(dice) ? diceArray[diceArray.length-1] = "-" + diceArray[diceArray.length-1] : false;
   return diceArray;       // diceArray = [1, 6, 1] or [1, 6, -1]
 }
