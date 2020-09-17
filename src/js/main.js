@@ -108,38 +108,7 @@ function charStatListeners() {
     trigger: 'focus'
   });
 }
-/*
-function goToBattle(monster,battle) {
-  let chosenMonsterURLPIC = getMonster(player.lvl-5,player.lvl+1);
-  let promise = new Promise(function(resolve, reject) {
-    let request = new XMLHttpRequest();
-    let url = `https://www.dnd5eapi.co${chosenMonsterURLPIC.url}`;
-    request.onload = function() {
-      if (this.status === 200) {
-        resolve(request.response);
-      } else {
-        reject(request.response);
-      }
-    };
-    request.open("GET", url, true);
-    request.send();
-  });
-  promise.then(function(response) {
-    let monsterAPIObject = JSON.parse(response);
-    monster = new Monster (monsterAPIObject,chosenMonsterURLPIC.pic);
-    battle = new Battle (player, monster);
-    $("#monster-img").html(`<img class=display-img src=${monster.img}>`);
-    $("#monster-name").text(monster.name);
-    $("#monster-health").text("Healthy");
-    $("#battle-buttons").toggle();
-    $("button#explore-button").toggle();
-    $("#show-town").toggle();
-    displayStats(battle);
-  }, function (error) {
-    $("#error").text(`${error}`);
-  });
-}
-*/
+
 function attachListeners() {
   let monster;
   let battle;
@@ -368,13 +337,9 @@ function classListener() {
     $("#character-menu").show();
   });
   $("#menu-option-travel").on("click", function() {
-    /*
-    let monster;
-    let battle;
-    goToBattle(monster,battle);
-    */
     $("#character-menu").hide();
-    //$("explore").show();
+    $("explore").toggle();
+    $("gameplay").show();
   });
   $("#menu-option-character").on("click", function() {
     $("#character-menu").hide();
