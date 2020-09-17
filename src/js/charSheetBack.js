@@ -4,61 +4,63 @@ export function updatePlayer(strength,dexterity,intelligence,wisdom,charisma,con
   let bonus = 0;
   let change = 0;
   player.bonusPoints = bonusPoints;
-  if (player.strength < strength) {
-    player.strength = strength;
+  if (player.charStats.strength < strength) {
+    player.charStats.strength = strength;
     bonus = bonusCalcUpdate(strength);
-    change = (bonus - player.strBonus);
+    change = (bonus - player.charStats.strBonus);
     if (change > 0) {
-      player.strBonus += change;
+      player.charStats.strBonus += change;
       player.attack += change;
       player.damage[2] += change;
     }
   }
-  if (player.dexterity < dexterity) {
-    player.dexterity = dexterity;
+  if (player.charStats.dexterity < dexterity) {
+    player.charStats.dexterity = dexterity;
     bonus = bonusCalcUpdate(dexterity);
-    change = (bonus - player.dexBonus);
+    change = (bonus - player.charStats.dexBonus);
     if (change > 0) {
-      player.dexBonus += change;
+      player.charStats.dexBonus += change;
       player.armorClass += change;
 
     }
   }
-  if (player.intelligence < intelligence) {
-    player.intelligence = intelligence;
+  if (player.charStats.intelligence < intelligence) {
+    player.charStats.intelligence = intelligence;
     bonus = bonusCalcUpdate(intelligence);
-    change = (bonus - player.intBonus);
+    change = (bonus - player.charStats.intBonus);
     if (change > 0) {
-      player.intBonus += change;
+      player.charStats.intBonus += change;
     }
   }
-  if (player.wisdom < wisdom) {
-    player.wisdom = wisdom;
+  if (player.charStats.wisdom < wisdom) {
+    player.charStats.wisdom = wisdom;
     bonus = bonusCalcUpdate(wisdom);
-    change = (bonus - player.wisBonus);
+    change = (bonus - player.charStats.wisBonus);
     if (change > 0) {
-      player.wisBonus += change;
+      player.charStats.wisBonus += change;
     }
   }
-  if (player.charisma < charisma) {
-    player.charisma = charisma;
+  if (player.charStats.charisma < charisma) {
+    player.charStats.charisma = charisma;
     bonus = bonusCalcUpdate(charisma);
-    change = (bonus - player.chaBonus);
+    change = (bonus - player.charStats.chaBonus);
     if (change > 0) {
-      player.chaBonus += change;
+      player.charStats.chaBonus += change;
     }
   }
-  if (player.constitution < constitution) {
-    player.constitution = constitution;
+  if (player.charStats.constitution < constitution) {
+    player.charStats.constitution = constitution;
     bonus = bonusCalcUpdate(constitution);
-    change = (bonus - player.conBonus);
+    change = (bonus - player.charStats.conBonus);
     if (change > 0) {
-      player.conBonus += change;
+      player.charStats.conBonus += change;
       let gain = player.lvl * change;
       player.maxHP += gain;
       player.hp += gain;
     }
   }
+
+  return player;
 }
   
 function bonusCalcUpdate(stat) {

@@ -31,6 +31,8 @@ export function charSheetListener(player) {
     let constitution = $("#cs-con-stat").val();
     let bonusPoints = $("#cs-bonus-points").val();
     player = updatePlayer(strength,dexterity,intelligence,wisdom,charisma,constitution,bonusPoints, player);
+    $("#character-menu").toggle();
+    $("#character-sheet").toggle();
   });
 }
 export function charStatListeners() {
@@ -52,13 +54,11 @@ export function charStatListeners() {
       ceil = 18;
       bonusID = "#bonus-points";
     } else {
-      floor = parseInt($(`input[name=cs-${fieldName}]`).attr('min'));
+      floor = parseInt($(`input[name=${fieldName}]`).attr('min'));
       ceil = 30;
       bonusID = "#cs-bonus-points";
-      console.log(floor, ceil, bonusID);
     }
     if (!isNaN(currentVal) && currentVal >= floor && currentVal < ceil) {
-      console.log("l");
       let bp = parseInt($(bonusID).text());
       let check = 0;
       currentVal > 13 ? currentVal > 15 ? check = 3 : check = 2 : check = 1;
@@ -82,7 +82,7 @@ export function charStatListeners() {
       floor = 8;
       bonusID = "#bonus-points";
     } else {
-      floor = parseInt($(`input[name=cs-${fieldName}]`).attr('min'));
+      floor = parseInt($(`input[name=${fieldName}]`).attr('min'));
       bonusID = "#cs-bonus-points";
     }
     if (!isNaN(currentVal) && currentVal > floor) {
