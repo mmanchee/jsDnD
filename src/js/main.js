@@ -334,11 +334,16 @@ function classListener() {
   });
   // Nav Menu Listeners
   $("#icon-menu").on("click", function() {
-    $("#character-menu").toggle();
+    $("#gameplay").hide();
+    $("#character-sheet").hide();
+    $("#townMap").hide();
+    $("#character-menu").show();
   });
   $("#menu-option-travel").on("click", function() {
+    $("#character-menu").hide();
     $("#character-sheet").hide();
-    $("#character-menu").toggle();
+    $("explore").toggle();
+    $("gameplay").show();
   });
   $("#menu-option-character").on("click", function() {
     $("#character-menu").toggle();
@@ -347,7 +352,7 @@ function classListener() {
   $("#menu-option-town").on("click", function() {
     $("#character-sheet").hide();
     $("#character-menu").toggle();
-
+    $("#townMap").show();
   });
   $("#menu-option-camp").on("click", function() {
     $("#character-sheet").hide();
