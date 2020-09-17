@@ -7,6 +7,7 @@ class BarbarianCharacter {
     this.name = name;
     this.maxHP = 12 + hpBonus;
     this.hp = this.maxHP;
+    this.hpDice = 12;
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1,12,attBonus];
@@ -42,6 +43,7 @@ class BardCharacter {
     this.name = name;
     this.maxHP = 8 + hpBonus;
     this.hp = this.maxHP;
+    this.hpDice = 8;
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1,6,attBonus];
@@ -77,6 +79,7 @@ class ClericCharacter {
     this.name = name;
     this.maxHP = 8 + hpBonus;
     this.hp = this.maxHP;
+    this.hpDice = 8;
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1,6,attBonus];
@@ -112,6 +115,7 @@ class DruidCharacter {
     this.name = name;
     this.maxHP = 8 + hpBonus;
     this.hp = this.maxHP;
+    this.hpDice = 8;
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1,6,attBonus];
@@ -147,6 +151,7 @@ class FighterCharacter {
     this.name = name;
     this.maxHP = 10 + hpBonus;
     this.hp = this.maxHP;
+    this.hpDice = 10;
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1,8,attBonus];
@@ -182,6 +187,7 @@ class MonkCharacter {
     this.name = name;
     this.maxHP = 8 + hpBonus;
     this.hp = this.maxHP;
+    this.hpDice = 8;
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1,6,attBonus];
@@ -217,6 +223,7 @@ class PaladinCharacter {
     this.name = name;
     this.maxHP = 10 + hpBonus;
     this.hp = this.maxHP;
+    this.hpDice = 10;
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1,6,attBonus];
@@ -252,6 +259,7 @@ class RangerCharacter {
     this.name = name;
     this.maxHP = 10 + hpBonus;
     this.hp = this.maxHP;
+    this.hpDice = 10;
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1,8,attBonus];
@@ -287,6 +295,7 @@ class RogueCharacter {
     this.name = name;
     this.maxHP = 8 + hpBonus;
     this.hp = this.maxHP;
+    this.hpDice = 8;
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1,4,attBonus];
@@ -322,6 +331,7 @@ class SorcererCharacter {
     this.name = name;
     this.maxHP = 6 + hpBonus;
     this.hp = this.maxHP;
+    this.hpDice = 6;
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1,6,attBonus];
@@ -357,6 +367,7 @@ class WarlockCharacter {
     this.name = name;
     this.maxHP = 8 + hpBonus;
     this.hp = this.maxHP;
+    this.hpDice = 8;
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1,6,attBonus];
@@ -392,6 +403,7 @@ class WizardCharacter {
     this.name = name;
     this.maxHP = 6 + hpBonus;
     this.hp = this.maxHP;
+    this.hpDice = 6;
     this.armorClass = armorClass;
     this.attack = attBonus;
     this.damage = [1,6,attBonus];
