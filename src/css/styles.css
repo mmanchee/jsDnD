@@ -83,8 +83,8 @@ label {
 
 #character-display {
   float: right;
-  margin-top: 25px;
-  margin-right: 22%;
+  margin-top: 45px;
+  margin-right: 26%;
 }
 
 #selected-class {
@@ -200,9 +200,7 @@ label {
   height: 900px;
 }
 
-#townMap {
-  height: 900px;
-}
+
 
 #shopButtons .btn {
   color: white;

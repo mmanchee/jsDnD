@@ -3,7 +3,6 @@ import $ from 'jquery';
 
 export function charSheetListener(player) {
   $("#menu-option-character").on('click', function() {
-    $("#cs-player-img").html(player.img);
     $("#cs-name").html(player.name);
     $("#cs-class").html(player.playerClass);
     $("#cs-level").html(player.lvl);
@@ -11,16 +10,16 @@ export function charSheetListener(player) {
     $("#cs-hp").html(player.hp);
     $("#cs-hp-max").html(player.maxHP);
     $("#cs-bonus-points").html(player.bonusPoints);
-    $("#cs-weapon-bonus").html(player.weapon.level);
-    $("#cs-armor-bonus").html(player.armor.level);
+    $("#cs-weapon-bonus").html(player.weapon.lvl);
+    $("#cs-armor-bonus").html(player.armor.lvl);
     $("#cs-health-potions").html(player.inventory[0].healthPotion);
     $("#cs-gold").html(player.money);
-    $("#cs-str-stat").text(player.charStats.strength);
-    $("#cs-dex-stat").text(player.charStats.dexterity);
-    $("#cs-int-stat").text(player.charStats.intelligence);
-    $("#cs-wis-stat").text(player.charStats.wisdom);
-    $("#cs-cha-stat").text(player.charStats.charisma);
-    $("#cs-con-stat").text(player.charStats.constitution);
+    $("#cs-str-stat").val(player.charStats.strength);
+    $("#cs-dex-stat").val(player.charStats.dexterity);
+    $("#cs-int-stat").val(player.charStats.intelligence);
+    $("#cs-wis-stat").val(player.charStats.wisdom);
+    $("#cs-cha-stat").val(player.charStats.charisma);
+    $("#cs-con-stat").val(player.charStats.constitution);
   });
   $("#confirm-upgrade").on('click', function() {
     let strength = $("#cs-str-stat").val();
