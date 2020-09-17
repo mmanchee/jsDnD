@@ -1,3 +1,5 @@
+import { diceRoll } from './rollFunctions';
+
 export function updatePlayer(strength,dexterity,intelligence,wisdom,charisma,constitution,bonusPoints, player) {
   let bonus = 0;
   let change = 0;
@@ -75,4 +77,26 @@ function bonusCalcUpdate(stat) {
     bonus = -1;
   }
   return bonus;
+}
+export function statRoll() {
+  let rolls = [];
+  let total = 0;
+  for (let i = 0; i < 4; i++) {
+    for (let e = 0; e < 10; e++) {
+      let a = 0;
+      a = diceRoll(1, 6);
+      if (a > 1) {
+        rolls.push(a);
+        e = 10;
+      } else {
+        e = 0;
+      }
+    }
+  }
+  rolls.sort();
+  rolls.pop();
+  rolls.forEach(function(e) {
+    total += e;
+  });
+  return total;
 }

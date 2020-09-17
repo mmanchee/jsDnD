@@ -1,5 +1,5 @@
 import {monsterList} from './monsterList.js';
-import {diceRoll} from './roleFunctions.js';
+import {diceRoll} from './rollFunctions.js';
 
 // MonstersURLPIC.getMonsterURLPIC(chosenMonsterURLPIC);
 // export class MonstersURLPIC {

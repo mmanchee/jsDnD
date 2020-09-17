@@ -1,5 +1,6 @@
-import {updatePlayer} from './charSheetBack.js';
-import $ from 'jquery'; 
+import $ from 'jquery';
+import { updatePlayer } from './charSheetBack.js';
+import { statRoll } from './charSheetBack.js';
 
 export function charSheetListener(player) {
   $("#menu-option-character").on('click', function() {
@@ -9,7 +10,7 @@ export function charSheetListener(player) {
     $("#cs-exp").html(player.exp);
     $("#cs-hp").html(player.hp);
     $("#cs-hp-max").html(player.maxHP);
-    $("#cs-bonus-points").html(player.bonusPoints);
+    $("#cs-bonus-points").text(player.bonusPoints);
     $("#cs-weapon-bonus").html(player.weapon.lvl);
     $("#cs-armor-bonus").html(player.armor.lvl);
     $("#cs-health-potions").html(player.inventory[0].healthPotion);
@@ -32,4 +33,72 @@ export function charSheetListener(player) {
     player = updatePlayer(strength,dexterity,intelligence,wisdom,charisma,constitution,bonusPoints, player);
   });
 }
-
+export function charStatListeners() {
+  $('#bonus-points').text(statRoll());
+  $("input[name='strength']").val(10);
+  $("input[name='dexterity']").val(10);
+  $("input[name='intelligence']").val(10);
+  $("input[name='wisdom']").val(10);
+  $("input[name='charisma']").val(10);
+  $("input[name='constitution']").val(10);
+  $('.stat-plus').click(function(event) {
+    event.preventDefault();
+    let fieldName = $(this).attr('field');
+    let currentVal = parseInt($(`input[name=${fieldName}]`).val());
+    let idVal = parseInt($(`input[name=${fieldName}]`).attr('min'));
+    let floor, ceil, bonusID;
+    if (idVal === 0) {
+      floor = 8;
+      ceil = 18;
+      bonusID = "#bonus-points";
+    } else {
+      floor = parseInt($(`input[name=cs-${fieldName}]`).attr('min'));
+      ceil = 30;
+      bonusID = "#cs-bonus-points";
+      console.log(floor, ceil, bonusID);
+    }
+    if (!isNaN(currentVal) && currentVal >= floor && currentVal < ceil) {
+      console.log("l");
+      let bp = parseInt($(bonusID).text());
+      let check = 0;
+      currentVal > 13 ? currentVal > 15 ? check = 3 : check = 2 : check = 1;
+      if (bp >= check) {
+        $(`input[name=${fieldName}]`).val(currentVal + 1);
+        $(bonusID).text(bp - check);
+      }
+    } else if (currentVal === ceil) {
+      false;
+    } else {
+      $(`input[name=${fieldName}]`).val(floor);
+    }
+  });
+  $(".stat-minus").click(function(event) {
+    event.preventDefault();
+    let fieldName = $(this).attr('field');
+    let currentVal = parseInt($(`input[name=${fieldName}]`).val());
+    let idVal = parseInt($(`input[name=${fieldName}]`).attr('min'));
+    let floor, bonusID;
+    if (idVal === 0) {
+      floor = 8;
+      bonusID = "#bonus-points";
+    } else {
+      floor = parseInt($(`input[name=cs-${fieldName}]`).attr('min'));
+      bonusID = "#cs-bonus-points";
+    }
+    if (!isNaN(currentVal) && currentVal > floor) {
+      let check = 0;
+      currentVal > 14 ? currentVal > 16 ? check = 3 : check = 2 : check = 1;
+      let bp = parseInt($(bonusID).text());
+      $(`input[name=${fieldName}]`).val(currentVal - 1);
+      $(bonusID).text(bp + check);
+    } else {
+      $(`input[name=${fieldName}]`).val(floor);
+    }
+  });
+  $(function () {
+    $('[data-toggle="popover"]').popover();
+  });
+  $('.popover-dismiss').popover({
+    trigger: 'focus'
+  });
+}

@@ -1,5 +1,5 @@
-import { diceRoll } from './roleFunctions';
-import { diceRollDMG } from './roleFunctions';
+import { diceRoll } from './rollFunctions';
+import { diceRollDMG } from './rollFunctions';
 
 export class Battle {
   constructor(character, monster) {

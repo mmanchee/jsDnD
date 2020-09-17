@@ -9,16 +9,16 @@ import {Battle} from './battle.js';
 import {getMonster} from './monsters.js';
 import {getLoot} from './lootTable.js';
 import { imageArray } from './player.js';
-import { statRoll } from './roleFunctions.js';
 import {equipArmor} from './armors.js';
 import {upgradeWeapon} from './weapons.js';
 import {upgradeArmor} from './armors.js';
 import { CharacterStats } from './player.js';
 import {displayMonsterHealth} from './monsters.js';
-import { addExp } from './roleFunctions.js';
+import { addExp } from './rollFunctions.js';
 // import {MonstersURLPIC} from './monsters.js';
 import {menuCamp} from './menu.js';
 import { charSheetListener } from './charSheetFront';
+import { charStatListeners } from './charSheetFront';
 
 let player;
 
@@ -41,73 +41,7 @@ function displayStats(battle) {
   return endBattle;
 }
 
-function charStatListeners() {
-  $('#bonus-points').text(statRoll());
-  $("input[name='strength']").val(10);
-  $("input[name='dexterity']").val(10);
-  $("input[name='intelligence']").val(10);
-  $("input[name='wisdom']").val(10);
-  $("input[name='charisma']").val(10);
-  $("input[name='constitution']").val(10);
-  $('.stat-plus').click(function(event) {
-    event.preventDefault();
-    let fieldName = $(this).attr('field');
-    let currentVal = parseInt($(`input[name=${fieldName}]`).val());
-    let idVal = parseInt($(`input[name=${fieldName}]`).attr('min'));
-    let floor, ceil, bonusID;
-    if (idVal === 0) {
-      floor = 8;
-      ceil = 18;
-      bonusID = "#bonus-points";
-    } else {
-      floor = parseInt($(`input[name=cs-${fieldName}]`).attr('min'));
-      ceil = 30;
-      bonusID = "#cs-bonus-points";
-    }
-    if (!isNaN(currentVal) && currentVal >= floor && currentVal < ceil) {
-      let bp = parseInt($(bonusID).text());
-      let check = 0;
-      currentVal > 13 ? currentVal > 15 ? check = 3 : check = 2 : check = 1;
-      if (bp >= check) {
-        $(`input[name=${fieldName}]`).val(currentVal + 1);
-        $(bonusID).text(bp - check);
-      }
-    } else if (currentVal === ceil) {
-      false;
-    } else {
-      $(`input[name=${fieldName}]`).val(floor);
-    }
-  });
-  $(".stat-minus").click(function(event) {
-    event.preventDefault();
-    let fieldName = $(this).attr('field');
-    let currentVal = parseInt($(`input[name=${fieldName}]`).val());
-    let idVal = parseInt($(`input[name=${fieldName}]`).attr('min'));
-    let floor, bonusID;
-    if (idVal === 0) {
-      floor = 8;
-      bonusID = "#bonus-points";
-    } else {
-      floor = parseInt($(`input[name=cs-${fieldName}]`).attr('min'));
-      bonusID = "#cs-bonus-points";
-    }
-    if (!isNaN(currentVal) && currentVal > floor) {
-      let check = 0;
-      currentVal > 14 ? currentVal > 16 ? check = 3 : check = 2 : check = 1;
-      let bp = parseInt($(bonusID).text());
-      $(`input[name=${fieldName}]`).val(currentVal - 1);
-      $(bonusID).text(bp + check);
-    } else {
-      $(`input[name=${fieldName}]`).val(floor);
-    }
-  });
-  $(function () {
-    $('[data-toggle="popover"]').popover();
-  });
-  $('.popover-dismiss').popover({
-    trigger: 'focus'
-  });
-}
+
 
 function attachListeners() {
   let monster;
@@ -414,7 +348,7 @@ $(document).ready(function() {
     $("#player-img").html(`<img class=display-img src=${player.img}>`);
     $("#player-health").text(player.hp);
     $("#goldCount").text(player.money);
-    player.bonusPoints = $("#bonus-points").val();
+    player.bonusPoints = $("#bonus-points").text();
     $("#character-creation").hide();
     $("#nav-character-name").text(player.name);
     $("#nav-character-level").text("1");

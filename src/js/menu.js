@@ -1,4 +1,4 @@
-import { diceRoll } from './roleFunctions';
+import { diceRoll } from './rollFunctions';
 
 export function menuCamp(character) {
   let roll = diceRoll(1,3);
