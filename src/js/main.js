@@ -239,6 +239,7 @@ function attachListeners() {
       }
     }
   });
+  /*
   $(`#show-town`).on("click", function() {
     $(`#gameplay`).toggle();
     $(`#townMap`).toggle();
@@ -247,6 +248,7 @@ function attachListeners() {
     $(`#gameplay`).toggle();
     $(`#townMap`).toggle();
   });
+  */
   $(`#weaponry-button`).on("click", function() {
     $(`#townMap`).toggle();
     $(`#bloodbath`).show();
@@ -337,13 +339,17 @@ function classListener() {
     $("#gameplay").hide();
     $("#character-sheet").hide();
     $("#townMap").hide();
-    $("#character-menu").show();
+    $("#character-menu").toggle();
+    $(`#bloodbath`).hide();
+    $(`#gnome`).hide();
+    $(`#gobble`).hide();
+    $(`#victorious`).hide();  
   });
   $("#menu-option-travel").on("click", function() {
     $("#character-menu").hide();
     $("#character-sheet").hide();
-    $("explore").toggle();
-    $("gameplay").show();
+    $("#gameplay").show();
+    
   });
   $("#menu-option-character").on("click", function() {
     $("#character-menu").toggle();
@@ -407,12 +413,12 @@ $(document).ready(function() {
     $("#player-name").text(name);
     $("#player-img").html(`<img class=display-img src=${player.img}>`);
     $("#player-health").text(player.hp);
-    $("#explore").toggle();
     $("#goldCount").text(player.money);
+    player.bonusPoints = $("#bonus-points").val();
     $("#character-creation").hide();
     $("#nav-character-name").text(player.name);
     $("#nav-character-level").text("1");
-    $("#nav-character-class").text(charClass);
+    $("#nav-character-class").text(player.playerClass);
     $("#nav-main").show();
     $("#gameplay").show();
     $("#message-box").show();
