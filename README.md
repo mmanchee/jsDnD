@@ -69,7 +69,8 @@ linked at './src/assets/docs/DnD Project.pdf'
 
 ## Known Bugs
 
-no known bugs
+* The minus button in the character sheet doesn't work properly.
+* The images of the monsters plus the names push outside of their container.
 
 ## Technologies Used
 
