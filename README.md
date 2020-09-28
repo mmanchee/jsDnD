@@ -4,6 +4,8 @@
 
 #### By _**William Donovan-Seid, Brian Harvey, David McCaslin, Mike Manchee, and Drew Parker**_
 
+#### Published at: [Dungeons and Dragons](https://mmanchee.github.io/jsDnD/)
+
 ## Description
 
 Create a character using a D&D API. Character is then put up against random monsters and NPC's from the D&D API. Battles would have difficulty settings and that would determine the strength and number of monsters you face. Gain experience and advance your character. save characters to your machine with local storage and keep playing. Future thoughts; Story, multi-player, and database.
